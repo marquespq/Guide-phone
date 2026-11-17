@@ -17,7 +17,6 @@
   const css = (v) => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
   const rampa = () => ["--s0", "--s1", "--s2", "--s3", "--s4"].map(css);
   const nomeMes = (m) => { const [a, n] = m.split("-"); return MESES[+n - 1] + "/" + a.slice(2); };
-  const escuro = () => window.matchMedia("(prefers-color-scheme: dark)").matches;
 
   // Taxa em linguagem de gente: "1 a cada 27 moradores" em vez de "36,7 por mil".
   // Recebe a taxa por mil moradores; arredonda para um número fácil de ler.
@@ -322,6 +321,14 @@
     dica.style.top = Math.max(8, y - h - 10) + "px";
   }
 
+  // gaveta do celular: aberta (true) ou recolhida (false); no desktop não faz nada visível
+  function abrirPainel(aberto) {
+    const p = $("#painel");
+    p.classList.toggle("recolhido", !aberto);
+    $("#alca").setAttribute("aria-expanded", String(aberto));
+    if (!aberto) p.scrollTop = 0;
+  }
+
   function selecionar(sel, voar) {
     estado.sel = sel;
     if (!sel) { $("#detalhe").hidden = true; }
@@ -334,7 +341,8 @@
       const f = fonte.features.find((x) => x.properties[campo] === id);
       if (f) map.fitBounds(caixa(f), { padding: paddingMapa(), maxZoom: 14, duration: 700 });
     }
-    $("#painel").classList.remove("recolhido");
+    abrirPainel(true);
+    if (sel && window.innerWidth <= 720) $("#detalhe").scrollIntoView({ block: "start", behavior: "smooth" });
   }
 
   // ---------- mapa ----------
@@ -421,7 +429,7 @@
   let indice = {};
 
   function estilo() {
-    return "https://tiles.openfreemap.org/styles/" + (escuro() ? "dark" : "positron");
+    return "https://tiles.openfreemap.org/styles/positron"; // sempre claro
   }
 
   function iniciarMapa() {
@@ -437,10 +445,6 @@
     map.on("mousemove", dicaMapa);
     map.on("mouseout", () => { $("#dica").hidden = true; });
     map.on("click", cliqueMapa);
-    window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => {
-      map.setStyle(estilo());
-      atualizar();
-    });
   }
 
   // ---------- controles ----------
@@ -501,8 +505,8 @@
       selecionar({ i: +b.dataset.i }, true);
     });
 
-    $("#alca").onclick = () => $("#painel").classList.toggle("recolhido");
-    if (window.innerWidth <= 720) $("#painel").classList.add("recolhido");
+    $("#alca").onclick = () => abrirPainel($("#painel").classList.contains("recolhido"));
+    if (window.innerWidth <= 720) abrirPainel(false);
 
     $("#nome-regiao").textContent = D.regiao;
     const atual = new Date(D.atualizado_em);
@@ -510,7 +514,7 @@
   }
 
   // ---------- início ----------
-  Promise.all(["data/stats.json", "data/municipios.geojson", "data/bairros.geojson"].map((u) => fetch(u).then((r) => r.json())))
+  Promise.all(["data/stats.json", "data/municipios.geojson", "data/bairros.geojson"].map((u) => fetch(u, { cache: "no-cache" }).then((r) => r.json())))
     .then(([s, m, b]) => {
       D = s; mun = m; bai = b;
       D.areas.forEach((a, i) => { indice[a.id] = i; });
