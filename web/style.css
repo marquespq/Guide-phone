@@ -102,7 +102,9 @@ select {
 .numero { font-size: 30px; font-weight: 700; letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
 .desc { color: var(--text-2); }
 
-.legenda .escala { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--text-2); }
+.legenda .escala { display: flex; align-items: flex-start; gap: 6px; font-size: 12px; color: var(--text-2); }
+.legenda .escala > span:not(.coluna) { line-height: 12px; }
+.legenda .coluna { display: flex; flex-direction: column; }
 .legenda .caixas { display: flex; gap: 2px; }
 .legenda .caixas span { width: 34px; height: 12px; border-radius: 3px; }
 .legenda .limites { position: relative; height: 14px; margin-top: 3px; font-size: 11px; color: var(--text-3); font-variant-numeric: tabular-nums; }

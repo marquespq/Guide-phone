@@ -19,6 +19,16 @@
   const nomeMes = (m) => { const [a, n] = m.split("-"); return MESES[+n - 1] + "/" + a.slice(2); };
   const escuro = () => window.matchMedia("(prefers-color-scheme: dark)").matches;
 
+  // Taxa em linguagem de gente: "1 a cada 27 moradores" em vez de "36,7 por mil".
+  // Recebe a taxa por mil moradores; arredonda para um número fácil de ler.
+  function umACada(taxaPorMil) {
+    if (!taxaPorMil) return null;
+    const n = 1000 / taxaPorMil;
+    const r = n < 20 ? Math.max(1, Math.round(n)) : n < 100 ? Math.round(n / 5) * 5 : n < 1000 ? Math.round(n / 10) * 10 : Math.round(n / 100) * 100;
+    return fmt.format(r);
+  }
+  const textoTaxa = (taxaPorMil) => (taxaPorMil ? `1 caso a cada ${umACada(taxaPorMil)} moradores` : "nenhum caso");
+
   function intervaloMeses() {
     const n = D.meses.length;
     if (estado.periodo === "12m") return [Math.max(0, n - 12), n - 1];
@@ -154,28 +164,34 @@
     if (ex && porArea[ex.i] > 0) {
       const n = porArea[ex.i];
       exemplo = `<p class="ex">Exemplo: ${ex.a.nome} teve <b>${fmt.format(n)}</b> casos e tem ${fmt.format(ex.a.pop)} moradores,
-        o que dá <b>${fmt1.format((n / ex.a.pop) * 1000)}</b> por mil moradores.</p>`;
+        ou seja, <b>${textoTaxa((n / ex.a.pop) * 1000)}</b>.</p>`;
     }
     $("#explica-medida").innerHTML = estado.medida === "total"
       ? `<p><b>Quantos casos, tchê.</b> Soma de tudo que foi registrado em cada bairro.
           Lugar de muito movimento, como o Centro Histórico, aparece forte porque passa um mundo de gente por ali,
           e isso não quer dizer que quem mora lá corre mais risco.</p>${exemplo}`
-      : `<p><b>Proporcional ao tamanho do bairro.</b> Casos divididos pelos moradores (Censo 2022), a cada mil.
-          Assim um bairro pequeno com 50 casos pode pesar mais que um grandão com 200.
-          Bairro com menos de ${fmt.format(POP_MINIMA)} moradores fica de fora, senão a conta dá uma barbaridade.</p>${exemplo}`;
+      : `<p><b>Leva em conta o tamanho do bairro.</b> Mostra de quantos moradores sai um caso:
+          “1 a cada 30” é bem pior que “1 a cada 1.400”. Assim um bairro pequeno com 50 casos pode pesar mais
+          que um grandão com 200. Bairro com menos de ${fmt.format(POP_MINIMA)} moradores fica de fora, senão a conta dá uma barbaridade.</p>${exemplo}`;
   }
 
   function legenda() {
     const r = rampa();
     const n = classes.length + 1;
     const usadas = r.slice(5 - n);
-    const fmtv = estado.medida === "total" ? (x) => fmt.format(x) : (x) => fmt1.format(x);
+    const fmtv = estado.medida === "total" ? (x) => fmt.format(x) : (x) => umACada(x);
     // cada limite fica centralizado na divisa entre duas caixas (34px + 2px de vão)
     const limites = classes.map((x, i) => `<span style="left:${(i + 1) * 36 - 1}px">${fmtv(x)}</span>`).join("");
-    const unidade = estado.medida === "total" ? "casos por bairro" : "casos por mil moradores";
+    const unidade = estado.medida === "total" ? "casos por bairro" : "os números são “1 caso a cada tantos moradores”";
     $("#legenda").innerHTML = `
-      <div class="escala">menos <span class="caixas">${usadas.map((c) => `<span style="background:${c}"></span>`).join("")}</span> mais</div>
-      <div class="limites" style="margin-left:42px">${limites}</div>
+      <div class="escala">
+        <span>${estado.medida === "total" ? "menos" : "mais tranquilo"}</span>
+        <span class="coluna">
+          <span class="caixas">${usadas.map((c) => `<span style="background:${c}"></span>`).join("")}</span>
+          <span class="limites">${limites}</span>
+        </span>
+        <span>${estado.medida === "total" ? "mais" : "mais casos"}</span>
+      </div>
       <div class="extra">
         <span><i style="background:${css("--zero")}"></i>nenhum registro</span>
         <span><i class="hachura" style="background-color:${css("--sem-dado")}"></i>cidade sem mapa de bairros${estado.medida === "total" ? " (em “Por morador” ela ganha cor)" : ""}. Toque para ver a lista.</span>
@@ -196,7 +212,7 @@
     itens.sort((p, q) => q.v - p.v);
     const top = itens.slice(0, 12);
     const max = top.length ? top[0].v : 1;
-    const fmtv = estado.medida === "total" ? (x) => fmt.format(x) : (x) => fmt1.format(x);
+    const fmtv = estado.medida === "total" ? (x) => fmt.format(x) : (x) => "1 a cada " + umACada(x);
     $("#ranking-titulo").textContent = estado.medida === "total" ? "Onde mais some celular" : "Mais casos por morador";
     $("#ranking").innerHTML = top.length
       ? top.map((t) => `
@@ -246,8 +262,8 @@
         <button class="fechar" aria-label="Fechar">×</button></div>
         <div class="kpis">
           <div class="kpi"><b>${fmt.format(n)}</b><span>ocorrências</span></div>
-          <div class="kpi"><b>${taxa == null ? "–" : fmt1.format((n / m.pop) * 1000)}</b><span>por mil moradores</span></div>
-          <div class="kpi"><b>${fmt.format(m.pop || 0)}</b><span>moradores</span></div>
+          <div class="kpi"><b>${taxa ? "1 a cada " + umACada(taxa) : "–"}</b><span>moradores</span></div>
+          <div class="kpi"><b>${fmt.format(m.pop || 0)}</b><span>moradores no total</span></div>
         </div>
         ${graficoSerie(serie)}
         <p class="aviso">O IBGE não tem mapa de bairros desta cidade. Bairros como foram escritos no registro:</p>
@@ -264,7 +280,7 @@
         <button class="fechar" aria-label="Fechar">×</button></div>
         <div class="kpis">
           <div class="kpi"><b>${fmt.format(n)}</b><span>ocorrências</span></div>
-          <div class="kpi"><b>${temTaxa ? fmt1.format((n / a.pop) * 1000) : "–"}</b><span>por mil moradores</span></div>
+          <div class="kpi"><b>${temTaxa && n ? "1 a cada " + umACada((n / a.pop) * 1000) : "–"}</b><span>moradores</span></div>
           <div class="kpi"><b>${totMun ? fmt1.format((n / totMun) * 100) + "%" : "–"}</b><span>da cidade</span></div>
         </div>
         ${graficoSerie(serie)}
@@ -366,7 +382,7 @@
     map.getCanvas().style.cursor = "pointer";
     const b = f.find((x) => x.layer.id === "bai-fill");
     const m = f.find((x) => x.layer.id === "mun-fill");
-    const fmtv = (v) => (estado.medida === "total" ? fmt.format(v) + " ocorrências" : fmt1.format(v) + " por mil moradores");
+    const fmtv = (v) => (estado.medida === "total" ? fmt.format(v) + " casos" : textoTaxa(v));
     if (b) {
       const i = indice[b.properties.CD_BAIRRO];
       const a = D.areas[i];
