@@ -139,7 +139,8 @@
     map.setPaintProperty("bai-linha", "line-color", css("--contorno-bairro"));
     map.setPaintProperty("mun-linha", "line-color", css("--contorno-mun"));
     map.setFilter("sel-linha", ["==", ["get", "CD_BAIRRO"], estado.sel && D.areas[estado.sel.i] && D.areas[estado.sel.i].geo ? D.areas[estado.sel.i].id : ""]);
-    map.setFilter("sel-mun", ["==", ["get", "CD_MUN"], estado.sel && estado.sel.mun ? estado.sel.mun : ""]);
+    const munSel = !estado.sel ? "" : estado.sel.mun ? estado.sel.mun : D.areas[estado.sel.i] && !D.areas[estado.sel.i].geo ? D.areas[estado.sel.i].mun : "";
+    map.setFilter("sel-mun", ["==", ["get", "CD_MUN"], munSel]);
   }
 
   function resumo() {
@@ -250,8 +251,11 @@
       <div class="eixo"><span>${nomeMes(D.meses[0])}</span><span>por mês</span><span>${nomeMes(D.meses[D.meses.length - 1])}</span></div></div>`;
   }
 
+  // Cartão com os números da área escolhida, aberto num popover sobre o mapa
+  let popup = null;
+  let fechandoPorCodigo = false;
+
   function detalhe(sel) {
-    const box = $("#detalhe");
     const { porArea, porMun } = valores;
     let html;
     if (sel.mun) {
@@ -264,16 +268,16 @@
       lista.sort((p, q) => q.v - p.v);
       const serie = serieMensal((i) => D.areas[i].mun === sel.mun);
       html = `
-        <div class="topo"><div><h3>${m.nome}</h3><div class="cidade">cidade inteira · ${textoPeriodo()}</div></div>
+        <div class="topo"><div><h3>${m.nome}</h3><div class="cidade">cidade inteira · ${rotuloFiltro()}</div></div>
         <button class="fechar" aria-label="Fechar">×</button></div>
         <div class="kpis">
-          <div class="kpi"><b>${fmt.format(n)}</b><span>ocorrências</span></div>
+          <div class="kpi"><b>${fmt.format(n)}</b><span>casos</span></div>
           <div class="kpi"><b>${taxa ? "1 a cada " + umACada(taxa) : "–"}</b><span>moradores</span></div>
           <div class="kpi"><b>${fmt.format(m.pop || 0)}</b><span>moradores no total</span></div>
         </div>
         ${graficoSerie(serie)}
-        <p class="aviso">O IBGE não tem mapa de bairros desta cidade. Bairros como foram escritos no registro:</p>
-        <ol id="lista-bairros" style="margin:6px 0 0;padding-left:20px;font-size:13px">${lista.slice(0, 15).map((x) => `<li>${x.a.nome} <span style="color:var(--text-3)">${fmt.format(x.v)}</span></li>`).join("")}</ol>`;
+        <p class="aviso">Sem mapa de bairros desta cidade. Bairros com mais casos, como foram escritos no registro:</p>
+        <ol class="lista-bairros">${lista.slice(0, 10).map((x) => `<li><span>${x.a.nome}</span><b>${fmt.format(x.v)}</b></li>`).join("")}</ol>`;
     } else {
       const a = D.areas[sel.i];
       const n = porArea[sel.i];
@@ -282,10 +286,10 @@
       // participação no total da cidade
       const totMun = porMun[a.mun] || 0;
       html = `
-        <div class="topo"><div><h3>${a.nome}</h3><div class="cidade">${D.municipios[a.mun].nome} · ${textoPeriodo()}</div></div>
+        <div class="topo"><div><h3>${a.nome}</h3><div class="cidade">${D.municipios[a.mun].nome} · ${rotuloFiltro()}</div></div>
         <button class="fechar" aria-label="Fechar">×</button></div>
         <div class="kpis">
-          <div class="kpi"><b>${fmt.format(n)}</b><span>ocorrências</span></div>
+          <div class="kpi"><b>${fmt.format(n)}</b><span>casos</span></div>
           <div class="kpi"><b>${temTaxa && n ? "1 a cada " + umACada((n / a.pop) * 1000) : "–"}</b><span>moradores</span></div>
           <div class="kpi"><b>${totMun ? fmt1.format((n / totMun) * 100) + "%" : "–"}</b><span>da cidade</span></div>
         </div>
@@ -295,10 +299,58 @@
         ${a.pop_est ? `<p class="aviso">Bairro da prefeitura. Moradores estimados somando os setores do Censo 2022 que ficam dentro dele.</p>` : ""}
         ${a.geo && !a.pop ? `<p class="aviso">Bairro muito pequeno: o Censo não tem setor dentro dele, então não dá para fazer a conta por morador.</p>` : ""}`;
     }
+    const box = document.createElement("div");
+    box.className = "card";
     box.innerHTML = html;
-    box.hidden = false;
     box.querySelector(".fechar").onclick = () => selecionar(null);
     ligarDicaSerie(box);
+    if (popup) {
+      popup.setDOMContent(box);
+      if (sel.ponto) popup.setLngLat(sel.ponto);
+    } else {
+      popup = new maplibregl.Popup({ closeButton: false, closeOnClick: false, maxWidth: "none", className: "popover", offset: 10, focusAfterOpen: false })
+        .setLngLat(sel.ponto).setDOMContent(box).addTo(map);
+      popup.on("close", () => { popup = null; if (!fechandoPorCodigo) selecionar(null); });
+    }
+  }
+
+  function fecharPopup() {
+    if (!popup) return;
+    fechandoPorCodigo = true;
+    popup.remove();
+    fechandoPorCodigo = false;
+    popup = null;
+  }
+
+  // "furtos e roubos · celular · nov/25 a out/26" para o cabeçalho do cartão
+  function rotuloFiltro() {
+    const cat = catIdx >= 0 ? D.categorias[catIdx].nome.toLowerCase() : "todas as categorias";
+    const tipo = { ambos: "", furto: "furtos · ", roubo: "roubos · " }[estado.tipo];
+    const hora = { todos: "", dia: " · de dia", noite: " · à noite" }[estado.horario];
+    return `${tipo}${cat}${hora} · ${textoPeriodo()}`;
+  }
+
+  // centro aproximado (caixa envolvente) de um bairro ou município
+  function centro(fonte, campo, id) {
+    const f = fonte.features.find((x) => x.properties[campo] === id);
+    if (!f) return null;
+    const [[x0, y0], [x1, y1]] = caixa(f);
+    return { f, ponto: [(x0 + x1) / 2, (y0 + y1) / 2] };
+  }
+
+  // garante que o cartão não fique escondido atrás do painel/gaveta
+  function encaixarNaTela(ponto) {
+    const p = map.project(ponto);
+    let dx = 0, dy = 0;
+    if (window.innerWidth > 720) {
+      const minX = (window.innerWidth > 1024 ? 392 : 352) + 180;
+      if (p.x < minX) dx = p.x - minX;
+    } else {
+      const maxY = window.innerHeight - 200;
+      if (p.y > maxY) dy = p.y - maxY;
+      if (p.y < 380) dy = p.y - 380;
+    }
+    if (dx || dy) map.panBy([dx, dy], { duration: 400 });
   }
 
   function ligarDicaSerie(box) {
@@ -329,20 +381,29 @@
     if (!aberto) p.scrollTop = 0;
   }
 
+  // sel = { i: área } ou { mun: código }, com ponto = [lon, lat] onde abrir o cartão
   function selecionar(sel, voar) {
-    estado.sel = sel;
-    if (!sel) { $("#detalhe").hidden = true; }
-    else detalhe(sel);
-    if (map && map.getSource("bai")) pintar();
-    if (voar && sel) {
-      const id = sel.mun ? sel.mun : D.areas[sel.i].geo ? D.areas[sel.i].id : D.areas[sel.i].mun;
-      const fonte = sel.mun || !D.areas[sel.i].geo ? mun : bai;
-      const campo = fonte === mun ? "CD_MUN" : "CD_BAIRRO";
-      const f = fonte.features.find((x) => x.properties[campo] === id);
-      if (f) map.fitBounds(caixa(f), { padding: paddingMapa(), maxZoom: 14, duration: 700 });
+    if (!sel) {
+      estado.sel = null;
+      fecharPopup();
+      if (map && map.getSource("bai")) pintar();
+      return;
     }
-    abrirPainel(true);
-    if (sel && window.innerWidth <= 720) $("#detalhe").scrollIntoView({ block: "start", behavior: "smooth" });
+    let alvo = null;
+    if (sel.mun) alvo = centro(mun, "CD_MUN", sel.mun);
+    else if (D.areas[sel.i].geo) alvo = centro(bai, "CD_BAIRRO", D.areas[sel.i].id);
+    else alvo = centro(mun, "CD_MUN", D.areas[sel.i].mun); // bairro sem contorno: abre sobre a cidade
+    if (!sel.ponto && alvo) sel.ponto = alvo.ponto;
+    estado.sel = sel;
+    if (window.innerWidth <= 720) abrirPainel(false); // no celular, recolhe a gaveta para ver o cartão
+    if (voar && alvo) {
+      map.fitBounds(caixa(alvo.f), { padding: paddingMapa(), maxZoom: 14, duration: 700 });
+      map.once("moveend", () => encaixarNaTela(sel.ponto));
+    } else {
+      encaixarNaTela(sel.ponto);
+    }
+    detalhe(sel);
+    if (map && map.getSource("bai")) pintar();
   }
 
   // ---------- mapa ----------
@@ -393,6 +454,7 @@
   }
 
   function dicaMapa(e) {
+    if (e.originalEvent.target.closest && e.originalEvent.target.closest(".maplibregl-popup")) { $("#dica").hidden = true; return; }
     const f = map.queryRenderedFeatures(e.point, { layers: ["bai-fill", "mun-fill"] });
     const dica = $("#dica");
     if (!f.length) { dica.hidden = true; map.getCanvas().style.cursor = ""; return; }
@@ -421,8 +483,10 @@
     const f = map.queryRenderedFeatures(e.point, { layers: ["bai-fill", "mun-fill"] });
     const b = f.find((x) => x.layer.id === "bai-fill");
     const m = f.find((x) => x.layer.id === "mun-fill");
-    if (b && indice[b.properties.CD_BAIRRO] != null) selecionar({ i: indice[b.properties.CD_BAIRRO] });
-    else if (m && !D.municipios[m.properties.CD_MUN].tem_bairros) selecionar({ mun: m.properties.CD_MUN });
+    $("#dica").hidden = true;
+    const ponto = [e.lngLat.lng, e.lngLat.lat];
+    if (b && indice[b.properties.CD_BAIRRO] != null) selecionar({ i: indice[b.properties.CD_BAIRRO], ponto });
+    else if (m && !D.municipios[m.properties.CD_MUN].tem_bairros) selecionar({ mun: m.properties.CD_MUN, ponto });
     else selecionar(null);
   }
 

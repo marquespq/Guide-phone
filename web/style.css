@@ -113,17 +113,35 @@ select {
 #ranking .barra { grid-column: 1 / -1; height: 4px; background: var(--surface-2); border-radius: 2px; overflow: hidden; }
 #ranking .barra span { display: block; height: 100%; background: var(--bar); border-radius: 0 2px 2px 0; }
 
-#detalhe { background: var(--surface-2); border-radius: 12px; padding: 14px; }
-#detalhe .topo { display: flex; justify-content: space-between; align-items: start; gap: 8px; }
-#detalhe h3 { margin: 0; font-size: 17px; }
-#detalhe .cidade { color: var(--text-2); font-size: 13px; }
-#detalhe .fechar { border: 0; background: transparent; color: var(--text-2); font-size: 20px; line-height: 1; cursor: pointer; padding: 2px 6px; border-radius: 6px; }
-#detalhe .fechar:hover { background: var(--border); }
-#detalhe .kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 12px 0; }
-#detalhe .kpi b { display: block; font-size: 18px; font-variant-numeric: tabular-nums; }
-#detalhe .kpi span { font-size: 11px; color: var(--text-3); }
-#detalhe .aviso { font-size: 12px; color: var(--text-2); margin: 8px 0 0; }
-.serie svg { width: 100%; height: 90px; display: block; }
+/* ---------- cartão (popover sobre o mapa) ---------- */
+.popover { z-index: 6; }
+.popover .maplibregl-popup-content {
+  padding: 14px; border-radius: 12px; background: var(--surface); color: var(--text);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, .18); border: 1px solid var(--border);
+  font: 14px/1.45 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+.popover.maplibregl-popup-anchor-bottom .maplibregl-popup-tip,
+.popover.maplibregl-popup-anchor-bottom-left .maplibregl-popup-tip,
+.popover.maplibregl-popup-anchor-bottom-right .maplibregl-popup-tip { border-top-color: var(--surface); }
+.popover.maplibregl-popup-anchor-top .maplibregl-popup-tip,
+.popover.maplibregl-popup-anchor-top-left .maplibregl-popup-tip,
+.popover.maplibregl-popup-anchor-top-right .maplibregl-popup-tip { border-bottom-color: var(--surface); }
+.popover.maplibregl-popup-anchor-left .maplibregl-popup-tip { border-right-color: var(--surface); }
+.popover.maplibregl-popup-anchor-right .maplibregl-popup-tip { border-left-color: var(--surface); }
+.card { width: 300px; max-width: calc(100vw - 48px); }
+.card .topo { display: flex; justify-content: space-between; align-items: start; gap: 8px; }
+.card h3 { margin: 0; font-size: 17px; line-height: 1.25; }
+.card .cidade { color: var(--text-2); font-size: 12.5px; margin-top: 2px; }
+.card .fechar { flex: none; border: 0; background: transparent; color: var(--text-2); font-size: 22px; line-height: 1; cursor: pointer; padding: 0 6px 4px; border-radius: 6px; }
+.card .fechar:hover { background: var(--surface-2); }
+.card .kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 12px 0 10px; padding: 10px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.card .kpi b { display: block; font-size: 16px; line-height: 1.25; font-variant-numeric: tabular-nums; }
+.card .kpi span { font-size: 11px; color: var(--text-3); }
+.card .aviso { font-size: 12px; color: var(--text-2); margin: 8px 0 0; }
+.card .lista-bairros { list-style: none; margin: 6px 0 0; padding: 0; max-height: 160px; overflow-y: auto; font-size: 13px; }
+.card .lista-bairros li { display: flex; justify-content: space-between; gap: 8px; padding: 3px 0; border-bottom: 1px dashed var(--border); }
+.card .lista-bairros b { font-weight: 600; font-variant-numeric: tabular-nums; color: var(--text-2); }
+.serie svg { width: 100%; height: 72px; display: block; }
 .serie .eixo { display: flex; justify-content: space-between; font-size: 11px; color: var(--text-3); margin-top: 2px; }
 .serie rect { fill: var(--bar-dim); }
 .serie rect.dentro { fill: var(--bar); }
@@ -134,7 +152,7 @@ footer p { margin: 0 0 6px; }
 footer a { color: var(--text-2); }
 
 #dica {
-  position: fixed; pointer-events: none; z-index: 10;
+  position: fixed; pointer-events: none; z-index: 20;
   background: var(--surface); color: var(--text); border: 1px solid var(--border);
   border-radius: 8px; padding: 6px 9px; font-size: 12.5px; box-shadow: var(--shadow);
   max-width: 260px;
@@ -159,7 +177,7 @@ footer a { color: var(--text-2); }
     gap: 12px; transition: height .25s ease;
   }
   /* recolhida: título, categorias e total */
-  #painel.recolhido { height: 186px; overflow: hidden; }
+  #painel.recolhido { height: 172px; overflow: hidden; }
   #painel.recolhido .sub, #painel.recolhido .cat-desc { display: none; }
   .alca {
     display: block; align-self: center; position: relative;
@@ -173,7 +191,7 @@ footer a { color: var(--text-2); }
   .chips { flex-wrap: nowrap; overflow-x: auto; margin: 0 -16px; padding: 0 16px 2px; scrollbar-width: none; }
   .chips::-webkit-scrollbar { display: none; }
   .numero { font-size: 26px; }
-  .maplibregl-ctrl-bottom-right { bottom: 190px; }
+  .maplibregl-ctrl-bottom-right { bottom: 178px; }
   #dica { display: none; } /* no toque, o detalhe aparece no painel */
 }
 @media (max-width: 360px) {
