@@ -30,6 +30,8 @@ FONTES = {
     "municipios_shp": IBGE + "/malhas_municipais/municipio_2024/UFs/RS/RS_Municipios_2024.zip",
     "pop_bairros": CENSO + "/Agregados_por_Bairro_csv/Agregados_por_bairros_basico_BR_20260520.zip",
     "pop_municipios": CENSO + "/Agregados_por_Municipio_csv/Agregados_por_municipios_basico_BR_20260520.zip",
+    # setores censitários com população, para estimar bairros das prefeituras
+    "setores_shp": CENSO + "/malha_com_atributos/setores/shp/UF/RS/RS_setores_CD2022.zip",
 }
 MAPSHAPER = ["npx", "-y", "mapshaper@0.6.102"]
 MIN_BAIRROS = 3
@@ -74,6 +76,30 @@ def mapshaper(*args):
     subprocess.run(MAPSHAPER + list(args), check=True)
 
 
+def estimar_populacao(bairros_geojson, setores_zip):
+    """População de bairros que não são do IBGE (ex.: malha da prefeitura).
+
+    Cada setor censitário do Censo 2022 vira um ponto interno; somamos a
+    população (v0001) dos setores cujo ponto cai dentro de cada bairro.
+    Setores são pequenos em área urbana, então o erro é pequeno.
+    """
+    shp = next(extrair(setores_zip).glob("*.shp"))
+    feats = json.loads(Path(bairros_geojson).read_text(encoding="utf-8"))["features"]
+    muns = sorted({f["properties"]["CD_MUN"] for f in feats})
+    filtro = "[%s].indexOf(CD_SETOR.substr(0, 7)) > -1" % ",".join("'%s'" % m for m in muns)
+    pontos = RAW / ("setores_pontos_%s.geojson" % "_".join(muns))
+    mapshaper("-i", str(shp), "encoding=utf8", "-filter", filtro,
+              "-filter-fields", "CD_SETOR,v0001", "-points", "inner",
+              "-o", str(pontos), "format=geojson")
+    saida = RAW / ("pop_" + Path(bairros_geojson).name)
+    mapshaper("-i", str(bairros_geojson), "-join", str(pontos), "calc=POP=sum(v0001)",
+              "-filter-fields", "CD_BAIRRO,POP", "-o", str(saida), "format=geojson")
+    resultado = {}
+    for f in json.loads(saida.read_text(encoding="utf-8"))["features"]:
+        resultado[f["properties"]["CD_BAIRRO"]] = inteiro(f["properties"].get("POP") or 0)
+    return resultado
+
+
 def main():
     regiao = json.loads((ROOT / "config" / "regiao.json").read_text(encoding="utf-8"))
     codigos = [m["cd"] for m in regiao["municipios"]]
@@ -108,11 +134,13 @@ def main():
     # (data/ref/bairros_prefeituras/*.geojson, campos CD_BAIRRO, NM_BAIRRO, CD_MUN).
     # Eles substituem o que o IBGE tiver para o mesmo município.
     pref_dir = ROOT / "data" / "ref" / "bairros_prefeituras"
+    pop_estimada = {}
     for arq in sorted(pref_dir.glob("*.geojson")):
         tmp = RAW / ("pref_" + arq.name)
         mapshaper("-i", str(arq), "-simplify", "15%", "keep-shapes",
                   "-o", str(tmp), "format=geojson", "precision=0.00001")
         extra = json.loads(tmp.read_text(encoding="utf-8"))["features"]
+        pop_estimada.update(estimar_populacao(arq, zips["setores_shp"]))
         muns = {f["properties"]["CD_MUN"] for f in extra} & set(codigos)
         bairros_geo["features"] = [f for f in bairros_geo["features"] if f["properties"]["CD_MUN"] not in muns]
         bairros_geo["features"] += [f for f in extra if f["properties"]["CD_MUN"] in muns]
@@ -133,10 +161,14 @@ def main():
     for feat in bairros_geo["features"]:
         p = feat["properties"]
         info = pop_bai.get(p["CD_BAIRRO"], {})
+        pop = inteiro(info.get("v0001"))
+        if pop is None:
+            pop = pop_estimada.get(p["CD_BAIRRO"])
         bairros[p["CD_BAIRRO"]] = {
             "nome": p["NM_BAIRRO"],
             "mun": p["CD_MUN"],
-            "pop": inteiro(info.get("v0001")),
+            "pop": pop,
+            "pop_estimada": p["CD_BAIRRO"] in pop_estimada,
         }
 
     municipios = {}

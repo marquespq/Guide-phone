@@ -8,8 +8,9 @@ da concentração urbana de Porto Alegre (IBGE), com dados abertos da SSP-RS.
 - Clique num bairro: total, taxa, participação na cidade e série mensal.
 - Gravataí e Cachoeirinha usam os contornos oficiais de bairro das prefeituras
   (`data/ref/bairros_prefeituras/`), porque o IBGE não tem bairros dessas cidades. Os nomes vieram do
-  portal de geoprocessamento de cada prefeitura (login "Acesso Público"). Esses bairros não têm população
-  do Censo, então ficam sem a conta "por morador".
+  portal de geoprocessamento de cada prefeitura (login "Acesso Público"). A população desses bairros é
+  estimada somando os setores censitários do Censo 2022 cujo ponto central cai dentro de cada bairro
+  (bate 99,8% com a população de Gravataí e 97,9% com a de Cachoeirinha).
 - Cidades ainda sem mapa de bairros (Alvorada, Sapucaia do Sul, Campo Bom e menores) aparecem
   hachuradas. Ao clicar, mostram a lista de bairros como foram escritos no registro policial.
 

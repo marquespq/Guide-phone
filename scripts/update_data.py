@@ -238,6 +238,8 @@ def montar_saida(por_mes, ref, arquivos):
     areas = {}  # id -> info
     for cd, b in ref["bairros"].items():
         areas[cd] = {"nome": b["nome"], "mun": b["mun"], "pop": b["pop"], "geo": True}
+        if b.get("pop_estimada"):
+            areas[cd]["pop_est"] = True  # somada dos setores do Censo (bairro da prefeitura)
     linhas = []
     usados = set()
     for i, mes in enumerate(meses):
