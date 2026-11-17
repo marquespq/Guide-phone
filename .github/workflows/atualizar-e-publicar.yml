@@ -7,10 +7,10 @@ on:
     - cron: "0 12 * * 1"
   # Botão "Run workflow" na aba Actions do GitHub
   workflow_dispatch:
-  # Mudou o site ou a configuração? Republica.
+  # Qualquer push na main republica. (Commits feitos pela própria workflow
+  # usam o GITHUB_TOKEN e não disparam nova execução, então não há loop.)
   push:
     branches: [main]
-    paths-ignore: ["web/data/stats.json", "data/relatorio_bairros.csv"]
 
 permissions:
   contents: write
