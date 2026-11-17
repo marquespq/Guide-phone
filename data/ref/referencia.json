@@ -14,7 +14,7 @@
   "4309209": {
    "nome": "Gravataí",
    "pop": 265074,
-   "tem_bairros": false
+   "tem_bairros": true
   },
   "4313409": {
    "nome": "Novo Hamburgo",
@@ -39,7 +39,7 @@
   "4303103": {
    "nome": "Cachoeirinha",
    "pop": 136258,
-   "tem_bairros": false
+   "tem_bairros": true
   },
   "4320008": {
    "nome": "Sapucaia do Sul",
@@ -1782,6 +1782,811 @@
    "nome": "Cecília",
    "mun": "4323002",
    "pop": 21198
+  },
+  "P43031030024": {
+   "nome": "Eunice Nova",
+   "mun": "4303103",
+   "pop": null
+  },
+  "P43031030026": {
+   "nome": "Parque Imbuhy",
+   "mun": "4303103",
+   "pop": null
+  },
+  "P43031030021": {
+   "nome": "Jardim America",
+   "mun": "4303103",
+   "pop": null
+  },
+  "P43031030003": {
+   "nome": "Carlos Wilkens",
+   "mun": "4303103",
+   "pop": null
+  },
+  "P43031030023": {
+   "nome": "Veranopolis",
+   "mun": "4303103",
+   "pop": null
+  },
+  "P43031030004": {
+   "nome": "Vila Marcia",
+   "mun": "4303103",
+   "pop": null
+  },
+  "P43031030041": {
+   "nome": "Parque Industrial Ritter",
+   "mun": "4303103",
+   "pop": null
+  },
+  "P43031030030": {
+   "nome": "Vila da Paz",
+   "mun": "4303103",
+   "pop": null
+  },
+  "P43031030007": {
+   "nome": "City Nova Fase",
+   "mun": "4303103",
+   "pop": null
+  },
+  "P43031030006": {
+   "nome": "Cedic",
+   "mun": "4303103",
+   "pop": null
+  },
+  "P43031030005": {
+   "nome": "Vila Regina",
+   "mun": "4303103",
+   "pop": null
+  },
+  "P43031030008": {
+   "nome": "Cohab",
+   "mun": "4303103",
+   "pop": null
+  },
+  "P43031030018": {
+   "nome": "Loteamento Cruzeiro",
+   "mun": "4303103",
+   "pop": null
+  },
+  "P43031030025": {
+   "nome": "Jardim Maua",
+   "mun": "4303103",
+   "pop": null
+  },
+  "P43031030039": {
+   "nome": "Parque da Matriz II",
+   "mun": "4303103",
+   "pop": null
+  },
+  "P43031030029": {
+   "nome": "Bom Principio",
+   "mun": "4303103",
+   "pop": null
+  },
+  "P43031030014": {
+   "nome": "Parque Silveira Martins",
+   "mun": "4303103",
+   "pop": null
+  },
+  "P43031030015": {
+   "nome": "Jardim Atlantico",
+   "mun": "4303103",
+   "pop": null
+  },
+  "P43031030051": {
+   "nome": "Santa Cruz",
+   "mun": "4303103",
+   "pop": null
+  },
+  "P43031030032": {
+   "nome": "Sitios Tunel Verde",
+   "mun": "4303103",
+   "pop": null
+  },
+  "P43031030017": {
+   "nome": "Princesa Isabel",
+   "mun": "4303103",
+   "pop": null
+  },
+  "P43031030013": {
+   "nome": "Parque Brasilia",
+   "mun": "4303103",
+   "pop": null
+  },
+  "P43031030035": {
+   "nome": "Sitio Ipiranga",
+   "mun": "4303103",
+   "pop": null
+  },
+  "P43031030036": {
+   "nome": "Jardim Betania",
+   "mun": "4303103",
+   "pop": null
+  },
+  "P43031030042": {
+   "nome": "Aguas Mortas",
+   "mun": "4303103",
+   "pop": null
+  },
+  "P43031030033": {
+   "nome": "Nova Cachoeirinha",
+   "mun": "4303103",
+   "pop": null
+  },
+  "P43031030027": {
+   "nome": "Vila Cachoeirinha",
+   "mun": "4303103",
+   "pop": null
+  },
+  "P43031030016": {
+   "nome": "Monte Carlo",
+   "mun": "4303103",
+   "pop": null
+  },
+  "P43031030012": {
+   "nome": "Ponta Pora",
+   "mun": "4303103",
+   "pop": null
+  },
+  "P43031030022": {
+   "nome": "Santo Angelo",
+   "mun": "4303103",
+   "pop": null
+  },
+  "P43031030054": {
+   "nome": "Jardins do Bosque",
+   "mun": "4303103",
+   "pop": null
+  },
+  "P43031030020": {
+   "nome": "Sitio Ipiranga - Urbano",
+   "mun": "4303103",
+   "pop": null
+  },
+  "P43031030048": {
+   "nome": "Central Park",
+   "mun": "4303103",
+   "pop": null
+  },
+  "P43031030044": {
+   "nome": "Loteamento Colinas",
+   "mun": "4303103",
+   "pop": null
+  },
+  "P43031030019": {
+   "nome": "Vista Alegre",
+   "mun": "4303103",
+   "pop": null
+  },
+  "P43031030031": {
+   "nome": "Vila Anair",
+   "mun": "4303103",
+   "pop": null
+  },
+  "P43031030045": {
+   "nome": "Parque Espirito Santo",
+   "mun": "4303103",
+   "pop": null
+  },
+  "P43031030050": {
+   "nome": "Chacara das Rosas",
+   "mun": "4303103",
+   "pop": null
+  },
+  "P43031030034": {
+   "nome": "Marechal Rondon",
+   "mun": "4303103",
+   "pop": null
+  },
+  "P43031030037": {
+   "nome": "Parque da Matriz I",
+   "mun": "4303103",
+   "pop": null
+  },
+  "P43031030038": {
+   "nome": "Granja Esperanca",
+   "mun": "4303103",
+   "pop": null
+  },
+  "P43031030047": {
+   "nome": "Moradas do Bosque",
+   "mun": "4303103",
+   "pop": null
+  },
+  "P43031030053": {
+   "nome": "Parque Residencial Beija-flor",
+   "mun": "4303103",
+   "pop": null
+  },
+  "P43092090049": {
+   "nome": "Dakar",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090138": {
+   "nome": "Morada Gaucha",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090142": {
+   "nome": "Morada do Vale III",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090018": {
+   "nome": "Cruzeiro",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090060": {
+   "nome": "Sao Judas Tadeu",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090103": {
+   "nome": "Distrito de Morungava",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090161": {
+   "nome": "Passo das Pedras",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090204": {
+   "nome": "Costa do Ipiranga",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090172": {
+   "nome": "Sitio Gaucho",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090086": {
+   "nome": "Villa Lucchesi",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090121": {
+   "nome": "Girassol",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P430920913279": {
+   "nome": "Terra Nova",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090059": {
+   "nome": "Vila Uniao",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090043": {
+   "nome": "Recanto Corcunda",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090221": {
+   "nome": "Passo da Caveira",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090132": {
+   "nome": "Parque Olinda",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090068": {
+   "nome": "Passo dos Ferreiros",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090058": {
+   "nome": "Santa Luzia",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090235": {
+   "nome": "Distrito do Itacolomi",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090160": {
+   "nome": "Vila Lourdes",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090190": {
+   "nome": "Parque dos Anjos",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092091996": {
+   "nome": "Passo das Canoas",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092092015": {
+   "nome": "Paragem dos Verdes Campos",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090147": {
+   "nome": "Auxiliadora",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090155": {
+   "nome": "Vila Imperial",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090165": {
+   "nome": "Vila Aliança",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092093272": {
+   "nome": "Campestre Santa Cruz",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090008": {
+   "nome": "Novo Mundo",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090118": {
+   "nome": "Jardim da Figueira",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090140": {
+   "nome": "Morada do Vale I",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090056": {
+   "nome": "Parque Ely",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090217": {
+   "nome": "Distrito do Barro Vermelho",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090157": {
+   "nome": "Monte Belo",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092093228": {
+   "nome": "Sao Vicente (PDA 64)",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090198": {
+   "nome": "Vila Rica",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090128": {
+   "nome": "Bom Fim",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090040": {
+   "nome": "Nossa Chácara",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090131": {
+   "nome": "Paradiso",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090077": {
+   "nome": "Sao Luiz",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090036": {
+   "nome": "Cohab C",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090080": {
+   "nome": "Centro",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090047": {
+   "nome": "Bairro Res. Dom Feliciano",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090051": {
+   "nome": "Vera Cruz",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090067": {
+   "nome": "Oriço",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P430920913163": {
+   "nome": "Águas Mortas",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092092794": {
+   "nome": "Reserva do Arvoredo",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090083": {
+   "nome": "Vila Natal",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090792": {
+   "nome": "Distrito Industrial",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090095": {
+   "nome": "Dona Mercedes",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090124": {
+   "nome": "Deolinda Goulart",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090200": {
+   "nome": "Itatiaia",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P430920913278": {
+   "nome": "Parque do Mirante",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092092412": {
+   "nome": "General Motors",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090183": {
+   "nome": "Aguas Claras",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092093301": {
+   "nome": "Tom Jobim",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090129": {
+   "nome": "Palermo",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090192": {
+   "nome": "Moradas do Sobrado",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090111": {
+   "nome": "Jardim do Cedro",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090152": {
+   "nome": "Vila Central",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090087": {
+   "nome": "Sao Geraldo",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P430920913151": {
+   "nome": "Parque Santo Antônio",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090354": {
+   "nome": "Bonsucesso",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090011": {
+   "nome": "Barnabé",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090106": {
+   "nome": "Parque dos Eucaliptos",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090072": {
+   "nome": "Nova Conquista",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090065": {
+   "nome": "Planaltina",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090113": {
+   "nome": "Parque Garibaldino",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090141": {
+   "nome": "Morada do Vale II",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092091088": {
+   "nome": "Estância Antiga",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P430920913148": {
+   "nome": "Jardim Timbaúva",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090032": {
+   "nome": "Sitio Santa Fe",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090197": {
+   "nome": "Primavera",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090066": {
+   "nome": "Distrito do Ipiranga",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090015": {
+   "nome": "Jardim das Oliveiras",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090135": {
+   "nome": "Sol Nascente",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090029": {
+   "nome": "Castelo Branco",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P430920913134": {
+   "nome": "Breno Garcia",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090014": {
+   "nome": "Padre Reus",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090030": {
+   "nome": "Cerro Azul",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090052": {
+   "nome": "Vila Jansen",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090012": {
+   "nome": "As Palmas",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090120": {
+   "nome": "Pq Res Conceiçao",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092093371": {
+   "nome": "Valparaíso",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090168": {
+   "nome": "San Rafael",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090199": {
+   "nome": "Parque dos Buzios",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090074": {
+   "nome": "Vila Neila",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090041": {
+   "nome": "Miraflores",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P430920913162": {
+   "nome": "Valle Ville",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090136": {
+   "nome": "Jaqueline",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092092342": {
+   "nome": "Costa Verde",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090175": {
+   "nome": "Sao Marcos",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092093326": {
+   "nome": "Recanto do Itacolomi",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090034": {
+   "nome": "Cohab A",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090035": {
+   "nome": "Cohab B",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090189": {
+   "nome": "Vila Angelica",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090073": {
+   "nome": "Everest",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090216": {
+   "nome": "Princesas",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090241": {
+   "nome": "Rincao da Madalena",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090053": {
+   "nome": "Neopolis",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090061": {
+   "nome": "Sao Jeronimo",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090071": {
+   "nome": "Salgado Filho",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090075": {
+   "nome": "Vila Neiva",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090081": {
+   "nome": "Vila Branca",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090088": {
+   "nome": "Mato Alto",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090102": {
+   "nome": "Dom Joao Becker",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090114": {
+   "nome": "Pq Res Cledi",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090137": {
+   "nome": "Jardim Florido",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090143": {
+   "nome": "Cadiz",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090146": {
+   "nome": "Sagrada Familia",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090148": {
+   "nome": "Santa Cecilia",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090156": {
+   "nome": "Marrocos",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090158": {
+   "nome": "Parque Pioneiro",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090159": {
+   "nome": "Pq Sao Cristovao",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090504": {
+   "nome": "Xará",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090529": {
+   "nome": "Altaville",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090713": {
+   "nome": "Recanto de Morungava",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P430920913064": {
+   "nome": "Parque Itacolomi",
+   "mun": "4309209",
+   "pop": null
+  },
+  "P43092090171": {
+   "nome": "Sitio do Sobrado",
+   "mun": "4309209",
+   "pop": null
   }
  }
 }

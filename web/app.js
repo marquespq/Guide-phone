@@ -285,7 +285,8 @@
         </div>
         ${graficoSerie(serie)}
         ${a.geo ? "" : `<p class="aviso">Sem contorno no mapa: o IBGE não tem bairros desta cidade.</p>`}
-        ${a.pop && !temTaxa ? `<p class="aviso">População muito pequena (${fmt.format(a.pop)}) para calcular taxa.</p>` : ""}`;
+        ${a.pop && !temTaxa ? `<p class="aviso">População muito pequena (${fmt.format(a.pop)}) para calcular taxa.</p>` : ""}
+        ${a.geo && !a.pop ? `<p class="aviso">Contorno da prefeitura. O Censo não tem população deste bairro, então não dá para fazer a conta por morador.</p>` : ""}`;
     }
     box.innerHTML = html;
     box.hidden = false;
@@ -387,7 +388,8 @@
       const i = indice[b.properties.CD_BAIRRO];
       const a = D.areas[i];
       const v = i == null ? 0 : medida(valores.porArea[i], a.pop);
-      dica.innerHTML = `<b>${b.properties.NM_BAIRRO}</b><span>${D.municipios[b.properties.CD_MUN].nome} · ${v == null ? "população pequena demais para taxa" : fmtv(v)}</span>`;
+      const semTaxa = !a || !a.pop ? "sem dado de população para este bairro" : "população pequena demais para a conta";
+      dica.innerHTML = `<b>${b.properties.NM_BAIRRO}</b><span>${D.municipios[b.properties.CD_MUN].nome} · ${v == null ? semTaxa : fmtv(v)}</span>`;
     } else if (m) {
       const cd = m.properties.CD_MUN, mm = D.municipios[cd];
       if (mm.tem_bairros) { dica.innerHTML = `<b>${mm.nome}</b><span>fora dos bairros mapeados</span>`; }

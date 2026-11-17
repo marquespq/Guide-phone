@@ -61,7 +61,7 @@ def norm(texto):
     return re.sub(r"\s+", " ", t).strip()
 
 
-PREFIXOS = ("BAIRRO ", "B ", "LOTEAMENTO ", "LOT ")
+PREFIXOS = ("BAIRRO ", "B ", "LOTEAMENTO ", "LOT ", "VILA ", "VL ", "PARQUE ", "JARDIM ", "RES ", "RESIDENCIAL ")
 
 
 def sem_prefixo(nome):
@@ -123,8 +123,21 @@ class Bairros:
 
     def __init__(self, ref, aliases):
         self.por_mun = defaultdict(dict)  # cd_mun -> {nome_norm: cd_bairro}
+        # mesmo índice, mas sem prefixo (VILA, PARQUE...) dos dois lados;
+        # só vale quando o nome sem prefixo é único na cidade
+        self.sem_prefixo = defaultdict(dict)
+        repetidos = set()
         for cd, b in ref["bairros"].items():
-            self.por_mun[b["mun"]][norm(b["nome"])] = cd
+            n = norm(b["nome"])
+            self.por_mun[b["mun"]][n] = cd
+            chave = (b["mun"], sem_prefixo(n))
+            if chave in repetidos:
+                continue
+            if sem_prefixo(n) in self.sem_prefixo[b["mun"]]:
+                del self.sem_prefixo[b["mun"]][sem_prefixo(n)]
+                repetidos.add(chave)
+            else:
+                self.sem_prefixo[b["mun"]][sem_prefixo(n)] = cd
         self.aliases = {}
         for mun_nome, mapa in aliases.items():
             if mun_nome.startswith("_"):
@@ -166,6 +179,8 @@ class Bairros:
         for candidato in (n, sem_prefixo(n)):
             if candidato in oficiais:
                 return oficiais[candidato], "exato"
+        if sem_prefixo(n) in self.sem_prefixo[cd_mun]:
+            return self.sem_prefixo[cd_mun][sem_prefixo(n)], "exato"
         parecido = difflib.get_close_matches(sem_prefixo(n), oficiais.keys(), n=1, cutoff=SIMILARIDADE_MINIMA)
         if parecido:
             return oficiais[parecido[0]], "parecido"
@@ -214,7 +229,8 @@ def processar(arquivos, ref, bairros):
 
 def titulo(nome_norm):
     minusculas = {"DA", "DE", "DO", "DAS", "DOS", "E"}
-    return " ".join(p.lower() if p in minusculas else p.capitalize() for p in nome_norm.split())
+    romanos = {"II", "III", "IV"}
+    return " ".join(p.lower() if p in minusculas else p if p in romanos else p.capitalize() for p in nome_norm.split())
 
 
 def montar_saida(por_mes, ref, arquivos):

@@ -6,9 +6,12 @@ da concentração urbana de Porto Alegre (IBGE), com dados abertos da SSP-RS.
 - Filtros: furto/roubo, dia/noite (18h–6h), período, cidade.
 - Medidas: ocorrências ou ocorrências por mil moradores (população do Censo 2022).
 - Clique num bairro: total, taxa, participação na cidade e série mensal.
-- Cidades sem mapa de bairros no IBGE (Gravataí, Alvorada, Cachoeirinha,
-  Sapucaia do Sul, Campo Bom e menores) aparecem hachuradas. Ao clicar, mostram a lista de bairros
-  como foram escritos no registro policial.
+- Gravataí e Cachoeirinha usam os contornos oficiais de bairro das prefeituras
+  (`data/ref/bairros_prefeituras/`), porque o IBGE não tem bairros dessas cidades. Os nomes vieram do
+  portal de geoprocessamento de cada prefeitura (login "Acesso Público"). Esses bairros não têm população
+  do Censo, então ficam sem a conta "por morador".
+- Cidades ainda sem mapa de bairros (Alvorada, Sapucaia do Sul, Campo Bom e menores) aparecem
+  hachuradas. Ao clicar, mostram a lista de bairros como foram escritos no registro policial.
 
 ## Estrutura
 

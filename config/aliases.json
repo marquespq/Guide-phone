@@ -21,5 +21,26 @@
     "JARDIM KRAHE": "Krahe",
     "VILA AUGUSTA": "Augusta",
     "VILA ELSA": "Elsa"
+  },
+  "Gravataí": {
+    "BOM SUCESSO": "Bonsucesso",
+    "SAO VICENTE": "Sao Vicente (PDA 64)",
+    "PARQUE DO ITATIAIA": "Itatiaia",
+    "GARIBALDINA": "Parque Garibaldino",
+    "VILA CLEDI": "Pq Res Cledi",
+    "BARRO VERMELHO": "Distrito do Barro Vermelho",
+    "MORUNGAVA": "Distrito de Morungava",
+    "PARQUE DOS EUCALIPTO": "Parque dos Eucaliptos",
+    "N MUNDO": "Novo Mundo",
+    "DOM FELICIANO": "Bairro Res. Dom Feliciano",
+    "SANTA FE": "Sitio Santa Fe"
+  },
+  "Cachoeirinha": {
+    "VILA IMBUI": "Parque Imbuhy",
+    "IMBUI": "Parque Imbuhy",
+    "JARDIM DO BOSQUE": "Jardins do Bosque",
+    "VILA CARLOS ANTONIO WILKENS": "Carlos Wilkens",
+    "PARQUE ESPIRITO SANT": "Parque Espirito Santo",
+    "V ALEGRE": "Vista Alegre"
   }
 }

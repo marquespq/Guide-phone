@@ -103,6 +103,21 @@ def main():
     pop_bai = {r["CD_BAIRRO"]: r for r in ler_csv_ibge(zips["pop_bairros"], set(codigos))}
 
     bairros_geo = json.loads((WEB_DATA / "bairros.geojson").read_text(encoding="utf-8"))
+
+    # Bairros oficiais das prefeituras para cidades que o IBGE não cobre
+    # (data/ref/bairros_prefeituras/*.geojson, campos CD_BAIRRO, NM_BAIRRO, CD_MUN).
+    # Eles substituem o que o IBGE tiver para o mesmo município.
+    pref_dir = ROOT / "data" / "ref" / "bairros_prefeituras"
+    for arq in sorted(pref_dir.glob("*.geojson")):
+        tmp = RAW / ("pref_" + arq.name)
+        mapshaper("-i", str(arq), "-simplify", "15%", "keep-shapes",
+                  "-o", str(tmp), "format=geojson", "precision=0.00001")
+        extra = json.loads(tmp.read_text(encoding="utf-8"))["features"]
+        muns = {f["properties"]["CD_MUN"] for f in extra} & set(codigos)
+        bairros_geo["features"] = [f for f in bairros_geo["features"] if f["properties"]["CD_MUN"] not in muns]
+        bairros_geo["features"] += [f for f in extra if f["properties"]["CD_MUN"] in muns]
+        print("bairros da prefeitura:", arq.name, len(extra))
+
     # Cidade com menos de MIN_BAIRROS bairros na malha (ex.: Campo Bom tem 1)
     # não tem divisão útil: tratamos como "sem malha de bairros".
     por_mun = {}
