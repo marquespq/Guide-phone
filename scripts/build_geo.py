@@ -114,8 +114,8 @@ def main():
         "-i", str(shp_mun), "encoding=utf8",
         "-filter", filtro,
         "-filter-fields", "CD_MUN",
-        "-simplify", "8%", "keep-shapes",
-        "-o", str(WEB_DATA / "municipios.geojson"), "format=geojson", "precision=0.00001",
+        "-simplify", "4%", "keep-shapes",
+        "-o", str(WEB_DATA / "municipios.geojson"), "format=geojson", "precision=0.0001",
     )
     mapshaper(
         "-i", str(shp_bairros), "encoding=utf8",
@@ -187,7 +187,7 @@ def main():
     com = [v["nome"] for v in municipios.values() if v["tem_bairros"]]
     sem = [v["nome"] for v in municipios.values() if not v["tem_bairros"]]
     print("%d bairros em %d municípios" % (len(bairros), len(com)))
-    print("sem malha de bairros no IBGE:", ", ".join(sem) or "nenhum")
+    print("sem malha de bairros: %d municípios (ex.: %s)" % (len(sem), ", ".join(sem[:8]) or "nenhum"))
 
 
 if __name__ == "__main__":

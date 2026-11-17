@@ -81,18 +81,24 @@
     return arred.filter((x, i) => i === 0 || x > arred[i - 1]);
   }
 
-  function classe(v) {
+  // Dois níveis: no zoom afastado o mapa pinta CIDADES (escala classesMun);
+  // a partir de ZOOM_BAIRROS aparecem os BAIRROS (escala classes).
+  const ZOOM_BAIRROS = 9;
+  let classesMun = [];
+  const nivelCidade = () => (map ? map.getZoom() < ZOOM_BAIRROS : true);
+
+  function classe(v, cls = classes) {
     if (v == null) return -2;
     if (v === 0) return -1;
     let c = 0;
-    while (c < classes.length && v > classes[c]) c++;
+    while (c < cls.length && v > cls[c]) c++;
     return Math.min(c, 4);
   }
 
-  function cor(c) {
+  function cor(c, cls = classes) {
     if (c === -2) return css("--sem-dado");
     if (c === -1) return css("--zero");
-    return rampa()[c + (5 - (classes.length + 1))] || rampa()[4];
+    return rampa()[c + (5 - (cls.length + 1))] || rampa()[4];
   }
 
   // ---------- atualização ----------
@@ -101,16 +107,10 @@
     valores = { porArea, porMun };
 
     const cidade = estado.cidade;
-    const geoVals = [];
-    D.areas.forEach((a, i) => {
-      if (a.geo && (!cidade || a.mun === cidade)) geoVals.push(medida(porArea[i], a.pop));
-    });
-    if (estado.medida === "taxa") {
-      for (const [cd, m] of Object.entries(D.municipios)) {
-        if (!m.tem_bairros && (!cidade || cd === cidade)) geoVals.push(medida(porMun[cd] || 0, m.pop));
-      }
-    }
-    classes = quebras(geoVals);
+    classes = quebrasBairros();
+    classesMun = quebras(Object.entries(D.municipios)
+      .filter(([cd]) => !cidade || cd === cidade)
+      .map(([cd, m]) => medida(porMun[cd] || 0, m.pop)));
 
     if (map && map.getSource("bai")) pintar();
     resumo();
@@ -118,6 +118,40 @@
     legenda();
     ranking();
     if (estado.sel) detalhe(estado.sel);
+  }
+
+  // Escala dos bairros: calculada só com o que está visível na tela (ou com a
+  // cidade escolhida), para as cores compararem bairros vizinhos entre si.
+  let centros = {}; // CD_BAIRRO / CD_MUN -> [lon, lat]
+  function visivel(id) {
+    if (!map || !centros[id]) return true;
+    return map.getBounds().contains(centros[id]);
+  }
+  function quebrasBairros() {
+    const { porArea, porMun } = valores;
+    const cidade = estado.cidade;
+    const vals = [];
+    D.areas.forEach((a, i) => {
+      if (!a.geo) return;
+      if (cidade ? a.mun !== cidade : !visivel(a.id)) return;
+      vals.push(medida(porArea[i], a.pop));
+    });
+    if (estado.medida === "taxa") {
+      for (const [cd, m] of Object.entries(D.municipios)) {
+        if (m.tem_bairros) continue;
+        if (cidade ? cd !== cidade : !visivel(cd)) continue;
+        vals.push(medida(porMun[cd] || 0, m.pop));
+      }
+    }
+    return quebras(vals);
+  }
+  function reescalarBairros() {
+    if (nivelCidade() && !estado.cidade) return;
+    const novas = quebrasBairros();
+    if (JSON.stringify(novas) === JSON.stringify(classes)) return;
+    classes = novas;
+    pintar();
+    legenda();
   }
 
   function pintar() {
@@ -130,11 +164,13 @@
       map.setFeatureState({ source: "bai", id: a.id }, { cor: fora(a.mun) ? transparente : cor(classe(v)) });
     });
     for (const [cd, m] of Object.entries(D.municipios)) {
+      const vm = medida(porMun[cd] || 0, m.pop);
       let c = transparente;
       if (!m.tem_bairros && !fora(cd)) {
-        c = estado.medida === "taxa" ? cor(classe(medida(porMun[cd] || 0, m.pop))) : css("--sem-dado");
+        c = estado.medida === "taxa" ? cor(classe(vm)) : css("--sem-dado");
       }
-      map.setFeatureState({ source: "mun", id: cd }, { cor: c });
+      const cm = fora(cd) ? transparente : cor(classe(vm, classesMun), classesMun);
+      map.setFeatureState({ source: "mun", id: cd }, { cor: c, corMun: cm });
     }
     map.setPaintProperty("bai-linha", "line-color", css("--contorno-bairro"));
     map.setPaintProperty("mun-linha", "line-color", css("--contorno-mun"));
@@ -183,13 +219,15 @@
   }
 
   function legenda() {
+    const cidades = nivelCidade() && !estado.cidade;
+    const cls = cidades ? classesMun : classes;
     const r = rampa();
-    const n = classes.length + 1;
+    const n = cls.length + 1;
     const usadas = r.slice(5 - n);
     const fmtv = estado.medida === "total" ? (x) => fmt.format(x) : (x) => umACada(x);
     // cada limite fica centralizado na divisa entre duas caixas (34px + 2px de vão)
-    const limites = classes.map((x, i) => `<span style="left:${(i + 1) * 36 - 1}px">${fmtv(x)}</span>`).join("");
-    const unidade = estado.medida === "total" ? "casos por bairro" : "os números são “1 caso a cada tantos moradores”";
+    const limites = cls.map((x, i) => `<span style="left:${(i + 1) * 36 - 1}px">${fmtv(x)}</span>`).join("");
+    const unidade = estado.medida === "total" ? (cidades ? "casos por cidade" : "casos por bairro") : "os números são “1 caso a cada tantos moradores”";
     $("#legenda").innerHTML = `
       <div class="escala">
         <span>${estado.medida === "total" ? "menos" : "mais tranquilo"}</span>
@@ -201,16 +239,33 @@
       </div>
       <div class="extra">
         <span><i style="background:${css("--zero")}"></i>nenhum registro</span>
-        <span><i class="hachura" style="background-color:${css("--sem-dado")}"></i>cidade sem mapa de bairros${estado.medida === "total" ? " (em “Por morador” ela ganha cor)" : ""}. Toque para ver a lista.</span>
+        ${cidades ? `<span>Aproxime o mapa ou escolha uma cidade para ver os bairros.</span>` : `<span><i class="hachura" style="background-color:${css("--sem-dado")}"></i>cidade sem mapa de bairros${estado.medida === "total" ? " (em “Por morador” ela ganha cor)" : ""}. Toque para ver a lista.</span>`}
       </div>
       <div class="extra" style="margin-top:4px">${unidade}, ${textoPeriodo()}</div>`;
   }
 
   function ranking() {
-    const { porArea } = valores;
+    const { porArea, porMun } = valores;
+    const fmtv = estado.medida === "total" ? (x) => fmt.format(x) : (x) => "1 a cada " + umACada(x);
+    if (nivelCidade() && !estado.cidade) {
+      // visão do estado: ranking de cidades
+      const cid = Object.entries(D.municipios)
+        .map(([cd, m]) => ({ cd, m, v: medida(porMun[cd] || 0, m.pop) }))
+        .filter((x) => x.v != null && x.v > 0)
+        .sort((p, q) => q.v - p.v).slice(0, 12);
+      const maxc = cid.length ? cid[0].v : 1;
+      $("#ranking-titulo").textContent = estado.medida === "total" ? "Cidades com mais casos" : "Cidades com mais casos por morador";
+      $("#ranking").innerHTML = cid.map((t) => `
+        <li><button data-mun="${t.cd}">
+          <span class="nome">${t.m.nome}</span>
+          <span class="val">${fmtv(t.v)}</span>
+          <span class="barra"><span style="width:${((t.v / maxc) * 100).toFixed(1)}%"></span></span>
+        </button></li>`).join("") || `<li class="desc">Nenhum registro com esses filtros.</li>`;
+      return;
+    }
     const itens = [];
     D.areas.forEach((a, i) => {
-      if (a.id.startsWith("?:")) return;
+      if (a.id.startsWith("?:") || a.id.startsWith("o:")) return;
       if (estado.cidade && a.mun !== estado.cidade) return;
       const v = medida(porArea[i], a.pop);
       if (v == null || v <= 0) return;
@@ -219,8 +274,7 @@
     itens.sort((p, q) => q.v - p.v);
     const top = itens.slice(0, 12);
     const max = top.length ? top[0].v : 1;
-    const fmtv = estado.medida === "total" ? (x) => fmt.format(x) : (x) => "1 a cada " + umACada(x);
-    $("#ranking-titulo").textContent = estado.medida === "total" ? "Onde mais acontece" : "Mais casos por morador";
+    $("#ranking-titulo").textContent = estado.medida === "total" ? "Bairros com mais casos" : "Bairros com mais casos por morador";
     $("#ranking").innerHTML = top.length
       ? top.map((t) => `
         <li><button data-i="${t.i}">
@@ -290,7 +344,7 @@
       // município sem malha de bairros: lista os bairros informados
       const m = D.municipios[sel.mun];
       const n = porMun[sel.mun] || 0;
-      const taxa = medida(n, m.pop);
+      const taxa = m.pop && m.pop >= POP_MINIMA && n ? (n / m.pop) * 1000 : null;
       const lista = [];
       D.areas.forEach((a, i) => { if (a.mun === sel.mun && porArea[i] > 0) lista.push({ a, v: porArea[i] }); });
       lista.sort((p, q) => q.v - p.v);
@@ -305,8 +359,10 @@
         </div>
         ${blocoCategorias(porCategoria((i) => D.areas[i].mun === sel.mun))}
         ${graficoSerie(serie)}
-        <p class="aviso">Sem mapa de bairros desta cidade. Bairros com mais casos, como foram escritos no registro:</p>
-        <ol class="lista-bairros">${lista.slice(0, 10).map((x) => `<li><span>${x.a.nome}</span><b>${fmt.format(x.v)}</b></li>`).join("")}</ol>`;
+        ${m.tem_bairros
+          ? `<p class="aviso">Bairros com mais casos: <button class="link ver-bairros">ver bairros no mapa →</button></p>`
+          : `<p class="aviso">Sem mapa de bairros desta cidade. Bairros com mais casos, como foram escritos no registro:</p>`}
+        <ol class="lista-bairros">${lista.filter((x) => !x.a.id.startsWith("?:") && !x.a.id.startsWith("o:")).slice(0, 10).map((x) => `<li><span>${x.a.nome}</span><b>${fmt.format(x.v)}</b></li>`).join("")}</ol>`;
     } else {
       const a = D.areas[sel.i];
       const n = porArea[sel.i];
@@ -334,6 +390,12 @@
     box.innerHTML = html;
     box.querySelector(".fechar").onclick = () => selecionar(null);
     box.querySelectorAll(".por-cat button").forEach((b) => { b.onclick = () => escolherCategoria(b.dataset.cat); });
+    const ver = box.querySelector(".ver-bairros");
+    if (ver) ver.onclick = () => {
+      const f = mun.features.find((x) => x.properties.CD_MUN === sel.mun);
+      selecionar(null);
+      if (f) map.fitBounds(caixa(f), { padding: paddingMapa(), duration: 700 });
+    };
     ligarDicaSerie(box);
     if (popup) {
       popup.setDOMContent(box);
@@ -486,12 +548,16 @@
     if (map.hasImage("hachura")) map.removeImage("hachura");
     map.addImage("hachura", hachura());
 
-    const corEstado = ["coalesce", ["feature-state", "cor"], "rgba(0,0,0,0)"];
-    map.addLayer({ id: "mun-fill", type: "fill", source: "mun", paint: { "fill-color": corEstado, "fill-opacity": 0.72 } }, primeiroSimbolo);
-    map.addLayer({ id: "mun-hachura", type: "fill", source: "mun", filter: ["in", ["get", "CD_MUN"], ["literal", semBairros]], paint: { "fill-pattern": "hachura" } }, primeiroSimbolo);
-    map.addLayer({ id: "bai-fill", type: "fill", source: "bai", paint: { "fill-color": corEstado, "fill-opacity": 0.75 } }, primeiroSimbolo);
-    map.addLayer({ id: "bai-linha", type: "line", source: "bai", paint: { "line-color": css("--contorno-bairro"), "line-width": ["interpolate", ["linear"], ["zoom"], 9, 0.3, 13, 1.2] } }, primeiroSimbolo);
-    map.addLayer({ id: "mun-linha", type: "line", source: "mun", paint: { "line-color": css("--contorno-mun"), "line-width": 1.2, "line-opacity": 0.8 } }, primeiroSimbolo);
+    const T = "rgba(0,0,0,0)";
+    const corEstado = ["coalesce", ["feature-state", "cor"], T];
+    // zoom afastado: cidade pintada pela escala de cidades; aproximado: só cidades sem bairros
+    const corMun = ["step", ["zoom"], ["coalesce", ["feature-state", "corMun"], T], ZOOM_BAIRROS, corEstado];
+    const soBairros = (v) => ["step", ["zoom"], 0, ZOOM_BAIRROS, v];
+    map.addLayer({ id: "mun-fill", type: "fill", source: "mun", paint: { "fill-color": corMun, "fill-opacity": 0.75 } }, primeiroSimbolo);
+    map.addLayer({ id: "mun-hachura", type: "fill", source: "mun", filter: ["in", ["get", "CD_MUN"], ["literal", semBairros]], paint: { "fill-pattern": "hachura", "fill-opacity": soBairros(1) } }, primeiroSimbolo);
+    map.addLayer({ id: "bai-fill", type: "fill", source: "bai", paint: { "fill-color": corEstado, "fill-opacity": soBairros(0.75) } }, primeiroSimbolo);
+    map.addLayer({ id: "bai-linha", type: "line", source: "bai", paint: { "line-color": css("--contorno-bairro"), "line-opacity": soBairros(1), "line-width": ["interpolate", ["linear"], ["zoom"], 9, 0.3, 13, 1.2] } }, primeiroSimbolo);
+    map.addLayer({ id: "mun-linha", type: "line", source: "mun", paint: { "line-color": css("--contorno-mun"), "line-width": ["interpolate", ["linear"], ["zoom"], 5, 0.3, 8, 0.8, 11, 1.4], "line-opacity": 0.8 } }, primeiroSimbolo);
     map.addLayer({ id: "sel-linha", type: "line", source: "bai", filter: ["==", ["get", "CD_BAIRRO"], ""], paint: { "line-color": css("--text"), "line-width": 2.5 } });
     map.addLayer({ id: "sel-mun", type: "line", source: "mun", filter: ["==", ["get", "CD_MUN"], ""], paint: { "line-color": css("--text"), "line-width": 2.5 } });
     pintar();
@@ -503,7 +569,8 @@
     const dica = $("#dica");
     if (!f.length) { dica.hidden = true; map.getCanvas().style.cursor = ""; return; }
     map.getCanvas().style.cursor = "pointer";
-    const b = f.find((x) => x.layer.id === "bai-fill");
+    const cidades = nivelCidade();
+    const b = cidades ? null : f.find((x) => x.layer.id === "bai-fill");
     const m = f.find((x) => x.layer.id === "mun-fill");
     const fmtv = (v) => (estado.medida === "total" ? fmt.format(v) + " casos" : textoTaxa(v));
     if (b) {
@@ -514,7 +581,7 @@
       dica.innerHTML = `<b>${b.properties.NM_BAIRRO}</b><span>${D.municipios[b.properties.CD_MUN].nome} · ${v == null ? semTaxa : fmtv(v)}</span>`;
     } else if (m) {
       const cd = m.properties.CD_MUN, mm = D.municipios[cd];
-      if (mm.tem_bairros) { dica.innerHTML = `<b>${mm.nome}</b><span>fora dos bairros mapeados</span>`; }
+      if (mm.tem_bairros && !cidades) { dica.innerHTML = `<b>${mm.nome}</b><span>fora dos bairros mapeados</span>`; }
       else {
         const v = medida(valores.porMun[cd] || 0, mm.pop);
         dica.innerHTML = `<b>${mm.nome}</b><span>cidade inteira · ${v == null ? "–" : fmtv(v)}</span>`;
@@ -525,12 +592,13 @@
 
   function cliqueMapa(e) {
     const f = map.queryRenderedFeatures(e.point, { layers: ["bai-fill", "mun-fill"] });
-    const b = f.find((x) => x.layer.id === "bai-fill");
+    const cidades = nivelCidade();
+    const b = cidades ? null : f.find((x) => x.layer.id === "bai-fill");
     const m = f.find((x) => x.layer.id === "mun-fill");
     $("#dica").hidden = true;
     const ponto = [e.lngLat.lng, e.lngLat.lat];
     if (b && indice[b.properties.CD_BAIRRO] != null) selecionar({ i: indice[b.properties.CD_BAIRRO], ponto });
-    else if (m && !D.municipios[m.properties.CD_MUN].tem_bairros) selecionar({ mun: m.properties.CD_MUN, ponto });
+    else if (m && (cidades || !D.municipios[m.properties.CD_MUN].tem_bairros)) selecionar({ mun: m.properties.CD_MUN, ponto });
     else selecionar(null);
   }
 
@@ -553,6 +621,13 @@
     map.on("mousemove", dicaMapa);
     map.on("mouseout", () => { $("#dica").hidden = true; });
     map.on("click", cliqueMapa);
+    // ao cruzar o zoom dos bairros, legenda e ranking mudam de cidade <-> bairro
+    let nivelAnterior = nivelCidade();
+    map.on("moveend", () => {
+      const agora = nivelCidade();
+      if (agora !== nivelAnterior) { nivelAnterior = agora; legenda(); ranking(); }
+      reescalarBairros();
+    });
   }
 
   // ---------- controles ----------
@@ -614,17 +689,71 @@
     });
 
     $("#ranking").addEventListener("click", (e) => {
-      const b = e.target.closest("button[data-i]");
+      const b = e.target.closest("button[data-i], button[data-mun]");
       if (!b) return;
-      selecionar({ i: +b.dataset.i }, true);
+      if (b.dataset.mun) selecionar({ mun: b.dataset.mun }, true);
+      else selecionar({ i: +b.dataset.i }, true);
     });
 
     $("#alca").onclick = () => abrirPainel($("#painel").classList.contains("recolhido"));
     if (window.innerWidth <= 720) abrirPainel(false);
 
-    $("#nome-regiao").textContent = D.regiao;
+    montarBusca();
     const atual = new Date(D.atualizado_em);
     $("#nota-dados").textContent = `Dados de ${nomeMes(D.meses[0])} a ${nomeMes(ultimo)}, verificados em ${atual.toLocaleDateString("pt-BR")}.`;
+  }
+
+  // ---------- busca por cidade ou bairro ----------
+  const semAcento = (t) => (t || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+
+  function montarBusca() {
+    const itens = [];
+    for (const [cd, m] of Object.entries(D.municipios)) itens.push({ tipo: "mun", cd, nome: m.nome, extra: "cidade", chave: semAcento(m.nome), peso: m.pop || 0 });
+    D.areas.forEach((a, i) => {
+      if (a.id.startsWith("?:") || a.id.startsWith("o:")) return;
+      itens.push({ tipo: "bai", i, nome: a.nome, extra: D.municipios[a.mun].nome, chave: semAcento(a.nome), peso: a.pop || 0 });
+    });
+    const campo = $("#busca"), lista = $("#busca-lista");
+    let achados = [], ativo = -1;
+
+    const mostrar = () => {
+      lista.innerHTML = achados.map((x, k) => `<li role="option" id="busca-${k}" aria-selected="${k === ativo}" class="${k === ativo ? "ativo" : ""}" data-k="${k}">
+        <span>${x.nome}</span><small>${x.extra}</small></li>`).join("");
+      lista.hidden = !achados.length;
+      campo.setAttribute("aria-expanded", String(!!achados.length));
+      if (ativo >= 0) campo.setAttribute("aria-activedescendant", "busca-" + ativo);
+    };
+    const escolher = (x) => {
+      if (!x) return;
+      campo.value = x.tipo === "mun" ? x.nome : `${x.nome}, ${x.extra}`;
+      achados = []; mostrar(); campo.blur();
+      if (x.tipo === "mun") selecionar({ mun: x.cd }, true);
+      else selecionar({ i: x.i }, true);
+    };
+    campo.addEventListener("input", () => {
+      const q = semAcento(campo.value.trim());
+      ativo = -1;
+      if (q.length < 2) { achados = []; mostrar(); return; }
+      // começa com > contém; cidades antes de bairros; mais populosos primeiro
+      achados = itens
+        .map((x) => ({ x, r: x.chave.startsWith(q) ? 0 : x.chave.includes(" " + q) ? 1 : x.chave.includes(q) ? 2 : 9 }))
+        .filter((o) => o.r < 9)
+        .sort((p, q2) => p.r - q2.r || (p.x.tipo === "mun" ? 0 : 1) - (q2.x.tipo === "mun" ? 0 : 1) || q2.x.peso - p.x.peso)
+        .slice(0, 8).map((o) => o.x);
+      mostrar();
+    });
+    campo.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowDown") { ativo = Math.min(achados.length - 1, ativo + 1); mostrar(); e.preventDefault(); }
+      else if (e.key === "ArrowUp") { ativo = Math.max(0, ativo - 1); mostrar(); e.preventDefault(); }
+      else if (e.key === "Enter") { escolher(achados[Math.max(0, ativo)]); e.preventDefault(); }
+      else if (e.key === "Escape") { campo.value = ""; achados = []; mostrar(); }
+    });
+    lista.addEventListener("mousedown", (e) => { // mousedown: antes do blur do campo
+      const li = e.target.closest("li[data-k]");
+      if (li) { e.preventDefault(); escolher(achados[+li.dataset.k]); }
+    });
+    campo.addEventListener("blur", () => setTimeout(() => { achados = []; mostrar(); }, 150));
+    campo.addEventListener("focus", () => { if (window.innerWidth <= 720) abrirPainel(true); }); // gaveta aberta para ver as sugestões
   }
 
   // ---------- início ----------
@@ -632,6 +761,8 @@
     .then(([s, m, b]) => {
       D = s; mun = m; bai = b;
       D.areas.forEach((a, i) => { indice[a.id] = i; });
+      for (const f of b.features) { const [[x0, y0], [x1, y1]] = caixa(f); centros[f.properties.CD_BAIRRO] = [(x0 + x1) / 2, (y0 + y1) / 2]; }
+      for (const f of m.features) { const [[x0, y0], [x1, y1]] = caixa(f); centros[f.properties.CD_MUN] = [(x0 + x1) / 2, (y0 + y1) / 2]; }
       montarControles();
       atualizar();
       iniciarMapa();

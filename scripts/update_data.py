@@ -70,6 +70,7 @@ UA = {"User-Agent": "Mozilla/5.0 (compatible; mapa-furtos-roubos/1.0)"}
 # Colunas fixas do CSV (dicionário de dados da SSP)
 COL_DATA, COL_HORA, COL_TIPO, COL_MUN, COL_BAIRRO = 1, 2, 4, 6, 8
 SIMILARIDADE_MINIMA = 0.88
+MIN_CASOS_NOME = 10  # bairro sem contorno precisa de 10+ casos para aparecer com nome próprio
 
 
 def norm(texto):
@@ -206,7 +207,13 @@ class Bairros:
 
 
 def processar(arquivos, ref, bairros, classificar):
-    mun_por_nome = {norm(m["nome"]): cd for cd, m in ref["municipios"].items()}
+    # chave sem espaços: "SANT ANA DO LIVRAMENTO" (IBGE) == "SANTANA DO LIVRAMENTO" (SSP)
+    def chave_mun(t):
+        t = re.sub(r"\(.*?\)", " ", t or "")          # "PINTO BANDEIRA (BENTO GONC)"
+        t = re.sub(r"^\s*DR\.?\s", "DOUTOR ", t.upper())  # "DR MAURICIO CARDOSO"
+        return norm(t).replace(" ", "")
+    mun_por_nome = {chave_mun(m["nome"]): cd for cd, m in ref["municipios"].items()}
+    nao_reconhecidos = Counter()
     # mês -> (arquivo mais recente que tem esse mês, contagens)
     por_mes = {}
     for local in sorted(arquivos):  # ordem de publicação: o mais novo sobrescreve
@@ -217,8 +224,9 @@ def processar(arquivos, ref, bairros, classificar):
             for linha in leitor:
                 if len(linha) <= COL_BAIRRO:
                     continue
-                cd_mun = mun_por_nome.get(norm(linha[COL_MUN]))
+                cd_mun = mun_por_nome.get(chave_mun(linha[COL_MUN]))
                 if cd_mun is None:
+                    nao_reconhecidos[linha[COL_MUN].strip()] += 1
                     continue
                 classe = classificar(linha[COL_TIPO])
                 if classe is None:
@@ -242,6 +250,8 @@ def processar(arquivos, ref, bairros, classificar):
         for mes, c in contagem.items():
             por_mes[mes] = c
         print("processado", local, "meses:", min(contagem), "a", max(contagem), flush=True)
+    if nao_reconhecidos:
+        print("municípios da SSP fora da região (top 10):", nao_reconhecidos.most_common(10))
     return por_mes
 
 
@@ -258,17 +268,28 @@ def montar_saida(por_mes, ref, arquivos, categorias):
         areas[cd] = {"nome": b["nome"], "mun": b["mun"], "pop": b["pop"], "geo": True}
         if b.get("pop_estimada"):
             areas[cd]["pop_est"] = True  # somada dos setores do Censo (bairro da prefeitura)
-    linhas = []
-    usados = set()
+    # bairros sem contorno com poucos casos no total viram "outros bairros" da cidade
+    total_area = Counter()
+    for mes in meses:
+        for (area, _c, _t, _n), n in por_mes[mes].items():
+            total_area[area] += n
+    def agrupar(area):
+        if area.startswith("x:") and total_area[area] < MIN_CASOS_NOME:
+            return "o:" + area.split(":", 2)[1]
+        return area
+    soma = Counter()
     for i, mes in enumerate(meses):
-        for (area, cat, tipo, noite), n in sorted(por_mes[mes].items()):
-            usados.add(area)
-            linhas.append((area, i, cat, tipo, noite, n))
+        for (area, cat, tipo, noite), n in por_mes[mes].items():
+            soma[(agrupar(area), i, cat, tipo, noite)] += n
+    linhas = [(a, i, c, t, nt, n) for (a, i, c, t, nt), n in sorted(soma.items())]
+    usados = {l[0] for l in linhas}
     for area in usados:
         if area in areas:
             continue
         if area.startswith("?:"):
             areas[area] = {"nome": "Bairro não informado", "mun": area[2:], "pop": None, "geo": False}
+        elif area.startswith("o:"):
+            areas[area] = {"nome": "Outros bairros (poucos casos)", "mun": area[2:], "pop": None, "geo": False}
         else:
             _, cd_mun, nome = area.split(":", 2)
             areas[area] = {"nome": titulo(nome), "mun": cd_mun, "pop": None, "geo": False}

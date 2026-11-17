@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="color-scheme" content="light">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Te Cuida POA</title>
-  <meta name="description" content="Mapa de furtos e roubos registrados na Grande Porto Alegre, por bairro: celular, roubo a pedestre, veículos, residências e mais. Dados abertos da SSP-RS.">
+  <title>Te Cuida RS</title>
+  <meta name="description" content="Mapa de furtos e roubos registrados no Rio Grande do Sul, por cidade e bairro: celular, roubo a pedestre, veículos, residências e mais. Dados abertos da SSP-RS.">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 2c-5.5 0-10 4.3-10 9.7C6 19 16 30 16 30s10-11 10-18.3C26 6.3 21.5 2 16 2z' fill='%23b3261e'/%3E%3Ccircle cx='16' cy='12' r='4' fill='%23fff'/%3E%3C/svg%3E">
   <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
   <!-- __VERSAO__ é trocado pelo hash do commit no deploy, para o navegador não misturar versões -->
@@ -19,8 +19,14 @@
 
     <header class="cabeca">
       <h1>Te cuida, tchê</h1>
-      <p class="sub">Onde mais se registra furto e roubo na <span id="nome-regiao">Grande Porto Alegre</span>, bairro por bairro.</p>
+      <p class="sub">Onde mais se registra furto e roubo no Rio Grande do Sul, cidade por cidade e bairro por bairro.</p>
     </header>
+
+    <div class="busca" role="search">
+      <input id="busca" type="search" placeholder="Buscar cidade ou bairro…" autocomplete="off" spellcheck="false"
+        role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="busca-lista" aria-label="Buscar cidade ou bairro">
+      <ul id="busca-lista" role="listbox" hidden></ul>
+    </div>
 
     <section class="bloco" aria-label="O que foi levado">
       <div class="chips" id="categorias" role="group" aria-label="Categoria"></div>
@@ -83,7 +89,7 @@
         pode estar em “Roubo a pedestre” e não em “Celular”. Muito caso fica sem registro, então o número real é maior.
         Noite = das 18h às 6h.</p>
       <p>Fonte: <a href="https://ssp.rs.gov.br/dados-abertos" target="_blank" rel="noopener">SSP-RS, dados abertos (Lei 15.610/2021)</a>.
-        Bairros e população: IBGE, Censo 2022; bairros de Gravataí e Cachoeirinha: geoprocessamento das prefeituras.
+        Municípios, bairros e população: IBGE, Censo 2022; bairros de Gravataí e Cachoeirinha: geoprocessamento das prefeituras.
         Mapa: <a href="https://openfreemap.org" target="_blank" rel="noopener">OpenFreeMap</a> / © OpenStreetMap.</p>
     </footer>
   </aside>

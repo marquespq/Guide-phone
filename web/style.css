@@ -43,6 +43,25 @@ h1 { margin: 0; font-size: 20px; letter-spacing: -.01em; }
 h2 { margin: 0 0 8px; font-size: 13px; font-weight: 600; color: var(--text-2); text-transform: uppercase; letter-spacing: .04em; }
 .sub { margin: 2px 0 0; color: var(--text-2); }
 
+/* busca */
+.busca { position: relative; }
+#busca {
+  width: 100%; font: inherit; font-size: 14px; color: var(--text);
+  background: var(--surface-2); border: 1px solid transparent; border-radius: 10px; padding: 9px 12px 9px 34px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%237a7973' stroke-width='2.2' stroke-linecap='round'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m20 20-3.5-3.5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: 11px center;
+}
+#busca:focus { outline: none; border-color: var(--accent); background-color: var(--surface); }
+#busca-lista {
+  position: absolute; left: 0; right: 0; top: calc(100% + 4px); z-index: 10; margin: 0; padding: 4px; list-style: none;
+  background: var(--surface); border: 1px solid var(--border); border-radius: 10px; box-shadow: var(--shadow);
+  max-height: 320px; overflow-y: auto;
+}
+#busca-lista li { display: flex; justify-content: space-between; gap: 10px; padding: 7px 9px; border-radius: 7px; cursor: pointer; }
+#busca-lista li small { color: var(--text-3); white-space: nowrap; }
+#busca-lista li:hover, #busca-lista li.ativo { background: var(--surface-2); }
+.card .link { border: 0; background: none; padding: 0; font: inherit; color: var(--accent); cursor: pointer; text-decoration: underline; }
+
 /* categorias */
 .chips { display: flex; flex-wrap: wrap; gap: 6px; }
 .chips button {
@@ -195,6 +214,7 @@ footer a { color: var(--text-2); }
   /* recolhida: título, categorias e total */
   #painel.recolhido { height: 172px; overflow: hidden; }
   #painel.recolhido .sub, #painel.recolhido .cat-desc { display: none; }
+  #painel.recolhido { height: 222px; }
   .alca {
     display: block; align-self: center; position: relative;
     width: 44px; height: 5px; border: 0; border-radius: 3px; background: var(--border);
@@ -207,7 +227,7 @@ footer a { color: var(--text-2); }
   .chips { flex-wrap: nowrap; overflow-x: auto; margin: 0 -16px; padding: 0 16px 2px; scrollbar-width: none; }
   .chips::-webkit-scrollbar { display: none; }
   .numero { font-size: 26px; }
-  .maplibregl-ctrl-bottom-right { bottom: 178px; }
+  .maplibregl-ctrl-bottom-right { bottom: 232px; }
   #dica { display: none; } /* no toque, o detalhe aparece no painel */
 }
 @media (max-width: 360px) {

@@ -1,7 +1,14 @@
-# Te cuida, tchê — furtos e roubos na Grande Porto Alegre
+# Te cuida, tchê — furtos e roubos no Rio Grande do Sul
 
-Mapa de furtos e roubos registrados por bairro nos 29 municípios da concentração
-urbana de Porto Alegre (IBGE), com dados abertos da SSP-RS.
+Mapa de furtos e roubos registrados nos 497 municípios do RS, por cidade e por bairro,
+com dados abertos da SSP-RS.
+
+- Visão do estado: cada cidade pintada pelo total (ou por morador). Aproximando o mapa
+  (zoom 9+) ou escolhendo uma cidade, aparecem os bairros. A escala de cores dos bairros é
+  recalculada com o que está na tela, para comparar vizinhos entre si.
+- Busca por cidade ou bairro no topo do painel.
+- Bairros: malha do IBGE (Censo 2022) em 139 cidades, que concentram cerca de 74% dos casos,
+  mais Gravataí e Cachoeirinha (prefeituras).
 
 - Categorias (editáveis em `config/categorias.json`): celular, roubo a pedestre, veículos,
   itens do carro, residências, comércio, fios e cabos, motoristas e ônibus.
@@ -23,7 +30,7 @@ urbana de Porto Alegre (IBGE), com dados abertos da SSP-RS.
 ## Estrutura
 
 ```
-config/regiao.json          municípios da região (edite para incluir/remover)
+config/regiao.json          municípios do mapa (hoje: todo o RS; dá para recortar)
 config/aliases.json         grafias da SSP -> nome oficial do bairro
 config/categorias.json      tipos de crime da SSP agrupados em categorias
 scripts/build_geo.py        contornos + população (roda só quando a região muda)
