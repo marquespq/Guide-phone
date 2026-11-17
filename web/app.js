@@ -43,8 +43,8 @@
 
   // linha = [área, mês, categoria, tipo (0 furto / 1 roubo), noite (0/1), ocorrências]
   let catIdx = 0; // índice da categoria escolhida (-1 = todas)
-  function passa(l) {
-    if (catIdx >= 0 && l[2] !== catIdx) return false;
+  function passa(l, ignorarCategoria) {
+    if (!ignorarCategoria && catIdx >= 0 && l[2] !== catIdx) return false;
     if (estado.tipo === "furto" && l[3] !== 0) return false;
     if (estado.tipo === "roubo" && l[3] !== 1) return false;
     if (estado.horario === "dia" && l[4] !== 0) return false;
@@ -238,6 +238,34 @@
     return s;
   }
 
+  // casos por categoria numa área, com os mesmos filtros de período/tipo/horário
+  function porCategoria(filtroArea) {
+    const [a, b] = intervaloMeses();
+    const c = new Array(D.categorias.length).fill(0);
+    for (const l of D.linhas) {
+      if (l[1] < a || l[1] > b || !filtroArea(l[0]) || !passa(l, true)) continue;
+      c[l[2]] += l[5];
+    }
+    return c;
+  }
+
+  // "O que mais acontece aqui": barrinhas por categoria; clicar troca a categoria do mapa
+  function blocoCategorias(c) {
+    const itens = c.map((n, i) => ({ i, n })).filter((x) => x.n > 0).sort((p, q) => q.n - p.n);
+    if (!itens.length) return "";
+    const max = itens[0].n;
+    const total = itens.reduce((s, x) => s + x.n, 0);
+    return `<div class="por-cat">
+      <div class="por-cat-titulo">O que mais acontece aqui <span>${fmt.format(total)} no total</span></div>
+      <ul>${itens.map((x) => `
+        <li><button data-cat="${D.categorias[x.i].id}" class="${x.i === catIdx ? "on" : ""}" title="Ver ${D.categorias[x.i].nome} no mapa">
+          <span class="nome">${D.categorias[x.i].nome}</span>
+          <span class="num">${fmt.format(x.n)}</span>
+          <span class="barra"><span style="width:${((x.n / max) * 100).toFixed(1)}%"></span></span>
+        </button></li>`).join("")}</ul>
+    </div>`;
+  }
+
   function graficoSerie(s) {
     const [a, b] = intervaloMeses();
     const max = Math.max(1, ...s);
@@ -275,6 +303,7 @@
           <div class="kpi"><b>${taxa ? "1 a cada " + umACada(taxa) : "–"}</b><span>moradores</span></div>
           <div class="kpi"><b>${fmt.format(m.pop || 0)}</b><span>moradores no total</span></div>
         </div>
+        ${blocoCategorias(porCategoria((i) => D.areas[i].mun === sel.mun))}
         ${graficoSerie(serie)}
         <p class="aviso">Sem mapa de bairros desta cidade. Bairros com mais casos, como foram escritos no registro:</p>
         <ol class="lista-bairros">${lista.slice(0, 10).map((x) => `<li><span>${x.a.nome}</span><b>${fmt.format(x.v)}</b></li>`).join("")}</ol>`;
@@ -293,6 +322,7 @@
           <div class="kpi"><b>${temTaxa && n ? "1 a cada " + umACada((n / a.pop) * 1000) : "–"}</b><span>moradores</span></div>
           <div class="kpi"><b>${totMun ? fmt1.format((n / totMun) * 100) + "%" : "–"}</b><span>da cidade</span></div>
         </div>
+        ${blocoCategorias(porCategoria((i) => i === sel.i))}
         ${graficoSerie(serie)}
         ${a.geo ? "" : `<p class="aviso">Sem contorno no mapa: o IBGE não tem bairros desta cidade.</p>`}
         ${a.pop && !temTaxa ? `<p class="aviso">População muito pequena (${fmt.format(a.pop)}) para calcular taxa.</p>` : ""}
@@ -303,6 +333,7 @@
     box.className = "card";
     box.innerHTML = html;
     box.querySelector(".fechar").onclick = () => selecionar(null);
+    box.querySelectorAll(".por-cat button").forEach((b) => { b.onclick = () => escolherCategoria(b.dataset.cat); });
     ligarDicaSerie(box);
     if (popup) {
       popup.setDOMContent(box);
@@ -338,26 +369,37 @@
     return { f, ponto: [(x0 + x1) / 2, (y0 + y1) / 2] };
   }
 
-  // garante que o cartão não fique escondido atrás do painel/gaveta
-  function encaixarNaTela(ponto) {
-    const p = map.project(ponto);
-    let dx = 0, dy = 0;
-    if (window.innerWidth > 720) {
-      const minX = (window.innerWidth > 1024 ? 392 : 352) + 180;
-      if (p.x < minX) dx = p.x - minX;
-    } else {
-      const maxY = window.innerHeight - 200;
-      if (p.y > maxY) dy = p.y - maxY;
-      if (p.y < 380) dy = p.y - 380;
-    }
-    if (dx || dy) map.panBy([dx, dy], { duration: 400 });
+  // Garante que o cartão caiba na área livre da tela (fora do painel lateral
+  // no desktop e acima da gaveta no celular), deslocando o mapa se precisar.
+  function encaixarNaTela() {
+    if (!popup) return;
+    requestAnimationFrame(() => {
+      if (!popup) return;
+      const r = popup.getElement().getBoundingClientRect();
+      const celular = window.innerWidth <= 720;
+      const painel = $("#painel").getBoundingClientRect();
+      const livre = {
+        left: celular ? 8 : painel.right + 12,
+        right: window.innerWidth - 56, // controles de zoom
+        top: 8,
+        bottom: celular ? painel.top - 8 : window.innerHeight - 8,
+      };
+      let dx = 0, dy = 0;
+      if (r.left < livre.left) dx = r.left - livre.left;
+      else if (r.right > livre.right) dx = r.right - livre.right;
+      if (r.height > livre.bottom - livre.top) dy = r.top - livre.top; // maior que a área: alinha no topo
+      else if (r.bottom > livre.bottom) dy = r.bottom - livre.bottom;
+      else if (r.top < livre.top) dy = r.top - livre.top;
+      if (dx || dy) map.panBy([dx, dy], { duration: 350 });
+    });
   }
 
+  // tooltip das barras do gráfico mensal
   function ligarDicaSerie(box) {
     const dica = $("#dica");
     box.querySelectorAll(".serie rect").forEach((r) => {
       r.addEventListener("mousemove", (e) => {
-        dica.innerHTML = `<b>${nomeMes(D.meses[+r.dataset.m])}</b><span>${fmt.format(+r.dataset.v)} ocorrências</span>`;
+        dica.innerHTML = `<b>${nomeMes(D.meses[+r.dataset.m])}</b><span>${fmt.format(+r.dataset.v)} casos</span>`;
         posicionarDica(e.clientX, e.clientY);
         r.classList.add("hover");
       });
@@ -396,14 +438,16 @@
     if (!sel.ponto && alvo) sel.ponto = alvo.ponto;
     estado.sel = sel;
     if (window.innerWidth <= 720) abrirPainel(false); // no celular, recolhe a gaveta para ver o cartão
-    if (voar && alvo) {
-      map.fitBounds(caixa(alvo.f), { padding: paddingMapa(), maxZoom: 14, duration: 700 });
-      map.once("moveend", () => encaixarNaTela(sel.ponto));
-    } else {
-      encaixarNaTela(sel.ponto);
-    }
-    detalhe(sel);
     if (map && map.getSource("bai")) pintar();
+    if (voar && alvo) {
+      // voa até a área e só então abre o cartão, já com o lado certo para abrir
+      fecharPopup();
+      map.fitBounds(caixa(alvo.f), { padding: paddingMapa(), maxZoom: 14, duration: 700 });
+      map.once("moveend", () => { if (estado.sel === sel) { detalhe(sel); encaixarNaTela(); } });
+    } else {
+      detalhe(sel);
+      encaixarNaTela();
+    }
   }
 
   // ---------- mapa ----------
@@ -512,21 +556,27 @@
   }
 
   // ---------- controles ----------
+  function marcarChips() {
+    $("#categorias").querySelectorAll("button").forEach((b) => b.classList.toggle("on", b.dataset.v === estado.cat));
+  }
+
+  function escolherCategoria(id) {
+    estado.cat = id;
+    catIdx = D.categorias.findIndex((c) => c.id === id); // "todas" -> -1
+    marcarChips();
+    atualizar();
+  }
+
   function montarControles() {
     // categorias: botões em chips (Todas + uma por categoria do stats.json)
     const chips = $("#categorias");
     chips.innerHTML = [`<button data-v="todas">Todas</button>`]
       .concat(D.categorias.map((c) => `<button data-v="${c.id}">${c.nome}</button>`)).join("");
-    const marcar = () => chips.querySelectorAll("button").forEach((b) => b.classList.toggle("on", b.dataset.v === estado.cat));
     catIdx = D.categorias.findIndex((c) => c.id === estado.cat);
-    marcar();
+    marcarChips();
     chips.addEventListener("click", (e) => {
       const b = e.target.closest("button");
-      if (!b) return;
-      estado.cat = b.dataset.v;
-      catIdx = D.categorias.findIndex((c) => c.id === estado.cat); // "todas" -> -1
-      marcar();
-      atualizar();
+      if (b) escolherCategoria(b.dataset.v);
     });
 
     const anos =[...new Set(D.meses.map((m) => m.slice(0, 4)))].reverse();
