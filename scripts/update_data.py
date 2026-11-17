@@ -8,10 +8,12 @@ Como funciona:
      ocorrências (art. 3º da Lei 15.610/2021).
   2. Baixa só os arquivos novos. Cada republicação da SSP tem um nome novo,
      então um arquivo já baixado nunca muda.
-  3. Filtra furto e roubo de celular nos municípios de config/regiao.json,
-     identifica o bairro e soma por bairro x mês x tipo x dia/noite.
-  4. Grava web/data/stats.json (lido pelo mapa) e data/relatorio_bairros.csv
-     (nomes de bairro que não foram reconhecidos, para revisar).
+  3. Filtra os furtos e roubos das categorias de config/categorias.json nos
+     municípios de config/regiao.json, identifica o bairro e soma por
+     bairro x mês x categoria x furto/roubo x dia/noite.
+  4. Grava web/data/stats.json (lido pelo mapa), data/relatorio_bairros.csv
+     (como cada grafia de bairro foi tratada) e data/relatorio_tipos.csv
+     (tipos de crime usados e os que ficaram de fora).
 
 Uso:  python3 scripts/update_data.py
 """
@@ -32,23 +34,39 @@ ROOT = Path(__file__).resolve().parent.parent
 RAW = ROOT / "data" / "raw" / "ssp"
 PAGINA = "https://ssp.rs.gov.br/dados-abertos"
 BASE = "https://ssp.rs.gov.br"
-TIPOS_VISTOS = Counter()
+class Classificador:
+    """Liga o 'Tipo Enquadramento' da SSP a uma categoria de config/categorias.json.
+
+    Devolve (indice_categoria, 0 furto / 1 roubo) ou None se o tipo não entra no mapa.
+    Guarda os tipos de furto/roubo que ficaram de fora para o relatório.
+    """
+
+    def __init__(self, config):
+        self.categorias = config["categorias"]
+        self.mapa = {}
+        for i, cat in enumerate(self.categorias):
+            for t in cat["tipos"]:
+                self.mapa[norm(t)] = i
+        self.usados = Counter()
+        self.fora = Counter()
+        self.cache = {}
+
+    def __call__(self, texto):
+        if texto not in self.cache:
+            n = norm(texto)
+            cat = self.mapa.get(n)
+            furto_roubo = 0 if n.startswith("FURTO") else 1
+            self.cache[texto] = (n, None if cat is None else (cat, furto_roubo))
+        n, r = self.cache[texto]
+        if r is None:
+            if n.startswith(("FURTO", "ROUBO")):
+                self.fora[n] += 1
+        else:
+            self.usados[n] += 1
+        return r
 
 
-def tipo_celular(texto):
-    """0 = furto, 1 = roubo, None = outro. Aceita variações como
-    'FURTO DE TELEFONE CELULAR' (2021) e 'FURTO DE CELULAR' (2022+)."""
-    if "CELULAR" not in texto:
-        return None
-    t = texto.strip()
-    if t.startswith("FURTO"):
-        TIPOS_VISTOS[t] += 1
-        return 0
-    if t.startswith("ROUBO"):
-        TIPOS_VISTOS[t] += 1
-        return 1
-    return None
-UA = {"User-Agent": "Mozilla/5.0 (compatible; mapa-furtos-celular/1.0)"}
+UA = {"User-Agent": "Mozilla/5.0 (compatible; mapa-furtos-roubos/1.0)"}
 # Colunas fixas do CSV (dicionário de dados da SSP)
 COL_DATA, COL_HORA, COL_TIPO, COL_MUN, COL_BAIRRO = 1, 2, 4, 6, 8
 SIMILARIDADE_MINIMA = 0.88
@@ -187,7 +205,7 @@ class Bairros:
         return "?:" + cd_mun, "nao_encontrado"
 
 
-def processar(arquivos, ref, bairros):
+def processar(arquivos, ref, bairros, classificar):
     mun_por_nome = {norm(m["nome"]): cd for cd, m in ref["municipios"].items()}
     # mês -> (arquivo mais recente que tem esse mês, contagens)
     por_mes = {}
@@ -199,12 +217,13 @@ def processar(arquivos, ref, bairros):
             for linha in leitor:
                 if len(linha) <= COL_BAIRRO:
                     continue
-                tipo = tipo_celular(linha[COL_TIPO])
-                if tipo is None:
-                    continue
                 cd_mun = mun_por_nome.get(norm(linha[COL_MUN]))
                 if cd_mun is None:
                     continue
+                classe = classificar(linha[COL_TIPO])
+                if classe is None:
+                    continue
+                cat, tipo = classe
                 d = linha[COL_DATA].strip()
                 if len(d) != 10:
                     continue
@@ -216,14 +235,13 @@ def processar(arquivos, ref, bairros):
                 noite = 1 if (hora >= 18 or hora < 6) else 0
                 tem_geo = ref["municipios"][cd_mun]["tem_bairros"]
                 area = bairros.identificar(cd_mun, linha[COL_BAIRRO].strip(), tem_geo)
-                contagem[mes][(area, tipo, noite)] += 1
+                contagem[mes][(area, cat, tipo, noite)] += 1
         if not contagem:
-            print("aviso: nenhuma ocorrência de celular em", local)
+            print("aviso: nenhuma ocorrência da região em", local)
             continue
         for mes, c in contagem.items():
             por_mes[mes] = c
         print("processado", local, "meses:", min(contagem), "a", max(contagem), flush=True)
-    print("tipos considerados:", dict(TIPOS_VISTOS))
     return por_mes
 
 
@@ -233,7 +251,7 @@ def titulo(nome_norm):
     return " ".join(p.lower() if p in minusculas else p if p in romanos else p.capitalize() for p in nome_norm.split())
 
 
-def montar_saida(por_mes, ref, arquivos):
+def montar_saida(por_mes, ref, arquivos, categorias):
     meses = sorted(por_mes)
     areas = {}  # id -> info
     for cd, b in ref["bairros"].items():
@@ -243,9 +261,9 @@ def montar_saida(por_mes, ref, arquivos):
     linhas = []
     usados = set()
     for i, mes in enumerate(meses):
-        for (area, tipo, noite), n in sorted(por_mes[mes].items()):
+        for (area, cat, tipo, noite), n in sorted(por_mes[mes].items()):
             usados.add(area)
-            linhas.append((area, i, tipo, noite, n))
+            linhas.append((area, i, cat, tipo, noite, n))
     for area in usados:
         if area in areas:
             continue
@@ -263,10 +281,26 @@ def montar_saida(por_mes, ref, arquivos):
         "arquivos": sorted(arquivos),
         "meses": meses,
         "municipios": ref["municipios"],
+        "categorias": [{"id": c["id"], "nome": c["nome"], "descricao": c["descricao"]} for c in categorias],
         "areas": [dict(id=a, **areas[a]) for a in ids],
-        # [área, mês, tipo (0 furto / 1 roubo), noite (0/1), ocorrências]
-        "linhas": [[indice[a], m, t, nt, n] for a, m, t, nt, n in linhas],
+        # [área, mês, categoria, tipo (0 furto / 1 roubo), noite (0/1), ocorrências]
+        "linhas": [[indice[a], m, c, t, nt, n] for a, m, c, t, nt, n in linhas],
     }
+
+
+def gravar_relatorio_tipos(classificar, categorias):
+    """Tipos usados em cada categoria e tipos de furto/roubo que ficaram de fora."""
+    caminho = ROOT / "data" / "relatorio_tipos.csv"
+    with open(caminho, "w", encoding="utf-8", newline="") as f:
+        w = csv.writer(f)
+        w.writerow(["tipo_ssp", "ocorrencias_na_regiao", "categoria"])
+        for t, n in classificar.usados.most_common():
+            w.writerow([t, n, categorias[classificar.mapa[t]]["nome"]])
+        for t, n in classificar.fora.most_common():
+            w.writerow([t, n, "(fora do mapa)"])
+    print("tipos usados: %d (%d ocorrências) | furtos/roubos fora: %d tipos (%d ocorrências)" % (
+        len(classificar.usados), sum(classificar.usados.values()),
+        len(classificar.fora), sum(classificar.fora.values())))
 
 
 def gravar_relatorio(bairros, ref):
@@ -292,9 +326,11 @@ def main():
     aliases = json.loads((ROOT / "config" / "aliases.json").read_text(encoding="utf-8"))
     arquivos = listar_arquivos()
     sincronizar(arquivos)
+    config_cat = json.loads((ROOT / "config" / "categorias.json").read_text(encoding="utf-8"))
+    classificar = Classificador(config_cat)
     bairros = Bairros(ref, aliases)
-    por_mes = processar(arquivos, ref, bairros)
-    saida = montar_saida(por_mes, ref, arquivos)
+    por_mes = processar(arquivos, ref, bairros, classificar)
+    saida = montar_saida(por_mes, ref, arquivos, config_cat["categorias"])
 
     destino = ROOT / "web" / "data" / "stats.json"
     novo = json.dumps(saida, ensure_ascii=False, separators=(",", ":"))
@@ -308,6 +344,7 @@ def main():
     else:
         print("sem mudanças nos dados")
     gravar_relatorio(bairros, ref)
+    gravar_relatorio_tipos(classificar, config_cat["categorias"])
 
 
 if __name__ == "__main__":

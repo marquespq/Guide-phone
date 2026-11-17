@@ -1,9 +1,15 @@
-# Furtos de celular — Grande Porto Alegre
+# Te cuida, tchê — furtos e roubos na Grande Porto Alegre
 
-Mapa de furtos e roubos de celular registrados por bairro nos 29 municípios
-da concentração urbana de Porto Alegre (IBGE), com dados abertos da SSP-RS.
+Mapa de furtos e roubos registrados por bairro nos 29 municípios da concentração
+urbana de Porto Alegre (IBGE), com dados abertos da SSP-RS.
 
-- Filtros: furto/roubo, dia/noite (18h–6h), período, cidade.
+- Categorias (editáveis em `config/categorias.json`): celular, roubo a pedestre, veículos,
+  itens do carro, residências, comércio, fios e cabos, motoristas e ônibus.
+  A SSP não separa carro, moto e bicicleta. Furtos genéricos ("furto simples", "qualificado")
+  ficam de fora porque não dizem o que foi levado. `data/relatorio_tipos.csv` lista o que entrou
+  e o que ficou de fora.
+- Cada boletim tem um tipo só: um celular levado num assalto pode estar em "Roubo a pedestre".
+- Filtros: categoria, furto/roubo, dia/noite (18h–6h), período, cidade.
 - Medidas: ocorrências ou ocorrências por mil moradores (população do Censo 2022).
 - Clique num bairro: total, taxa, participação na cidade e série mensal.
 - Gravataí e Cachoeirinha usam os contornos oficiais de bairro das prefeituras
@@ -19,6 +25,7 @@ da concentração urbana de Porto Alegre (IBGE), com dados abertos da SSP-RS.
 ```
 config/regiao.json          municípios da região (edite para incluir/remover)
 config/aliases.json         grafias da SSP -> nome oficial do bairro
+config/categorias.json      tipos de crime da SSP agrupados em categorias
 scripts/build_geo.py        contornos + população (roda só quando a região muda)
 scripts/update_data.py      baixa a SSP e gera web/data/stats.json (roda todo mês)
 data/ref/referencia.json    nomes, códigos e população (gerado por build_geo.py)

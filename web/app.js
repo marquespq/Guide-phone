@@ -1,4 +1,4 @@
-/* Mapa de furtos e roubos de celular — Grande Porto Alegre
+/* Mapa de furtos e roubos — Grande Porto Alegre
  * Lê web/data/stats.json (gerado por scripts/update_data.py) e os contornos do IBGE.
  */
 (function () {
@@ -10,7 +10,7 @@
   const MESES = ["jan", "fev", "mar", "abr", "mai", "jun", "jul", "ago", "set", "out", "nov", "dez"];
   const POP_MINIMA = 3000; // abaixo disso a taxa por mil moradores distorce demais (ex.: bairro com shopping e poucos moradores)
 
-  const estado = { tipo: "ambos", horario: "todos", periodo: "12m", medida: "total", cidade: "", sel: null };
+  const estado = { cat: "celular", tipo: "ambos", horario: "todos", periodo: "12m", medida: "total", cidade: "", sel: null };
   let D, mun, bai, map, valores, classes;
 
   // ---------- utilidades ----------
@@ -42,11 +42,14 @@
     return nomeMes(D.meses[a]) + " a " + nomeMes(D.meses[b]);
   }
 
+  // linha = [área, mês, categoria, tipo (0 furto / 1 roubo), noite (0/1), ocorrências]
+  let catIdx = 0; // índice da categoria escolhida (-1 = todas)
   function passa(l) {
-    if (estado.tipo === "furto" && l[2] !== 0) return false;
-    if (estado.tipo === "roubo" && l[2] !== 1) return false;
-    if (estado.horario === "dia" && l[3] !== 0) return false;
-    if (estado.horario === "noite" && l[3] !== 1) return false;
+    if (catIdx >= 0 && l[2] !== catIdx) return false;
+    if (estado.tipo === "furto" && l[3] !== 0) return false;
+    if (estado.tipo === "roubo" && l[3] !== 1) return false;
+    if (estado.horario === "dia" && l[4] !== 0) return false;
+    if (estado.horario === "noite" && l[4] !== 1) return false;
     return true;
   }
 
@@ -57,9 +60,9 @@
     const porMun = {};
     for (const l of D.linhas) {
       if (l[1] < a || l[1] > b || !passa(l)) continue;
-      porArea[l[0]] += l[4];
+      porArea[l[0]] += l[5];
       const m = D.areas[l[0]].mun;
-      porMun[m] = (porMun[m] || 0) + l[4];
+      porMun[m] = (porMun[m] || 0) + l[5];
     }
     return { porArea, porMun };
   }
@@ -146,8 +149,12 @@
     const onde = estado.cidade ? D.municipios[estado.cidade].nome : D.regiao;
     const tipo = { ambos: "furtos e roubos", furto: "furtos", roubo: "roubos" }[estado.tipo];
     const hora = { todos: "", dia: " de dia", noite: " à noite" }[estado.horario];
+    const cat = catIdx >= 0 ? ` · ${D.categorias[catIdx].nome.toLowerCase()}` : " · todas as categorias";
     $("#total").textContent = fmt.format(total);
-    $("#total-desc").textContent = `${tipo}${hora} · ${onde} · ${textoPeriodo()}`;
+    $("#total-desc").textContent = `${tipo}${cat}${hora} · ${onde} · ${textoPeriodo()}`;
+    $("#cat-desc").textContent = catIdx >= 0
+      ? D.categorias[catIdx].descricao
+      : "Soma de todas as categorias. Ficam de fora furtos genéricos (“furto simples”, “qualificado”), que não dizem o que foi levado.";
   }
 
   // Explica a medida escolhida com um exemplo real: o bairro com mais casos
@@ -213,7 +220,7 @@
     const top = itens.slice(0, 12);
     const max = top.length ? top[0].v : 1;
     const fmtv = estado.medida === "total" ? (x) => fmt.format(x) : (x) => "1 a cada " + umACada(x);
-    $("#ranking-titulo").textContent = estado.medida === "total" ? "Onde mais some celular" : "Mais casos por morador";
+    $("#ranking-titulo").textContent = estado.medida === "total" ? "Onde mais acontece" : "Mais casos por morador";
     $("#ranking").innerHTML = top.length
       ? top.map((t) => `
         <li><button data-i="${t.i}">
@@ -227,7 +234,7 @@
   // ---------- detalhe ----------
   function serieMensal(filtroArea) {
     const s = new Array(D.meses.length).fill(0);
-    for (const l of D.linhas) if (filtroArea(l[0]) && passa(l)) s[l[1]] += l[4];
+    for (const l of D.linhas) if (filtroArea(l[0]) && passa(l)) s[l[1]] += l[5];
     return s;
   }
 
@@ -438,7 +445,23 @@
 
   // ---------- controles ----------
   function montarControles() {
-    const anos = [...new Set(D.meses.map((m) => m.slice(0, 4)))].reverse();
+    // categorias: botões em chips (Todas + uma por categoria do stats.json)
+    const chips = $("#categorias");
+    chips.innerHTML = [`<button data-v="todas">Todas</button>`]
+      .concat(D.categorias.map((c) => `<button data-v="${c.id}">${c.nome}</button>`)).join("");
+    const marcar = () => chips.querySelectorAll("button").forEach((b) => b.classList.toggle("on", b.dataset.v === estado.cat));
+    catIdx = D.categorias.findIndex((c) => c.id === estado.cat);
+    marcar();
+    chips.addEventListener("click", (e) => {
+      const b = e.target.closest("button");
+      if (!b) return;
+      estado.cat = b.dataset.v;
+      catIdx = D.categorias.findIndex((c) => c.id === estado.cat); // "todas" -> -1
+      marcar();
+      atualizar();
+    });
+
+    const anos =[...new Set(D.meses.map((m) => m.slice(0, 4)))].reverse();
     const per = $("#periodo");
     const ultimo = D.meses[D.meses.length - 1];
     per.innerHTML =

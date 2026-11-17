@@ -74,7 +74,16 @@ h2 { margin: 0 0 8px; font-size: 13px; font-weight: 600; color: var(--text-2); t
 
 .filtros { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 12px; }
 .grupo { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
-.grupo:nth-child(1), .grupo:nth-child(2), .grupo:nth-child(5) { grid-column: 1 / -1; }
+.grupo:nth-child(1), .grupo:nth-child(2), .grupo:nth-child(3), .grupo:nth-child(6) { grid-column: 1 / -1; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chips button {
+  border: 1px solid var(--border); background: var(--surface); color: var(--text-2);
+  font: inherit; font-size: 13px; padding: 5px 11px; border-radius: 999px; cursor: pointer;
+}
+.chips button:hover { background: var(--surface-2); }
+.chips button.on { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); font-weight: 600; }
+.chips button:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+.cat-desc { margin: 2px 0 0; font-size: 12px; color: var(--text-3); line-height: 1.4; }
 .rotulo { font-size: 12px; color: var(--text-3); }
 .seg { display: flex; background: var(--surface-2); border-radius: 9px; padding: 3px; gap: 2px; }
 .seg button {

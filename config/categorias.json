@@ -1,0 +1,53 @@
+{
+  "_como_usar": "Cada categoria agrupa tipos de crime ('Tipo Enquadramento') da SSP-RS. Furto ou roubo é deduzido do começo do nome do tipo. Tipos que aparecem nos dados mas não estão aqui ficam de fora e são listados em data/relatorio_tipos.csv.",
+  "categorias": [
+    {
+      "id": "celular",
+      "nome": "Celular",
+      "descricao": "Boletins classificados como furto ou roubo de celular. Celular levado num assalto na rua muitas vezes está em “Roubo a pedestre”.",
+      "tipos": ["FURTO DE CELULAR", "ROUBO DE CELULAR", "FURTO DE TELEFONE CELULAR", "ROUBO DE TELEFONE CELULAR"]
+    },
+    {
+      "id": "pedestre",
+      "nome": "Roubo a pedestre",
+      "descricao": "Assalto a quem está a pé na rua. Inclui roubos com lesão, contra estudantes e com morte.",
+      "tipos": ["ROUBO A PEDESTRE", "ROUBO A PEDESTRE COM LESOES", "ROUBO A PEDESTRE ESCOLAR", "ROUBO A PEDESTRE COM MORTE"]
+    },
+    {
+      "id": "veiculo",
+      "nome": "Veículos",
+      "descricao": "Furto ou roubo do próprio veículo. A SSP não separa carro, moto e bicicleta.",
+      "tipos": ["FURTO DE VEICULO", "ROUBO DE VEICULO", "ROUBO DE VEICULO COM LESOES", "ROUBO DE VEICULO COM MORTE", "FURTO VEICULO AUTOMOTOR TRANSPORTE OUTRO ESTADO"]
+    },
+    {
+      "id": "em_veiculo",
+      "nome": "Itens do carro",
+      "descricao": "Furto de coisas de dentro do veículo, estepe incluído.",
+      "tipos": ["FURTO EM VEICULO", "FURTO EM VEICULO ESTEPE"]
+    },
+    {
+      "id": "residencia",
+      "nome": "Residências",
+      "descricao": "Furto, arrombamento e roubo em casas e apartamentos.",
+      "tipos": ["FURTO/ARROMBAMENTO DE RESIDENCIA", "FURTO SIMPLES EM RESIDENCIA", "ROUBO A RESIDENCIA", "ROUBO A RESIDENCIA COM LESOES", "ROUBO A RESIDENCIA COM MORTE"]
+    },
+    {
+      "id": "comercio",
+      "nome": "Comércio",
+      "descricao": "Furto, arrombamento e roubo a lojas, escolas, bancos, lotéricas e joalherias.",
+      "tipos": ["FURTO/ARROMBAMENTO ESTABELECIMENTO COMERCIAL", "ROUBO A ESTABELECIMENTO COMERCIAL", "ROUBO A ESTABELECIMENTO COMERCIAL COM LESOES", "ROUBO A ESTABELECIMENTO COMERCIAL COM MORTE", "FURTO/ARROMBAMENTO A ESTABELECIMENTO DE ENSINO", "ROUBO A ESTABELEC. DE ENSINO", "FURTO/ARROMBAMENTO ESTABELECIMENTO BANCARIO", "ROUBO A ESTABELECIMENTO BANCARIO", "ROUBO A POSTO BANCARIO", "ROUBO A CASA LOTERICA", "ROUBO A JOALHERIAS E OTICAS", "FURTO/ARROMBAMENTO A CAIXA ELETRONICO"]
+    },
+    {
+      "id": "fios",
+      "nome": "Fios e cabos",
+      "descricao": "Furto de fios e cabos da rede elétrica e de telefonia.",
+      "tipos": ["FURTO DE FIOS E CABOS"]
+    },
+    {
+      "id": "transporte",
+      "nome": "Motoristas e ônibus",
+      "descricao": "Roubo a motoristas (aplicativo, táxi, entregas, lotação, caminhão) e a ônibus e passageiros.",
+      "tipos": ["ROUBO A MOTORISTA DE APLICATIVO", "ROUBO A MOTORISTA DE TAXI", "ROUBO A MOTORISTA DE CARRO ENTREGAS", "ROUBO A MOTORISTA PARTICULAR", "ROUBO A MOTORISTA DE LOTACAO", "ROUBO A MOTORISTA DE CARGA DE CAMINHAO", "ROUBO A MOTORISTA COM LESOES", "ROUBO A MOTORISTA COM MORTE", "ROUBO A TRANSPORTE COLETIVO", "ROUBO A PASSAGEIRO TRANSP. COLETIVO E LOTACAO", "FURTO DE CARGA EM CAMINHAO"]
+    }
+  ]
+}
