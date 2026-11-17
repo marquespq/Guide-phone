@@ -1,0 +1,25 @@
+{
+  "_como_usar": "Grafias da SSP que não batem com o nome oficial do bairro no IBGE. Chave = como aparece na SSP (acento, maiúsculas e pontuação não importam); valor = nome oficial do bairro, ou null para descartar. Depois de rodar scripts/update_data.py, veja data/relatorio_bairros.csv (linhas com metodo=nao_encontrado) e acrescente aqui.",
+  "_bairros_antigos_poa": "Marcílio Dias, Protásio Alves, São José e Jardim Itu Sabará eram bairros antes da Lei 12.112/2016 e foram divididos entre bairros novos. Ficam como 'não identificado' de propósito para não atribuir casos ao bairro errado.",
+  "Porto Alegre": {
+    "CENTRO": "Centro Histórico",
+    "C HISTORICO": "Centro Histórico",
+    "CAIS DO PORTO": "Centro Histórico",
+    "PASSO D AREIA": "Passo da Areia",
+    "P BELAS": "Praia de Belas",
+    "PR BELAS": "Praia de Belas",
+    "PATERNON": "Partenon",
+    "M DEUS": "Menino-Deus",
+    "C BAIXA": "Cidade Baixa",
+    "BONFIM": "Bom Fim",
+    "PASSO PEDRAS": "Passo das Pedras",
+    "ABERTA MORROS": "Aberta dos Morros",
+    "JARDIM DONA LEOPOLDINA": "Jardim Leopoldina",
+    "JARDIM DONA LEOPOLDI": "Jardim Leopoldina"
+  },
+  "Viamão": {
+    "JARDIM KRAHE": "Krahe",
+    "VILA AUGUSTA": "Augusta",
+    "VILA ELSA": "Elsa"
+  }
+}

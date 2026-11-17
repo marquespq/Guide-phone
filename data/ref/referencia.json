@@ -1,0 +1,1787 @@
+{
+ "regiao": "Grande Porto Alegre",
+ "municipios": {
+  "4314902": {
+   "nome": "Porto Alegre",
+   "pop": 1332845,
+   "tem_bairros": true
+  },
+  "4304606": {
+   "nome": "Canoas",
+   "pop": 347657,
+   "tem_bairros": true
+  },
+  "4309209": {
+   "nome": "Gravataí",
+   "pop": 265074,
+   "tem_bairros": false
+  },
+  "4313409": {
+   "nome": "Novo Hamburgo",
+   "pop": 227646,
+   "tem_bairros": true
+  },
+  "4323002": {
+   "nome": "Viamão",
+   "pop": 224112,
+   "tem_bairros": true
+  },
+  "4318705": {
+   "nome": "São Leopoldo",
+   "pop": 217409,
+   "tem_bairros": true
+  },
+  "4300604": {
+   "nome": "Alvorada",
+   "pop": 187315,
+   "tem_bairros": false
+  },
+  "4303103": {
+   "nome": "Cachoeirinha",
+   "pop": 136258,
+   "tem_bairros": false
+  },
+  "4320008": {
+   "nome": "Sapucaia do Sul",
+   "pop": 132107,
+   "tem_bairros": false
+  },
+  "4309308": {
+   "nome": "Guaíba",
+   "pop": 92924,
+   "tem_bairros": true
+  },
+  "4307708": {
+   "nome": "Esteio",
+   "pop": 76137,
+   "tem_bairros": true
+  },
+  "4319901": {
+   "nome": "Sapiranga",
+   "pop": 75648,
+   "tem_bairros": true
+  },
+  "4303905": {
+   "nome": "Campo Bom",
+   "pop": 62886,
+   "tem_bairros": false
+  },
+  "4307609": {
+   "nome": "Estância Velha",
+   "pop": 47924,
+   "tem_bairros": true
+  },
+  "4306767": {
+   "nome": "Eldorado do Sul",
+   "pop": 39559,
+   "tem_bairros": true
+  },
+  "4314803": {
+   "nome": "Portão",
+   "pop": 34071,
+   "tem_bairros": false
+  },
+  "4306403": {
+   "nome": "Dois Irmãos",
+   "pop": 30709,
+   "tem_bairros": true
+  },
+  "4313375": {
+   "nome": "Nova Santa Rita",
+   "pop": 29024,
+   "tem_bairros": false
+  },
+  "4319505": {
+   "nome": "São Sebastião do Caí",
+   "pop": 24428,
+   "tem_bairros": false
+  },
+  "4310801": {
+   "nome": "Ivoti",
+   "pop": 22983,
+   "tem_bairros": true
+  },
+  "4313060": {
+   "nome": "Nova Hartz",
+   "pop": 20088,
+   "tem_bairros": true
+  },
+  "4304689": {
+   "nome": "Capela de Santana",
+   "pop": 11159,
+   "tem_bairros": true
+  },
+  "4300877": {
+   "nome": "Araricá",
+   "pop": 8525,
+   "tem_bairros": true
+  },
+  "4309050": {
+   "nome": "Glorinha",
+   "pop": 7658,
+   "tem_bairros": false
+  },
+  "4311627": {
+   "nome": "Lindolfo Collor",
+   "pop": 6248,
+   "tem_bairros": true
+  },
+  "4312476": {
+   "nome": "Morro Reuter",
+   "pop": 6029,
+   "tem_bairros": false
+  },
+  "4314423": {
+   "nome": "Picada Café",
+   "pop": 5351,
+   "tem_bairros": false
+  },
+  "4318481": {
+   "nome": "São José do Hortêncio",
+   "pop": 4447,
+   "tem_bairros": false
+  },
+  "4315149": {
+   "nome": "Presidente Lucena",
+   "pop": 3077,
+   "tem_bairros": false
+  }
+ },
+ "bairros": {
+  "4300877001": {
+   "nome": "Centro",
+   "mun": "4300877",
+   "pop": 1271
+  },
+  "4300877006": {
+   "nome": "Emancipação",
+   "mun": "4300877",
+   "pop": 179
+  },
+  "4300877002": {
+   "nome": "da Canoa",
+   "mun": "4300877",
+   "pop": 1275
+  },
+  "4300877003": {
+   "nome": "da Integração",
+   "mun": "4300877",
+   "pop": 640
+  },
+  "4300877004": {
+   "nome": "Azaléia",
+   "mun": "4300877",
+   "pop": 744
+  },
+  "4300877007": {
+   "nome": "Campo da Brazina",
+   "mun": "4300877",
+   "pop": 796
+  },
+  "4300877008": {
+   "nome": "Imperatriz",
+   "mun": "4300877",
+   "pop": 1508
+  },
+  "4300877005": {
+   "nome": "da Estação",
+   "mun": "4300877",
+   "pop": 439
+  },
+  "4304606004": {
+   "nome": "São José",
+   "mun": "4304606",
+   "pop": 16837
+  },
+  "4304606013": {
+   "nome": "Mato Grande",
+   "mun": "4304606",
+   "pop": 16377
+  },
+  "4304606001": {
+   "nome": "Industrial",
+   "mun": "4304606",
+   "pop": 32
+  },
+  "4304606012": {
+   "nome": "Olaria",
+   "mun": "4304606",
+   "pop": 16264
+  },
+  "4304606014": {
+   "nome": "Fátima",
+   "mun": "4304606",
+   "pop": 19393
+  },
+  "4304606009": {
+   "nome": "Centro",
+   "mun": "4304606",
+   "pop": 15698
+  },
+  "4304606011": {
+   "nome": "Estância Velha",
+   "mun": "4304606",
+   "pop": 30519
+  },
+  "4304606016": {
+   "nome": "Niterói",
+   "mun": "4304606",
+   "pop": 32630
+  },
+  "4304606008": {
+   "nome": "Harmonia",
+   "mun": "4304606",
+   "pop": 34740
+  },
+  "4304606003": {
+   "nome": "São Luís",
+   "mun": "4304606",
+   "pop": 4407
+  },
+  "4304606018": {
+   "nome": "Ilha das Graças",
+   "mun": "4304606",
+   "pop": null
+  },
+  "4304606006": {
+   "nome": "Guajuviras",
+   "mun": "4304606",
+   "pop": 41282
+  },
+  "4304606007": {
+   "nome": "Mathias Velho",
+   "mun": "4304606",
+   "pop": 43325
+  },
+  "4304606017": {
+   "nome": "Rio Branco",
+   "mun": "4304606",
+   "pop": 24578
+  },
+  "4304606005": {
+   "nome": "Igara",
+   "mun": "4304606",
+   "pop": 20213
+  },
+  "4304606015": {
+   "nome": "Nossa Senhora das Graças",
+   "mun": "4304606",
+   "pop": 14968
+  },
+  "4304606002": {
+   "nome": "Brigadeira",
+   "mun": "4304606",
+   "pop": 1143
+  },
+  "4304606010": {
+   "nome": "Marechal Rondon",
+   "mun": "4304606",
+   "pop": 15251
+  },
+  "4304689001": {
+   "nome": "Centro",
+   "mun": "4304689",
+   "pop": 1822
+  },
+  "4304689003": {
+   "nome": "São Lucas",
+   "mun": "4304689",
+   "pop": 767
+  },
+  "4304689006": {
+   "nome": "Bosque de Capela",
+   "mun": "4304689",
+   "pop": 1338
+  },
+  "4304689004": {
+   "nome": "Estação",
+   "mun": "4304689",
+   "pop": 1358
+  },
+  "4304689005": {
+   "nome": "Progresso",
+   "mun": "4304689",
+   "pop": 412
+  },
+  "4304689007": {
+   "nome": "Parque Primavera",
+   "mun": "4304689",
+   "pop": 833
+  },
+  "4304689002": {
+   "nome": "Imigrantes",
+   "mun": "4304689",
+   "pop": 1250
+  },
+  "4306403011": {
+   "nome": "São João",
+   "mun": "4306403",
+   "pop": 3519
+  },
+  "4306403005": {
+   "nome": "União",
+   "mun": "4306403",
+   "pop": 1419
+  },
+  "4306403013": {
+   "nome": "Sete de Setembro",
+   "mun": "4306403",
+   "pop": 490
+  },
+  "4306403003": {
+   "nome": "Primavera",
+   "mun": "4306403",
+   "pop": 2411
+  },
+  "4306403008": {
+   "nome": "São Pedro",
+   "mun": "4306403",
+   "pop": 1676
+  },
+  "4306403006": {
+   "nome": "Industrial",
+   "mun": "4306403",
+   "pop": 566
+  },
+  "4306403002": {
+   "nome": "Beira Rio",
+   "mun": "4306403",
+   "pop": 841
+  },
+  "4306403001": {
+   "nome": "Centro",
+   "mun": "4306403",
+   "pop": 3368
+  },
+  "4306403004": {
+   "nome": "Floresta",
+   "mun": "4306403",
+   "pop": 1965
+  },
+  "4306403014": {
+   "nome": "Vale Verde",
+   "mun": "4306403",
+   "pop": 1292
+  },
+  "4306403009": {
+   "nome": "Becker",
+   "mun": "4306403",
+   "pop": 256
+  },
+  "4306403012": {
+   "nome": "Vila Rosa",
+   "mun": "4306403",
+   "pop": 351
+  },
+  "4306403010": {
+   "nome": "São Miguel",
+   "mun": "4306403",
+   "pop": 631
+  },
+  "4306403007": {
+   "nome": "Portal da Serra",
+   "mun": "4306403",
+   "pop": 898
+  },
+  "4306767005": {
+   "nome": "Itaí",
+   "mun": "4306767",
+   "pop": 990
+  },
+  "4306767007": {
+   "nome": "Progresso",
+   "mun": "4306767",
+   "pop": 1168
+  },
+  "4306767003": {
+   "nome": "Chácara",
+   "mun": "4306767",
+   "pop": 2470
+  },
+  "4306767014": {
+   "nome": "Picada",
+   "mun": "4306767",
+   "pop": 1255
+  },
+  "4306767010": {
+   "nome": "Sans Souci",
+   "mun": "4306767",
+   "pop": 4101
+  },
+  "4306767004": {
+   "nome": "Cidade Verde",
+   "mun": "4306767",
+   "pop": 3439
+  },
+  "4306767009": {
+   "nome": "Loteamento Popular",
+   "mun": "4306767",
+   "pop": 1228
+  },
+  "4306767006": {
+   "nome": "Medianeira",
+   "mun": "4306767",
+   "pop": 2856
+  },
+  "4306767002": {
+   "nome": "Centro Novo",
+   "mun": "4306767",
+   "pop": 6197
+  },
+  "4306767012": {
+   "nome": "Vila da Paz",
+   "mun": "4306767",
+   "pop": 742
+  },
+  "4306767008": {
+   "nome": "Residencial Eldorado",
+   "mun": "4306767",
+   "pop": 1416
+  },
+  "4306767011": {
+   "nome": "Sol Nascente",
+   "mun": "4306767",
+   "pop": 783
+  },
+  "4306767001": {
+   "nome": "Centro",
+   "mun": "4306767",
+   "pop": 2174
+  },
+  "4306767013": {
+   "nome": "Industrial",
+   "mun": "4306767",
+   "pop": 1278
+  },
+  "4306767015": {
+   "nome": "Bom Retiro",
+   "mun": "4306767",
+   "pop": 231
+  },
+  "4306767020": {
+   "nome": "Parque das Acácias Norte",
+   "mun": "4306767",
+   "pop": 155
+  },
+  "4306767018": {
+   "nome": "Parque Eldorado 3",
+   "mun": "4306767",
+   "pop": 1178
+  },
+  "4306767017": {
+   "nome": "Parque Eldorado 2",
+   "mun": "4306767",
+   "pop": 1132
+  },
+  "4306767019": {
+   "nome": "Parque Eldorado 4",
+   "mun": "4306767",
+   "pop": 99
+  },
+  "4306767021": {
+   "nome": "Parque das Acácias Sul",
+   "mun": "4306767",
+   "pop": 367
+  },
+  "4306767016": {
+   "nome": "Parque Eldorado 1",
+   "mun": "4306767",
+   "pop": 2599
+  },
+  "4307609015": {
+   "nome": "das Quintas",
+   "mun": "4307609",
+   "pop": 1135
+  },
+  "4307609004": {
+   "nome": "Floresta",
+   "mun": "4307609",
+   "pop": 3014
+  },
+  "4307609009": {
+   "nome": "Rincão da Saudade",
+   "mun": "4307609",
+   "pop": 322
+  },
+  "4307609016": {
+   "nome": "Bela Vista",
+   "mun": "4307609",
+   "pop": 2747
+  },
+  "4307609013": {
+   "nome": "Campo Grande",
+   "mun": "4307609",
+   "pop": 4308
+  },
+  "4307609007": {
+   "nome": "Rincão de Ilhéus",
+   "mun": "4307609",
+   "pop": 6198
+  },
+  "4307609001": {
+   "nome": "Centro",
+   "mun": "4307609",
+   "pop": 2222
+  },
+  "4307609005": {
+   "nome": "das Rosas",
+   "mun": "4307609",
+   "pop": 2025
+  },
+  "4307609011": {
+   "nome": "Lago Azul",
+   "mun": "4307609",
+   "pop": 5547
+  },
+  "4307609002": {
+   "nome": "União",
+   "mun": "4307609",
+   "pop": 5022
+  },
+  "4307609010": {
+   "nome": "Encosta do Sol",
+   "mun": "4307609",
+   "pop": 3573
+  },
+  "4307609014": {
+   "nome": "Lira",
+   "mun": "4307609",
+   "pop": 1542
+  },
+  "4307609012": {
+   "nome": "Industrial",
+   "mun": "4307609",
+   "pop": 50
+  },
+  "4307609017": {
+   "nome": "das Águas",
+   "mun": "4307609",
+   "pop": 96
+  },
+  "4307609003": {
+   "nome": "Sol Nascente",
+   "mun": "4307609",
+   "pop": 5658
+  },
+  "4307609008": {
+   "nome": "Colinas Verdes",
+   "mun": "4307609",
+   "pop": 191
+  },
+  "4307609006": {
+   "nome": "Rincão Gaúcho",
+   "mun": "4307609",
+   "pop": 1646
+  },
+  "4307708004": {
+   "nome": "Industrial",
+   "mun": "4307708",
+   "pop": null
+  },
+  "4307708002": {
+   "nome": "Três Portos",
+   "mun": "4307708",
+   "pop": 1017
+  },
+  "4307708009": {
+   "nome": "Liberdade",
+   "mun": "4307708",
+   "pop": 4221
+  },
+  "4307708008": {
+   "nome": "São Sebastião",
+   "mun": "4307708",
+   "pop": 8122
+  },
+  "4307708011": {
+   "nome": "Olímpica",
+   "mun": "4307708",
+   "pop": 5102
+  },
+  "4307708003": {
+   "nome": "Novo Esteio",
+   "mun": "4307708",
+   "pop": 6085
+  },
+  "4307708005": {
+   "nome": "Tamandaré",
+   "mun": "4307708",
+   "pop": 4208
+  },
+  "4307708007": {
+   "nome": "Primavera",
+   "mun": "4307708",
+   "pop": 5642
+  },
+  "4307708001": {
+   "nome": "Três Marias",
+   "mun": "4307708",
+   "pop": 5289
+  },
+  "4307708012": {
+   "nome": "Santo Inácio",
+   "mun": "4307708",
+   "pop": 6683
+  },
+  "4307708006": {
+   "nome": "Centro",
+   "mun": "4307708",
+   "pop": 10064
+  },
+  "4307708014": {
+   "nome": "Parque Primavera",
+   "mun": "4307708",
+   "pop": 7687
+  },
+  "4307708010": {
+   "nome": "São José",
+   "mun": "4307708",
+   "pop": 6867
+  },
+  "4307708013": {
+   "nome": "Jardim Planalto",
+   "mun": "4307708",
+   "pop": 4635
+  },
+  "4309308001": {
+   "nome": "Jardim Iolanda",
+   "mun": "4309308",
+   "pop": 6100
+  },
+  "4309308004": {
+   "nome": "Alegria",
+   "mun": "4309308",
+   "pop": 3448
+  },
+  "4309308014": {
+   "nome": "Columbia City",
+   "mun": "4309308",
+   "pop": 4211
+  },
+  "4309308013": {
+   "nome": "Colina",
+   "mun": "4309308",
+   "pop": 10662
+  },
+  "4309308003": {
+   "nome": "Altos da Alegria",
+   "mun": "4309308",
+   "pop": 469
+  },
+  "4309308016": {
+   "nome": "Passo Fundo",
+   "mun": "4309308",
+   "pop": 5390
+  },
+  "4309308012": {
+   "nome": "Ermo",
+   "mun": "4309308",
+   "pop": 4243
+  },
+  "4309308009": {
+   "nome": "Santa Rita",
+   "mun": "4309308",
+   "pop": 19504
+  },
+  "4309308007": {
+   "nome": "Chaves Barcellos",
+   "mun": "4309308",
+   "pop": 36
+  },
+  "4309308002": {
+   "nome": "Bom Fim",
+   "mun": "4309308",
+   "pop": 8394
+  },
+  "4309308015": {
+   "nome": "Florida",
+   "mun": "4309308",
+   "pop": 5041
+  },
+  "4309308011": {
+   "nome": "Centro",
+   "mun": "4309308",
+   "pop": 5320
+  },
+  "4309308006": {
+   "nome": "Jardim dos Lagos",
+   "mun": "4309308",
+   "pop": 5752
+  },
+  "4309308008": {
+   "nome": "Coronel Nassuca",
+   "mun": "4309308",
+   "pop": 2716
+  },
+  "4309308005": {
+   "nome": "Pedras Brancas",
+   "mun": "4309308",
+   "pop": 4878
+  },
+  "4309308017": {
+   "nome": "Alvorada",
+   "mun": "4309308",
+   "pop": 1951
+  },
+  "4309308010": {
+   "nome": "Parque 35",
+   "mun": "4309308",
+   "pop": 2582
+  },
+  "4310801018": {
+   "nome": "Cidade Nova",
+   "mun": "4310801",
+   "pop": 2287
+  },
+  "4310801016": {
+   "nome": "Sete de Setembro",
+   "mun": "4310801",
+   "pop": 581
+  },
+  "4310801003": {
+   "nome": "São José",
+   "mun": "4310801",
+   "pop": 481
+  },
+  "4310801001": {
+   "nome": "Centro",
+   "mun": "4310801",
+   "pop": 846
+  },
+  "4310801008": {
+   "nome": "Brasília",
+   "mun": "4310801",
+   "pop": 113
+  },
+  "4310801014": {
+   "nome": "Jardim Panorâmico",
+   "mun": "4310801",
+   "pop": 3326
+  },
+  "4310801013": {
+   "nome": "Jardim Buhler",
+   "mun": "4310801",
+   "pop": 944
+  },
+  "4310801010": {
+   "nome": "Harmonia",
+   "mun": "4310801",
+   "pop": 989
+  },
+  "4310801019": {
+   "nome": "Colina Verde",
+   "mun": "4310801",
+   "pop": 485
+  },
+  "4310801012": {
+   "nome": "Morada do Sol",
+   "mun": "4310801",
+   "pop": 2143
+  },
+  "4310801002": {
+   "nome": "Farroupilha",
+   "mun": "4310801",
+   "pop": 1220
+  },
+  "4310801004": {
+   "nome": "Feitoria Nova",
+   "mun": "4310801",
+   "pop": 222
+  },
+  "4310801009": {
+   "nome": "Vinte e Cinco de Julho",
+   "mun": "4310801",
+   "pop": 709
+  },
+  "4310801006": {
+   "nome": "Jardim do Alto",
+   "mun": "4310801",
+   "pop": 628
+  },
+  "4310801015": {
+   "nome": "Bom Jardim",
+   "mun": "4310801",
+   "pop": 1786
+  },
+  "4310801007": {
+   "nome": "Concórdia",
+   "mun": "4310801",
+   "pop": 1973
+  },
+  "4310801017": {
+   "nome": "Vista Alegre",
+   "mun": "4310801",
+   "pop": 811
+  },
+  "4310801005": {
+   "nome": "Palmares",
+   "mun": "4310801",
+   "pop": 315
+  },
+  "4310801011": {
+   "nome": "Bom Pastor",
+   "mun": "4310801",
+   "pop": 857
+  },
+  "4311627002": {
+   "nome": "Quarenta e Oito Baixa",
+   "mun": "4311627",
+   "pop": 821
+  },
+  "4311627003": {
+   "nome": "Feldmann",
+   "mun": "4311627",
+   "pop": 1670
+  },
+  "4311627001": {
+   "nome": "Centro",
+   "mun": "4311627",
+   "pop": 1284
+  },
+  "4313060004": {
+   "nome": "das Rosas",
+   "mun": "4313060",
+   "pop": 1131
+  },
+  "4313060001": {
+   "nome": "Imigrantes",
+   "mun": "4313060",
+   "pop": 1971
+  },
+  "4313060005": {
+   "nome": "Liberdade",
+   "mun": "4313060",
+   "pop": 1936
+  },
+  "4313060006": {
+   "nome": "Bela Vista",
+   "mun": "4313060",
+   "pop": 1492
+  },
+  "4313060008": {
+   "nome": "Vila Nova",
+   "mun": "4313060",
+   "pop": 2759
+  },
+  "4313060002": {
+   "nome": "Progresso",
+   "mun": "4313060",
+   "pop": 2277
+  },
+  "4313060007": {
+   "nome": "Centro",
+   "mun": "4313060",
+   "pop": 1389
+  },
+  "4313060003": {
+   "nome": "Primavera",
+   "mun": "4313060",
+   "pop": 1102
+  },
+  "4313409024": {
+   "nome": "Roselândia",
+   "mun": "4313409",
+   "pop": 5296
+  },
+  "4313409008": {
+   "nome": "Vila Nova",
+   "mun": "4313409",
+   "pop": 5564
+  },
+  "4313409003": {
+   "nome": "Rincão",
+   "mun": "4313409",
+   "pop": 5019
+  },
+  "4313409026": {
+   "nome": "Boa Saúde",
+   "mun": "4313409",
+   "pop": 12773
+  },
+  "4313409028": {
+   "nome": "Alpes do Vale",
+   "mun": "4313409",
+   "pop": 2142
+  },
+  "4313409022": {
+   "nome": "Centro",
+   "mun": "4313409",
+   "pop": 8455
+  },
+  "4313409013": {
+   "nome": "Liberdade",
+   "mun": "4313409",
+   "pop": 6553
+  },
+  "4313409025": {
+   "nome": "Rio Branco",
+   "mun": "4313409",
+   "pop": 4014
+  },
+  "4313409016": {
+   "nome": "Boa Vista",
+   "mun": "4313409",
+   "pop": 2943
+  },
+  "4313409004": {
+   "nome": "Vila Rosa",
+   "mun": "4313409",
+   "pop": 3027
+  },
+  "4313409020": {
+   "nome": "São José",
+   "mun": "4313409",
+   "pop": 5821
+  },
+  "4313409015": {
+   "nome": "Rondônia",
+   "mun": "4313409",
+   "pop": 11456
+  },
+  "4313409002": {
+   "nome": "Primavera",
+   "mun": "4313409",
+   "pop": 6146
+  },
+  "4313409011": {
+   "nome": "Industrial",
+   "mun": "4313409",
+   "pop": 3441
+  },
+  "4313409009": {
+   "nome": "Pátria Nova",
+   "mun": "4313409",
+   "pop": 4272
+  },
+  "4313409012": {
+   "nome": "Ideal",
+   "mun": "4313409",
+   "pop": 6763
+  },
+  "4313409017": {
+   "nome": "Mauá",
+   "mun": "4313409",
+   "pop": 5937
+  },
+  "4313409005": {
+   "nome": "Operário",
+   "mun": "4313409",
+   "pop": 4554
+  },
+  "4313409019": {
+   "nome": "São Jorge",
+   "mun": "4313409",
+   "pop": 9802
+  },
+  "4313409021": {
+   "nome": "Hamburgo Velho",
+   "mun": "4313409",
+   "pop": 2487
+  },
+  "4313409023": {
+   "nome": "Diehl",
+   "mun": "4313409",
+   "pop": 8052
+  },
+  "4313409007": {
+   "nome": "Guarani",
+   "mun": "4313409",
+   "pop": 4954
+  },
+  "4313409006": {
+   "nome": "Petrópolis",
+   "mun": "4313409",
+   "pop": 3592
+  },
+  "4313409027": {
+   "nome": "Lomba Grande",
+   "mun": "4313409",
+   "pop": 7716
+  },
+  "4313409010": {
+   "nome": "Ouro Branco",
+   "mun": "4313409",
+   "pop": 2970
+  },
+  "4313409014": {
+   "nome": "Santo Afonso",
+   "mun": "4313409",
+   "pop": 21920
+  },
+  "4313409018": {
+   "nome": "Canudos",
+   "mun": "4313409",
+   "pop": 56453
+  },
+  "4314902014": {
+   "nome": "Santo Antônio",
+   "mun": "4314902",
+   "pop": 13105
+  },
+  "4314902047": {
+   "nome": "São Geraldo",
+   "mun": "4314902",
+   "pop": 6948
+  },
+  "4314902065": {
+   "nome": "São Sebastião",
+   "mun": "4314902",
+   "pop": 7514
+  },
+  "4314902066": {
+   "nome": "Humaitá",
+   "mun": "4314902",
+   "pop": 12744
+  },
+  "4314902030": {
+   "nome": "Espírito Santo",
+   "mun": "4314902",
+   "pop": 4953
+  },
+  "4314902025": {
+   "nome": "Vila Assunção",
+   "mun": "4314902",
+   "pop": 3974
+  },
+  "4314902091": {
+   "nome": "Morro Santana",
+   "mun": "4314902",
+   "pop": 21640
+  },
+  "4314902049": {
+   "nome": "Higienópolis",
+   "mun": "4314902",
+   "pop": 10284
+  },
+  "4314902068": {
+   "nome": "Jardim Carvalho",
+   "mun": "4314902",
+   "pop": 23405
+  },
+  "4314902074": {
+   "nome": "Lami",
+   "mun": "4314902",
+   "pop": 6677
+  },
+  "4314902057": {
+   "nome": "Vila Ipiranga",
+   "mun": "4314902",
+   "pop": 18041
+  },
+  "4314902075": {
+   "nome": "Serraria",
+   "mun": "4314902",
+   "pop": 4385
+  },
+  "4314902073": {
+   "nome": "Belém Novo",
+   "mun": "4314902",
+   "pop": 9851
+  },
+  "4314902054": {
+   "nome": "Jardim Lindóia",
+   "mun": "4314902",
+   "pop": 7587
+  },
+  "4314902052": {
+   "nome": "Jardim São Pedro",
+   "mun": "4314902",
+   "pop": 3320
+  },
+  "4314902061": {
+   "nome": "Sarandi",
+   "mun": "4314902",
+   "pop": 51539
+  },
+  "4314902081": {
+   "nome": "Boa Vista do Sul",
+   "mun": "4314902",
+   "pop": 2703
+  },
+  "4314902001": {
+   "nome": "Medianeira",
+   "mun": "4314902",
+   "pop": 8749
+  },
+  "4314902072": {
+   "nome": "Hípica",
+   "mun": "4314902",
+   "pop": 28643
+  },
+  "4314902098": {
+   "nome": "Vila São José",
+   "mun": "4314902",
+   "pop": 24011
+  },
+  "4314902088": {
+   "nome": "Jardim Itu",
+   "mun": "4314902",
+   "pop": 17565
+  },
+  "4314902082": {
+   "nome": "Campo Novo",
+   "mun": "4314902",
+   "pop": 8743
+  },
+  "4314902010": {
+   "nome": "Nonoai",
+   "mun": "4314902",
+   "pop": 20776
+  },
+  "4314902039": {
+   "nome": "Independência",
+   "mun": "4314902",
+   "pop": 6885
+  },
+  "4314902051": {
+   "nome": "Cristo Redentor",
+   "mun": "4314902",
+   "pop": 15144
+  },
+  "4314902077": {
+   "nome": "Lomba do Pinheiro",
+   "mun": "4314902",
+   "pop": 59200
+  },
+  "4314902043": {
+   "nome": "Bela Vista",
+   "mun": "4314902",
+   "pop": 11819
+  },
+  "4314902086": {
+   "nome": "Jardim Europa",
+   "mun": "4314902",
+   "pop": 4372
+  },
+  "4314902013": {
+   "nome": "Coronel Aparício Borges",
+   "mun": "4314902",
+   "pop": 18966
+  },
+  "4314902090": {
+   "nome": "Jardim Sabará",
+   "mun": "4314902",
+   "pop": 11270
+  },
+  "4314902009": {
+   "nome": "Santa Tereza",
+   "mun": "4314902",
+   "pop": 31358
+  },
+  "4314902046": {
+   "nome": "São João",
+   "mun": "4314902",
+   "pop": 10621
+  },
+  "4314902012": {
+   "nome": "Glória",
+   "mun": "4314902",
+   "pop": 15248
+  },
+  "4314902059": {
+   "nome": "Chácara das Pedras",
+   "mun": "4314902",
+   "pop": 5639
+  },
+  "4314902083": {
+   "nome": "Chapéu do Sol",
+   "mun": "4314902",
+   "pop": 5547
+  },
+  "4314902063": {
+   "nome": "Rubem Berta",
+   "mun": "4314902",
+   "pop": 27930
+  },
+  "4314902022": {
+   "nome": "Cavalhada",
+   "mun": "4314902",
+   "pop": 25209
+  },
+  "4314902048": {
+   "nome": "Navegantes",
+   "mun": "4314902",
+   "pop": 3315
+  },
+  "4314902011": {
+   "nome": "Teresópolis",
+   "mun": "4314902",
+   "pop": 13072
+  },
+  "4314902089": {
+   "nome": "Jardim Leopoldina",
+   "mun": "4314902",
+   "pop": 16151
+  },
+  "4314902031": {
+   "nome": "Guarujá",
+   "mun": "4314902",
+   "pop": 6145
+  },
+  "4314902055": {
+   "nome": "Anchieta",
+   "mun": "4314902",
+   "pop": 791
+  },
+  "4314902037": {
+   "nome": "Belém Velho",
+   "mun": "4314902",
+   "pop": 10893
+  },
+  "4314902056": {
+   "nome": "Boa Vista",
+   "mun": "4314902",
+   "pop": 9254
+  },
+  "4314902035": {
+   "nome": "Agronomia",
+   "mun": "4314902",
+   "pop": 2677
+  },
+  "4314902024": {
+   "nome": "Cristal",
+   "mun": "4314902",
+   "pop": 24851
+  },
+  "4314902023": {
+   "nome": "Camaquã",
+   "mun": "4314902",
+   "pop": 17935
+  },
+  "4314902084": {
+   "nome": "Costa e Silva",
+   "mun": "4314902",
+   "pop": 13585
+  },
+  "4314902069": {
+   "nome": "Jardim do Salso",
+   "mun": "4314902",
+   "pop": 6576
+  },
+  "4314902016": {
+   "nome": "Vila João Pessoa",
+   "mun": "4314902",
+   "pop": 10431
+  },
+  "4314902005": {
+   "nome": "Farroupilha",
+   "mun": "4314902",
+   "pop": 774
+  },
+  "4314902071": {
+   "nome": "Ponta Grossa",
+   "mun": "4314902",
+   "pop": 8939
+  },
+  "4314902027": {
+   "nome": "Vila Conceição",
+   "mun": "4314902",
+   "pop": 969
+  },
+  "4314902041": {
+   "nome": "Moinhos de Vento",
+   "mun": "4314902",
+   "pop": 9995
+  },
+  "4314902067": {
+   "nome": "Farrapos",
+   "mun": "4314902",
+   "pop": 17591
+  },
+  "4314902087": {
+   "nome": "Jardim Floresta",
+   "mun": "4314902",
+   "pop": 2228
+  },
+  "4314902007": {
+   "nome": "Santana",
+   "mun": "4314902",
+   "pop": 17794
+  },
+  "4314902008": {
+   "nome": "Azenha",
+   "mun": "4314902",
+   "pop": 12064
+  },
+  "4314902002": {
+   "nome": "Praia de Belas",
+   "mun": "4314902",
+   "pop": 1522
+  },
+  "4314902042": {
+   "nome": "Rio Branco",
+   "mun": "4314902",
+   "pop": 15710
+  },
+  "4314902062": {
+   "nome": "Santa Maria Goretti",
+   "mun": "4314902",
+   "pop": 3035
+  },
+  "4314902070": {
+   "nome": "Restinga",
+   "mun": "4314902",
+   "pop": 62448
+  },
+  "4314902050": {
+   "nome": "Passo da Areia",
+   "mun": "4314902",
+   "pop": 22530
+  },
+  "4314902094": {
+   "nome": "Pitinga",
+   "mun": "4314902",
+   "pop": 7012
+  },
+  "4314902018": {
+   "nome": "Jardim Botânico",
+   "mun": "4314902",
+   "pop": 11349
+  },
+  "4314902092": {
+   "nome": "Parque Santa Fé",
+   "mun": "4314902",
+   "pop": 6673
+  },
+  "4314902097": {
+   "nome": "Sétimo Céu",
+   "mun": "4314902",
+   "pop": 1166
+  },
+  "4314902032": {
+   "nome": "Vila Nova",
+   "mun": "4314902",
+   "pop": 32217
+  },
+  "4314902036": {
+   "nome": "Centro Histórico",
+   "mun": "4314902",
+   "pop": 30569
+  },
+  "4314902028": {
+   "nome": "Pedra Redonda",
+   "mun": "4314902",
+   "pop": 570
+  },
+  "4314902040": {
+   "nome": "Floresta",
+   "mun": "4314902",
+   "pop": 8798
+  },
+  "4314902044": {
+   "nome": "Mont’Serrat",
+   "mun": "4314902",
+   "pop": 10357
+  },
+  "4314902006": {
+   "nome": "Santa Cecília",
+   "mun": "4314902",
+   "pop": 4640
+  },
+  "4314902026": {
+   "nome": "Tristeza",
+   "mun": "4314902",
+   "pop": 17201
+  },
+  "4314902033": {
+   "nome": "Arquipélago",
+   "mun": "4314902",
+   "pop": 6411
+  },
+  "4314902095": {
+   "nome": "Santa Rosa de Lima",
+   "mun": "4314902",
+   "pop": 34627
+  },
+  "4314902080": {
+   "nome": "Aberta dos Morros",
+   "mun": "4314902",
+   "pop": 9854
+  },
+  "4314902004": {
+   "nome": "Menino-Deus",
+   "mun": "4314902",
+   "pop": 27961
+  },
+  "4314902019": {
+   "nome": "Petrópolis",
+   "mun": "4314902",
+   "pop": 37613
+  },
+  "4314902093": {
+   "nome": "Passo das Pedras",
+   "mun": "4314902",
+   "pop": 14435
+  },
+  "4314902021": {
+   "nome": "Bom Jesus",
+   "mun": "4314902",
+   "pop": 24589
+  },
+  "4314902060": {
+   "nome": "Vila Jardim",
+   "mun": "4314902",
+   "pop": 11411
+  },
+  "4314902076": {
+   "nome": "Lageado",
+   "mun": "4314902",
+   "pop": 5676
+  },
+  "4314902085": {
+   "nome": "Extrema",
+   "mun": "4314902",
+   "pop": 2360
+  },
+  "4314902034": {
+   "nome": "Cascata",
+   "mun": "4314902",
+   "pop": 9234
+  },
+  "4314902079": {
+   "nome": "Jardim Isabel",
+   "mun": "4314902",
+   "pop": 2592
+  },
+  "4314902015": {
+   "nome": "Partenon",
+   "mun": "4314902",
+   "pop": 43587
+  },
+  "4314902096": {
+   "nome": "São Caetano",
+   "mun": "4314902",
+   "pop": 733
+  },
+  "4314902029": {
+   "nome": "Ipanema",
+   "mun": "4314902",
+   "pop": 13403
+  },
+  "4314902045": {
+   "nome": "Auxiliadora",
+   "mun": "4314902",
+   "pop": 8909
+  },
+  "4314902078": {
+   "nome": "Mário Quintana",
+   "mun": "4314902",
+   "pop": 44068
+  },
+  "4314902003": {
+   "nome": "Cidade Baixa",
+   "mun": "4314902",
+   "pop": 13014
+  },
+  "4314902058": {
+   "nome": "Três Figueiras",
+   "mun": "4314902",
+   "pop": 4016
+  },
+  "4314902038": {
+   "nome": "Bom Fim",
+   "mun": "4314902",
+   "pop": 10160
+  },
+  "4318705005": {
+   "nome": "Santos Dumont",
+   "mun": "4318705",
+   "pop": 30142
+  },
+  "4318705002": {
+   "nome": "Scharlau",
+   "mun": "4318705",
+   "pop": 13146
+  },
+  "4318705023": {
+   "nome": "Santa Teresa",
+   "mun": "4318705",
+   "pop": 5869
+  },
+  "4318705013": {
+   "nome": "Padre Reus",
+   "mun": "4318705",
+   "pop": 1474
+  },
+  "4318705019": {
+   "nome": "Campestre",
+   "mun": "4318705",
+   "pop": 11186
+  },
+  "4318705009": {
+   "nome": "São João Batista",
+   "mun": "4318705",
+   "pop": 1633
+  },
+  "4318705007": {
+   "nome": "São Miguel",
+   "mun": "4318705",
+   "pop": 8563
+  },
+  "4318705022": {
+   "nome": "Jardim América",
+   "mun": "4318705",
+   "pop": 4741
+  },
+  "4318705004": {
+   "nome": "Campina",
+   "mun": "4318705",
+   "pop": 13409
+  },
+  "4318705001": {
+   "nome": "Boa Vista",
+   "mun": "4318705",
+   "pop": 2387
+  },
+  "4318705017": {
+   "nome": "Rio Branco",
+   "mun": "4318705",
+   "pop": 4647
+  },
+  "4318705014": {
+   "nome": "Morro do Espelho",
+   "mun": "4318705",
+   "pop": 3657
+  },
+  "4318705021": {
+   "nome": "Fazenda São Borja",
+   "mun": "4318705",
+   "pop": 2758
+  },
+  "4318705011": {
+   "nome": "Fião",
+   "mun": "4318705",
+   "pop": 1340
+  },
+  "4318705024": {
+   "nome": "Duque de Caxias",
+   "mun": "4318705",
+   "pop": 11767
+  },
+  "4318705020": {
+   "nome": "Feitoria",
+   "mun": "4318705",
+   "pop": 33063
+  },
+  "4318705010": {
+   "nome": "Centro",
+   "mun": "4318705",
+   "pop": 11861
+  },
+  "4318705015": {
+   "nome": "São José",
+   "mun": "4318705",
+   "pop": 2226
+  },
+  "4318705008": {
+   "nome": "Vicentina",
+   "mun": "4318705",
+   "pop": 11864
+  },
+  "4318705012": {
+   "nome": "Cristo Rei",
+   "mun": "4318705",
+   "pop": 3147
+  },
+  "4318705003": {
+   "nome": "Arroio da Manteiga",
+   "mun": "4318705",
+   "pop": 22229
+  },
+  "4318705016": {
+   "nome": "Pinheiro",
+   "mun": "4318705",
+   "pop": 3793
+  },
+  "4318705006": {
+   "nome": "Rio dos Sinos",
+   "mun": "4318705",
+   "pop": 3582
+  },
+  "4318705018": {
+   "nome": "Santo André",
+   "mun": "4318705",
+   "pop": 6723
+  },
+  "4319901004": {
+   "nome": "São Jacó",
+   "mun": "4319901",
+   "pop": 5480
+  },
+  "4319901009": {
+   "nome": "Voo Livre",
+   "mun": "4319901",
+   "pop": 9395
+  },
+  "4319901003": {
+   "nome": "Centenário",
+   "mun": "4319901",
+   "pop": 9710
+  },
+  "4319901008": {
+   "nome": "Horizonte",
+   "mun": "4319901",
+   "pop": 804
+  },
+  "4319901018": {
+   "nome": "Floresta",
+   "mun": "4319901",
+   "pop": 3811
+  },
+  "4319901002": {
+   "nome": "Oeste",
+   "mun": "4319901",
+   "pop": 7880
+  },
+  "4319901011": {
+   "nome": "São Luiz",
+   "mun": "4319901",
+   "pop": 13771
+  },
+  "4319901007": {
+   "nome": "Quatro Colonias",
+   "mun": "4319901",
+   "pop": 6
+  },
+  "4319901012": {
+   "nome": "Santa Fe",
+   "mun": "4319901",
+   "pop": 1456
+  },
+  "4319901013": {
+   "nome": "Vila Irma",
+   "mun": "4319901",
+   "pop": 1639
+  },
+  "4319901017": {
+   "nome": "Fazenda Leão",
+   "mun": "4319901",
+   "pop": 1604
+  },
+  "4319901016": {
+   "nome": "Industrial",
+   "mun": "4319901",
+   "pop": 38
+  },
+  "4319901006": {
+   "nome": "Amaral Ribeiro",
+   "mun": "4319901",
+   "pop": 5980
+  },
+  "4319901005": {
+   "nome": "Sete de Setembro",
+   "mun": "4319901",
+   "pop": 3882
+  },
+  "4319901010": {
+   "nome": "Ferrabraz",
+   "mun": "4319901",
+   "pop": 2465
+  },
+  "4319901001": {
+   "nome": "Centro",
+   "mun": "4319901",
+   "pop": 4491
+  },
+  "4319901015": {
+   "nome": "Vila Nova",
+   "mun": "4319901",
+   "pop": 312
+  },
+  "4323002018": {
+   "nome": "Viamópolis",
+   "mun": "4323002",
+   "pop": 3233
+  },
+  "4323002012": {
+   "nome": "Estância Grande",
+   "mun": "4323002",
+   "pop": 144
+  },
+  "4323002001": {
+   "nome": "Centro",
+   "mun": "4323002",
+   "pop": 6954
+  },
+  "4323002009": {
+   "nome": "Cocão",
+   "mun": "4323002",
+   "pop": 3139
+  },
+  "4323002008": {
+   "nome": "São Lucas",
+   "mun": "4323002",
+   "pop": 11590
+  },
+  "4323002007": {
+   "nome": "Passo do Vigário",
+   "mun": "4323002",
+   "pop": 6904
+  },
+  "4323002004": {
+   "nome": "Querência",
+   "mun": "4323002",
+   "pop": 5253
+  },
+  "4323002003": {
+   "nome": "Krahe",
+   "mun": "4323002",
+   "pop": 6653
+  },
+  "4323002005": {
+   "nome": "Santo Onofre",
+   "mun": "4323002",
+   "pop": 15526
+  },
+  "4323002002": {
+   "nome": "Tarumã",
+   "mun": "4323002",
+   "pop": 11194
+  },
+  "4323002010": {
+   "nome": "Elsa",
+   "mun": "4323002",
+   "pop": 9394
+  },
+  "4323002013": {
+   "nome": "Branquinha",
+   "mun": "4323002",
+   "pop": 5645
+  },
+  "4323002006": {
+   "nome": "Fiuza",
+   "mun": "4323002",
+   "pop": 5713
+  },
+  "4323002019": {
+   "nome": "Martinica",
+   "mun": "4323002",
+   "pop": 4531
+  },
+  "4323002014": {
+   "nome": "Augusta",
+   "mun": "4323002",
+   "pop": 17673
+  },
+  "4323002020": {
+   "nome": "São Tomé",
+   "mun": "4323002",
+   "pop": 11045
+  },
+  "4323002017": {
+   "nome": "Parque Saint’Hilaire",
+   "mun": "4323002",
+   "pop": 112
+  },
+  "4323002016": {
+   "nome": "Santa Isabel",
+   "mun": "4323002",
+   "pop": 23997
+  },
+  "4323002015": {
+   "nome": "Cecília",
+   "mun": "4323002",
+   "pop": 21198
+  }
+ }
+}

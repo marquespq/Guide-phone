@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Celular Seguro POA</title>
+  <meta name="description" content="Mapa de furtos e roubos de celular registrados na Grande Porto Alegre, por bairro, com dados abertos da SSP-RS.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='9' y='3' width='14' height='26' rx='3' fill='%23b3261e'/%3E%3Crect x='12' y='7' width='8' height='15' rx='1' fill='%23fff'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="map" aria-label="Mapa de ocorrências por bairro"></div>
+
+  <aside id="painel" aria-label="Filtros e resultados">
+    <button id="alca" class="alca" aria-label="Expandir ou recolher painel"></button>
+    <header>
+      <h1>Furtos de celular</h1>
+      <p class="sub">Ocorrências registradas na <span id="nome-regiao">Grande Porto Alegre</span></p>
+    </header>
+
+    <section class="filtros">
+      <div class="grupo" role="group" aria-label="Tipo de ocorrência">
+        <span class="rotulo">Tipo</span>
+        <div class="seg" data-filtro="tipo">
+          <button data-v="ambos" class="on">Todos</button>
+          <button data-v="furto">Furto</button>
+          <button data-v="roubo">Roubo</button>
+        </div>
+      </div>
+      <div class="grupo" role="group" aria-label="Horário">
+        <span class="rotulo">Horário</span>
+        <div class="seg" data-filtro="horario">
+          <button data-v="todos" class="on">Qualquer</button>
+          <button data-v="dia">Dia</button>
+          <button data-v="noite">Noite</button>
+        </div>
+      </div>
+      <div class="grupo">
+        <label class="rotulo" for="periodo">Período</label>
+        <select id="periodo"></select>
+      </div>
+      <div class="grupo">
+        <label class="rotulo" for="cidade">Cidade</label>
+        <select id="cidade"><option value="">Todas</option></select>
+      </div>
+      <div class="grupo" role="group" aria-label="Medida">
+        <span class="rotulo">Medida</span>
+        <div class="seg" data-filtro="medida">
+          <button data-v="total" class="on">Ocorrências</button>
+          <button data-v="taxa">Por mil moradores</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="resumo">
+      <div class="numero" id="total">–</div>
+      <div class="desc" id="total-desc"></div>
+    </section>
+
+    <section class="legenda" id="legenda" aria-label="Legenda"></section>
+
+    <section id="detalhe" hidden></section>
+
+    <section id="ranking-box">
+      <h2 id="ranking-titulo">Bairros com mais registros</h2>
+      <ol id="ranking"></ol>
+    </section>
+
+    <footer>
+      <p id="nota-dados"></p>
+      <p>Fonte: <a href="https://ssp.rs.gov.br/dados-abertos" target="_blank" rel="noopener">SSP-RS, dados abertos (Lei 15.610/2021)</a>.
+        Bairros e população: IBGE, Censo 2022. Mapa: <a href="https://openfreemap.org" target="_blank" rel="noopener">OpenFreeMap</a> / © OpenStreetMap.</p>
+      <p>Mostra só o que virou boletim de ocorrência. Bairros centrais concentram registros também porque circula mais gente neles.
+        Noite = 18h às 6h.</p>
+    </footer>
+  </aside>
+
+  <div id="dica" role="tooltip" hidden></div>
+
+  <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

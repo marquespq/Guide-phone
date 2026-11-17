@@ -1,0 +1,78 @@
+name: Atualizar dados e publicar
+
+on:
+  # Toda segunda às 9h (horário de Brasília). A SSP publica o mês anterior
+  # em algum momento do mês; checar semanalmente pega a publicação em até 7 dias.
+  schedule:
+    - cron: "0 12 * * 1"
+  # Botão "Run workflow" na aba Actions do GitHub
+  workflow_dispatch:
+  # Mudou o site ou a configuração? Republica.
+  push:
+    branches: [main]
+    paths-ignore: ["web/data/stats.json", "data/relatorio_bairros.csv"]
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: atualizar-e-publicar
+  cancel-in-progress: false
+
+jobs:
+  atualizar:
+    runs-on: ubuntu-latest
+    outputs:
+      mudou: ${{ steps.commit.outputs.mudou }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # Guarda os arquivos da SSP entre execuções para não baixar ~150 MB toda vez
+      - uses: actions/cache@v4
+        with:
+          path: data/raw/ssp
+          key: ssp-${{ github.run_id }}
+          restore-keys: ssp-
+
+      - name: Baixar dados da SSP-RS e gerar estatísticas
+        run: python scripts/update_data.py
+
+      - name: Commit se os dados mudaram
+        id: commit
+        run: |
+          if git diff --quiet -- web/data/stats.json data/relatorio_bairros.csv; then
+            echo "Sem dados novos."
+            echo "mudou=false" >> "$GITHUB_OUTPUT"
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add web/data/stats.json data/relatorio_bairros.csv
+            git commit -m "Dados SSP-RS atualizados em $(date -u +%Y-%m-%d)"
+            git push
+            echo "mudou=true" >> "$GITHUB_OUTPUT"
+          fi
+
+  publicar:
+    needs: atualizar
+    # Publica quando houve dado novo, quando foi rodado à mão ou quando o código mudou
+    if: needs.atualizar.outputs.mudou == 'true' || github.event_name != 'schedule'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: web
+      - id: deploy
+        uses: actions/deploy-pages@v4

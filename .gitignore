@@ -1,0 +1,6 @@
+# downloads (SSP ~150 MB, IBGE) — recriados pelos scripts
+data/raw/
+*.parcial
+__pycache__/
+.DS_Store
+node_modules/

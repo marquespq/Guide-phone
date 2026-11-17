@@ -1,0 +1,122 @@
+{
+  "nome": "Grande Porto Alegre",
+  "descricao": "Concentração urbana de Porto Alegre/RS segundo o IBGE (29 municípios). Edite a lista para incluir ou remover cidades e rode scripts/build_geo.py de novo.",
+  "municipios": [
+    {
+      "cd": "4314902",
+      "nome": "Porto Alegre"
+    },
+    {
+      "cd": "4304606",
+      "nome": "Canoas"
+    },
+    {
+      "cd": "4309209",
+      "nome": "Gravataí"
+    },
+    {
+      "cd": "4313409",
+      "nome": "Novo Hamburgo"
+    },
+    {
+      "cd": "4323002",
+      "nome": "Viamão"
+    },
+    {
+      "cd": "4318705",
+      "nome": "São Leopoldo"
+    },
+    {
+      "cd": "4300604",
+      "nome": "Alvorada"
+    },
+    {
+      "cd": "4303103",
+      "nome": "Cachoeirinha"
+    },
+    {
+      "cd": "4320008",
+      "nome": "Sapucaia do Sul"
+    },
+    {
+      "cd": "4309308",
+      "nome": "Guaíba"
+    },
+    {
+      "cd": "4307708",
+      "nome": "Esteio"
+    },
+    {
+      "cd": "4319901",
+      "nome": "Sapiranga"
+    },
+    {
+      "cd": "4303905",
+      "nome": "Campo Bom"
+    },
+    {
+      "cd": "4307609",
+      "nome": "Estância Velha"
+    },
+    {
+      "cd": "4306767",
+      "nome": "Eldorado do Sul"
+    },
+    {
+      "cd": "4314803",
+      "nome": "Portão"
+    },
+    {
+      "cd": "4306403",
+      "nome": "Dois Irmãos"
+    },
+    {
+      "cd": "4313375",
+      "nome": "Nova Santa Rita"
+    },
+    {
+      "cd": "4319505",
+      "nome": "São Sebastião do Caí"
+    },
+    {
+      "cd": "4310801",
+      "nome": "Ivoti"
+    },
+    {
+      "cd": "4313060",
+      "nome": "Nova Hartz"
+    },
+    {
+      "cd": "4304689",
+      "nome": "Capela de Santana"
+    },
+    {
+      "cd": "4300877",
+      "nome": "Araricá"
+    },
+    {
+      "cd": "4309050",
+      "nome": "Glorinha"
+    },
+    {
+      "cd": "4311627",
+      "nome": "Lindolfo Collor"
+    },
+    {
+      "cd": "4312476",
+      "nome": "Morro Reuter"
+    },
+    {
+      "cd": "4314423",
+      "nome": "Picada Café"
+    },
+    {
+      "cd": "4318481",
+      "nome": "São José do Hortêncio"
+    },
+    {
+      "cd": "4315149",
+      "nome": "Presidente Lucena"
+    }
+  ]
+}

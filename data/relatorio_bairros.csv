@@ -1,0 +1,1036 @@
+municipio,bairro_ssp,ocorrencias,metodo,bairro_mapa
+Alvorada,BELA VISTA,258,nome,Bela Vista
+Alvorada,MARIA REGINA,254,nome,Maria Regina
+Alvorada,APARECIDA,148,nome,Aparecida
+Alvorada,SUMARE,94,nome,Sumare
+Alvorada,JARDIM ALGARVE,92,nome,Jardim Algarve
+Alvorada,,85,vazio,
+Alvorada,MARINGA,80,nome,Maringa
+Alvorada,FORMOZA,75,nome,Formoza
+Alvorada,PIRATINI,69,nome,Piratini
+Alvorada,AMERICANA,49,nome,Americana
+Alvorada,TIJUCA,47,nome,Tijuca
+Alvorada,PASSO DO FEIJO,45,nome,Passo do Feijo
+Alvorada,CENTRO,32,nome,Centro
+Alvorada,STELLA MARIS,17,nome,Stella Maris
+Alvorada,UMBU,9,nome,Umbu
+Alvorada,VILA TUPA,7,nome,Vila Tupa
+Alvorada,B VISTA VL FORMOZA,5,nome,Vista Vl Formoza
+Alvorada,NOVA AMERICANA,4,nome,Nova Americana
+Alvorada,INTERSUL,4,nome,Intersul
+Alvorada,SALOME,3,nome,Salome
+Alvorada,DISTRITO INDUSTRIAL,3,nome,Distrito Industrial
+Alvorada,JARDIM ALVORADA,2,nome,Jardim Alvorada
+Alvorada,BAIRRO AGRITER,2,nome,Agriter
+Alvorada,CENTRO HISTORICO,2,nome,Centro Historico
+Alvorada,VILA MARIA,2,nome,Vila Maria
+Alvorada,VILA ELSA,2,nome,Vila Elsa
+Alvorada,REPRISE,2,nome,Reprise
+Alvorada,VILA AUGUSTA,2,nome,Vila Augusta
+Alvorada,ESTANCIA GRANDE,2,nome,Estancia Grande
+Alvorada,FORMOSA,1,nome,Formosa
+Alvorada,PORTO VERDE,1,nome,Porto Verde
+Alvorada,11 DE ABRIL,1,nome,11 de Abril
+Alvorada,SANTA BARBARA,1,nome,Santa Barbara
+Alvorada,SANTA CLARA,1,nome,Santa Clara
+Alvorada,TRES FIGUEIRAS,1,nome,Tres Figueiras
+Alvorada,JD PORTO ALEGRE,1,nome,Jd Porto Alegre
+Alvorada,JARDIM POA,1,nome,Jardim Poa
+Alvorada,DISTRITO INDUSTRUIAL,1,nome,Distrito Industruial
+Alvorada,APARECIDA ALVORADA,1,nome,Aparecida Alvorada
+Alvorada,GERMANIA,1,nome,Germania
+Alvorada,STELA MARIS,1,nome,Stela Maris
+Alvorada,AMEIRCANA,1,nome,Ameircana
+Alvorada,TERRA NOVA,1,nome,Terra Nova
+Alvorada,JARDIM UMBU,1,nome,Jardim Umbu
+Alvorada,RUBEM BERTA,1,nome,Rubem Berta
+Alvorada,JD INTERSUL,1,nome,Jd Intersul
+Alvorada,J APARECIDADA,1,nome,J Aparecidada
+Alvorada,BAIRRO APARECIDA,1,nome,Aparecida
+Alvorada,JARDIM ESPLANADA,1,nome,Jardim Esplanada
+Alvorada,NOVA ALVORADA,1,nome,Nova Alvorada
+Alvorada,PRIMAVERA,1,nome,Primavera
+Alvorada,JARDIM VIAMAR,1,nome,Jardim Viamar
+Alvorada,RIO BRANCO,1,nome,Rio Branco
+Alvorada,JD ALGARVE,1,nome,Jd Algarve
+Alvorada,BAIRRO CAMPOS VERDES,1,nome,Campos Verdes
+Alvorada,CENTRAL,1,nome,Central
+Alvorada,JARDIM APARECIDA,1,nome,Jardim Aparecida
+Alvorada,VL PIRATINI,1,nome,Vl Piratini
+Araricá,CENTRO,4,exato,Centro
+Araricá,AZALEIA,3,exato,Azaléia
+Araricá,CAMPO DA BRAZINA,2,exato,Campo da Brazina
+Araricá,DA CANOA,2,exato,da Canoa
+Araricá,INTEGRACAO,1,nao_encontrado,
+Araricá,IMPERATRIZ,1,exato,Imperatriz
+Cachoeirinha,VILA BOM PRINCIPIO,85,nome,Vila Bom Principio
+Cachoeirinha,DISTRITO INDUSTRIAL,73,nome,Distrito Industrial
+Cachoeirinha,VILA VISTA ALEGRE,71,nome,Vila Vista Alegre
+Cachoeirinha,,50,vazio,
+Cachoeirinha,JARDIM BETANIA,47,nome,Jardim Betania
+Cachoeirinha,PARQUE GRANJA ESPERANCA,39,nome,Parque Granja Esperanca
+Cachoeirinha,VILA CACHOEIRINHA,36,nome,Vila Cachoeirinha
+Cachoeirinha,VILA FATIMA,33,nome,Vila Fatima
+Cachoeirinha,PARQUE DA MATRIZ,29,nome,Parque da Matriz
+Cachoeirinha,VILA ANAIR,27,nome,Vila Anair
+Cachoeirinha,VILA IMBUI,20,nome,Vila Imbui
+Cachoeirinha,VILA MONTE CARLO,19,nome,Vila Monte Carlo
+Cachoeirinha,VILA VERANOPOLIS,17,nome,Vila Veranopolis
+Cachoeirinha,VILA PARQUE BRASILIA,14,nome,Vila Parque Brasilia
+Cachoeirinha,VILA EUNICE NOVA,13,nome,Vila Eunice Nova
+Cachoeirinha,COHAB,13,nome,Cohab
+Cachoeirinha,VILA EUNICE VELHA,12,nome,Vila Eunice Velha
+Cachoeirinha,CENTRO,12,nome,Centro
+Cachoeirinha,VILA CITY,12,nome,Vila City
+Cachoeirinha,PARQUE MARECHAL RONDON,11,nome,Parque Marechal Rondon
+Cachoeirinha,JARDIM DO BOSQUE,11,nome,Jardim do Bosque
+Cachoeirinha,NOVA CACHOEIRINHA,10,nome,Nova Cachoeirinha
+Cachoeirinha,MORADAS DO BOSQUE,9,nome,Moradas do Bosque
+Cachoeirinha,VILA JARDIM AMERICA,8,nome,Vila Jardim America
+Cachoeirinha,VISTA ALEGRE,7,nome,Vista Alegre
+Cachoeirinha,VILA SILVEIRA MARTINS,7,nome,Vila Silveira Martins
+Cachoeirinha,BOM PRINCIPIO,7,nome,Bom Principio
+Cachoeirinha,VILA PONTA PORA,7,nome,Vila Ponta Pora
+Cachoeirinha,VILA SANTO ANGELO,6,nome,Vila Santo Angelo
+Cachoeirinha,PARQUE ESPIRITO SANTO,6,nome,Parque Espirito Santo
+Cachoeirinha,FATIMA,4,nome,Fatima
+Cachoeirinha,VILA REGINA,4,nome,Vila Regina
+Cachoeirinha,VILA PRINCESA IZABEL,4,nome,Vila Princesa Izabel
+Cachoeirinha,PRINCESA ISABEL,3,nome,Princesa Isabel
+Cachoeirinha,NOVA ESPERANCA,3,nome,Nova Esperanca
+Cachoeirinha,VILA CARLOS ANTONIO WILKENS,3,nome,Vila Carlos Antonio Wilkens
+Cachoeirinha,PARQUE GRANJA ESPERA,3,nome,Parque Granja Espera
+Cachoeirinha,IMBUI,3,nome,Imbui
+Cachoeirinha,INDUSTRIAL,3,nome,Industrial
+Cachoeirinha,PARQUE ESPIRITO SANT,2,nome,Parque Espirito Sant
+Cachoeirinha,CHACARA DAS ROSAS,2,nome,Chacara das Rosas
+Cachoeirinha,ESPIRITO SANTO,2,nome,Espirito Santo
+Cachoeirinha,VILA MARCIA,2,nome,Vila Marcia
+Cachoeirinha,CEDIC,2,nome,Cedic
+Cachoeirinha,GRANJA ESPERANCA,2,nome,Granja Esperanca
+Cachoeirinha,V ALEGRE,2,nome,V Alegre
+Cachoeirinha,VALE DO SOL,2,nome,Vale do Sol
+Cachoeirinha,EUNICE,2,nome,Eunice
+Cachoeirinha,MORADA DO VALE I,2,nome,Morada do Vale I
+Cachoeirinha,SOUZA CRUZ,2,nome,Souza Cruz
+Cachoeirinha,BISTA ALEGRE,1,nome,Bista Alegre
+Cachoeirinha,JARDIM VITORIA,1,nome,Jardim Vitoria
+Cachoeirinha,VILA PRINCESA ISABEL,1,nome,Vila Princesa Isabel
+Cachoeirinha,TRES MARIAS,1,nome,Tres Marias
+Cachoeirinha,MARIA REGINA,1,nome,Maria Regina
+Cachoeirinha,PARQUE MARECHAL ROND,1,nome,Parque Marechal Rond
+Cachoeirinha,VILA NOVA CANARINHO,1,nome,Vila Nova Canarinho
+Cachoeirinha,CRUZEIRO,1,nome,Cruzeiro
+Cachoeirinha,JARDIM ATLANTICO,1,nome,Jardim Atlantico
+Cachoeirinha,PARQUE SILVEIRA MARTINS,1,nome,Parque Silveira Martins
+Cachoeirinha,PASSO DO FEIJO,1,nome,Passo do Feijo
+Cachoeirinha,PONTA PORA,1,nome,Ponta Pora
+Cachoeirinha,VILA DA PAZ,1,nome,Vila da Paz
+Cachoeirinha,C WILKENS,1,nome,C Wilkens
+Cachoeirinha,SAO GERALDO,1,nome,Sao Geraldo
+Cachoeirinha,SANTO ANGELO,1,nome,Santo Angelo
+Cachoeirinha,BOM SUCESSO,1,nome,Bom Sucesso
+Cachoeirinha,JARDINS COLINAS,1,nome,Jardins Colinas
+Cachoeirinha,NOVA FATIMA,1,nome,Nova Fatima
+Cachoeirinha,RESIDENCIAL MEU RINCAO,1,nome,Residencial Meu Rincao
+Cachoeirinha,VILA IMBUHY,1,nome,Vila Imbuhy
+Cachoeirinha,CITY NOVA FASE,1,nome,City Nova Fase
+Cachoeirinha,VILA BETANIA,1,nome,Vila Betania
+Cachoeirinha,CACA E PESCA,1,nome,Caca e Pesca
+Cachoeirinha,PARQUE IPIRANGA,1,nome,Parque Ipiranga
+Cachoeirinha,VILA MAUA,1,nome,Vila Maua
+Cachoeirinha,JARDIM CONQUISTA,1,nome,Jardim Conquista
+Campo Bom,CENTRO,47,nome,Centro
+Campo Bom,,19,vazio,
+Campo Bom,H,12,nome,H
+Campo Bom,A,12,nome,A
+Campo Bom,I,12,nome,I
+Campo Bom,C,11,nome,C
+Campo Bom,K,7,nome,K
+Campo Bom,IMIGRANTE NORTE,6,nome,Imigrante Norte
+Campo Bom,M,6,nome,M
+Campo Bom,CELESTE,5,nome,Celeste
+Campo Bom,METZLER,4,nome,Metzler
+Campo Bom,P SANTO ANTONIO,4,nome,P Santo Antonio
+Campo Bom,NUCLEO HABITACIONAL VILA NOVA,4,nome,Nucleo Habitacional Vila Nova
+Campo Bom,JARDIM DO SOL,4,nome,Jardim do Sol
+Campo Bom,X,4,nome,X
+Campo Bom,IMIGRANTE,3,nome,Imigrante
+Campo Bom,O,3,nome,O
+Campo Bom,DONA AUGUSTA,3,nome,Dona Augusta
+Campo Bom,BARRINHA,3,nome,Barrinha
+Campo Bom,E,3,nome,e
+Campo Bom,D,3,nome,D
+Campo Bom,P,3,nome,P
+Campo Bom,25 DE JULHO,3,nome,25 de Julho
+Campo Bom,S,2,nome,S
+Campo Bom,CENTRO HISTORICO,2,nome,Centro Historico
+Campo Bom,OPERARIA,2,nome,Operaria
+Campo Bom,RIO BRANCO,2,nome,Rio Branco
+Campo Bom,PORTO BLOS,2,nome,Porto Blos
+Campo Bom,COHAB SUL,2,nome,Cohab Sul
+Campo Bom,IPIRANGA,2,nome,Ipiranga
+Campo Bom,FEITORIA,2,nome,Feitoria
+Campo Bom,BELA VISTA,2,nome,Bela Vista
+Campo Bom,INDUSTRIAL NORTE,2,nome,Industrial Norte
+Campo Bom,QUATRO COLONIAS,2,nome,Quatro Colonias
+Campo Bom,VILA OPERARIA,2,nome,Vila Operaria
+Campo Bom,F,2,nome,F
+Campo Bom,VILA NOVA,1,nome,Vila Nova
+Campo Bom,W,1,nome,W
+Campo Bom,GENUINO SAMPAIO,1,nome,Genuino Sampaio
+Campo Bom,SEMPRE UNIDOS,1,nome,Sempre Unidos
+Campo Bom,SOLAR DO CAMPO,1,nome,Solar do Campo
+Campo Bom,V,1,nome,V
+Campo Bom,VILA DOS GRINGOS,1,nome,Vila dos Gringos
+Campo Bom,MONACO,1,nome,Monaco
+Campo Bom,IMIGRANTE SUL,1,nome,Imigrante Sul
+Campo Bom,II ZONA INDUSTRIAL,1,nome,Ii Zona Industrial
+Campo Bom,ZONA INDUSTRIAL SUL,1,nome,Zona Industrial Sul
+Campo Bom,COHAB LESTE,1,nome,Cohab Leste
+Campo Bom,Z,1,nome,Z
+Campo Bom,PAULISTA,1,nome,Paulista
+Campo Bom,VILA SANTA LUCIA,1,nome,Vila Santa Lucia
+Campo Bom,NUCLEO HABITACIONAL,1,nome,Nucleo Habitacional
+Campo Bom,CAMPO BOM,1,nome,Campo Bom
+Campo Bom,L,1,nome,L
+Campo Bom,HAMBURGO VELHO,1,nome,Hamburgo Velho
+Campo Bom,VILA RICA,1,nome,Vila Rica
+Campo Bom,R,1,nome,R
+Campo Bom,SAO LUIZ,1,nome,Sao Luiz
+Campo Bom,QUATRO COLONIAS NORTE,1,nome,Quatro Colonias Norte
+Campo Bom,SANTA LUCIA,1,nome,Santa Lucia
+Canoas,CENTRO,521,exato,Centro
+Canoas,MATHIAS VELHO,242,exato,Mathias Velho
+Canoas,NITEROI,227,exato,Niterói
+Canoas,MARECHAL RONDON,196,exato,Marechal Rondon
+Canoas,GUAJUVIRAS,171,exato,Guajuviras
+Canoas,,150,vazio,
+Canoas,ESTANCIA VELHA,145,exato,Estância Velha
+Canoas,IGARA,142,exato,Igara
+Canoas,RIO BRANCO,138,exato,Rio Branco
+Canoas,NOSSA SENHORA DAS GRACAS,85,exato,Nossa Senhora das Graças
+Canoas,HARMONIA,80,exato,Harmonia
+Canoas,SAO JOSE,61,exato,São José
+Canoas,MATO GRANDE,52,exato,Mato Grande
+Canoas,SAO LUIS,42,exato,São Luís
+Canoas,OLARIA,37,exato,Olaria
+Canoas,BAIRRO FATIMA,27,exato,Fátima
+Canoas,FATIMA,22,exato,Fátima
+Canoas,BRIGADEIRA,18,exato,Brigadeira
+Canoas,INDUSTRIAL,5,exato,Industrial
+Canoas,VILA ROSA,3,nao_encontrado,
+Canoas,NOSSA SENHORA DAS GR,2,parecido,Nossa Senhora das Graças
+Canoas,M VELHO,2,nao_encontrado,
+Canoas,VL IGARA,2,nao_encontrado,
+Canoas,MAL RONDON,2,nao_encontrado,
+Canoas,CENTRO MAL RONDON,2,nao_encontrado,
+Canoas,ESTA,2,nao_encontrado,
+Canoas,MOINHOS DE VENTOS,1,nao_encontrado,
+Canoas,NOSSA SENHORA GRACAS,1,parecido,Nossa Senhora das Graças
+Canoas,MOINHOS DE VENTO,1,nao_encontrado,
+Canoas,B MATHIAS VELHO,1,exato,Mathias Velho
+Canoas,JARDIM ATLANTICO,1,nao_encontrado,
+Canoas,BAIRRO NITEROI,1,exato,Niterói
+Canoas,SAO JOAO BATISTA,1,nao_encontrado,
+Canoas,NAVEGANTES,1,nao_encontrado,
+Canoas,CACHOEIRINHA,1,nao_encontrado,
+Canoas,NOVO ESTEIO,1,nao_encontrado,
+Canoas,M GRANDE,1,nao_encontrado,
+Canoas,PASSO DAREIA,1,nao_encontrado,
+Canoas,JARDIN DO LAGO,1,nao_encontrado,
+Canoas,FATMA,1,parecido,Fátima
+Canoas,CENTRO DE CANOAS,1,nao_encontrado,
+Canoas,TIAS VELHO,1,nao_encontrado,
+Capela de Santana,,9,vazio,
+Capela de Santana,CENTRO,3,exato,Centro
+Capela de Santana,BAIRRO IMIGRANTES,3,exato,Imigrantes
+Capela de Santana,JARDIM CAPELA,2,nao_encontrado,
+Capela de Santana,PARQUE PRIMAVERA,2,exato,Parque Primavera
+Capela de Santana,BOSQUE DE CAPELA,2,exato,Bosque de Capela
+Capela de Santana,BAIRRO PROGRESSO,1,exato,Progresso
+Capela de Santana,BAIRRO SAO LUCAS,1,exato,São Lucas
+Capela de Santana,SANGA FUNDA,1,nao_encontrado,
+Capela de Santana,MINHA MORADA,1,nao_encontrado,
+Capela de Santana,PAQUETE,1,nao_encontrado,
+Dois Irmãos,FLORESTA,19,exato,Floresta
+Dois Irmãos,,12,vazio,
+Dois Irmãos,PRIMAVERA,10,exato,Primavera
+Dois Irmãos,CENTRO,9,exato,Centro
+Dois Irmãos,UNIAO,7,exato,União
+Dois Irmãos,PORTAL DA SERRA,5,exato,Portal da Serra
+Dois Irmãos,TRAVESSAO,5,nao_encontrado,
+Dois Irmãos,PARQUE SAO JOAO,4,nao_encontrado,
+Dois Irmãos,VILA ROSA,2,exato,Vila Rosa
+Dois Irmãos,BELA VISTA,2,nao_encontrado,
+Dois Irmãos,SAO MIGUEL,1,exato,São Miguel
+Dois Irmãos,LOTEAMENTO CASCATA SAO MIGUEL,1,nao_encontrado,
+Dois Irmãos,LOTEAMENTO POPULAR PICADA,1,nao_encontrado,
+Dois Irmãos,BEIRA RIO,1,exato,Beira Rio
+Dois Irmãos,NAVEGANTES,1,nao_encontrado,
+Dois Irmãos,LOTEAMENTO MOINHO VELHO,1,nao_encontrado,
+Dois Irmãos,TARUMA,1,nao_encontrado,
+Dois Irmãos,INDUSTRIAL,1,exato,Industrial
+Eldorado do Sul,,58,vazio,
+Eldorado do Sul,CENTRO,34,exato,Centro
+Eldorado do Sul,CENTRO NOVO,13,exato,Centro Novo
+Eldorado do Sul,CIDADE VERDE,11,exato,Cidade Verde
+Eldorado do Sul,SANS SOUCI,9,exato,Sans Souci
+Eldorado do Sul,BAIRRO INDUSTRIAL,8,exato,Industrial
+Eldorado do Sul,MEDIANEIRA,6,exato,Medianeira
+Eldorado do Sul,CHACARA,4,exato,Chácara
+Eldorado do Sul,PICADA,3,exato,Picada
+Eldorado do Sul,ITAI,3,exato,Itaí
+Eldorado do Sul,RESIDENCIAL,2,nao_encontrado,
+Eldorado do Sul,LOTEAMENTO ELDOURADO,2,nao_encontrado,
+Eldorado do Sul,PROGRESSO,2,exato,Progresso
+Eldorado do Sul,BOA VISTA,1,nao_encontrado,
+Eldorado do Sul,PARQUE ELDORADO,1,parecido,Parque Eldorado 4
+Eldorado do Sul,ARROZEIRA,1,nao_encontrado,
+Esteio,,144,vazio,
+Esteio,CENTRO,112,exato,Centro
+Esteio,NOVO ESTEIO,66,exato,Novo Esteio
+Esteio,TAMANDARE,31,exato,Tamandaré
+Esteio,SANTO INACIO,26,exato,Santo Inácio
+Esteio,SAO SEBASTIAO,22,exato,São Sebastião
+Esteio,JARDIM PLANALTO,20,exato,Jardim Planalto
+Esteio,PARQUE PRIMAVERA,19,exato,Parque Primavera
+Esteio,LIBERDADE,14,exato,Liberdade
+Esteio,PARQUE AMADOR,13,nao_encontrado,
+Esteio,TRES PORTOS,13,exato,Três Portos
+Esteio,BAIRRO DO PARQUE,10,nao_encontrado,
+Esteio,OLIMPICA,10,exato,Olímpica
+Esteio,SAO JOSE,9,exato,São José
+Esteio,INDUSTRIAL,8,exato,Industrial
+Esteio,COHAB,6,nao_encontrado,
+Esteio,TRES MARIAS,4,exato,Três Marias
+Esteio,VILA OLIMPICA,4,nao_encontrado,
+Esteio,VILA TRES MARIAS,3,nao_encontrado,
+Esteio,VILA TEOPOLIS,2,nao_encontrado,
+Esteio,PRIMAVERA,2,exato,Primavera
+Esteio,PARQUE TAMANDARE,1,nao_encontrado,
+Esteio,PETROPOLIS,1,nao_encontrado,
+Esteio,VL S JOSE,1,nao_encontrado,
+Esteio,VILA OSORIO,1,nao_encontrado,
+Esteio,PRIMOR,1,nao_encontrado,
+Esteio,SANTO AFONSO,1,nao_encontrado,
+Esteio,PARQUE EXPOINTER,1,nao_encontrado,
+Esteio,WALDEREZ,1,nao_encontrado,
+Esteio,VL TRES MARIAS,1,parecido,Três Marias
+Esteio,PRQ AMADOR VL OLIMP,1,nao_encontrado,
+Esteio,CENTRO CRISTI,1,nao_encontrado,
+Esteio,PARQUE SANTO INACIO,1,nao_encontrado,
+Esteio,BAIRRO PARQUE,1,nao_encontrado,
+Esteio,VILA PEDREIRA,1,nao_encontrado,
+Esteio,CAIS DO PORTO,1,nao_encontrado,
+Esteio,CENTRO S SEBASTIAO,1,nao_encontrado,
+Esteio,PARQUE CLARET,1,nao_encontrado,
+Esteio,SAO SEBASTIAO CENTRO,1,nao_encontrado,
+Esteio,VILA ESPERANCA,1,nao_encontrado,
+Estância Velha,,39,vazio,
+Estância Velha,CENTRO,32,exato,Centro
+Estância Velha,RINCAO DOS ILHEUS,20,parecido,Rincão de Ilhéus
+Estância Velha,UNIAO,12,exato,União
+Estância Velha,SOL NASCENTE,11,exato,Sol Nascente
+Estância Velha,DAS ROSAS,9,exato,das Rosas
+Estância Velha,LAGO AZUL,8,exato,Lago Azul
+Estância Velha,BELA VISTA,6,exato,Bela Vista
+Estância Velha,FLORESTA,4,exato,Floresta
+Estância Velha,INDUSTRIAL,3,exato,Industrial
+Estância Velha,RINCAO GAUCHO,3,exato,Rincão Gaúcho
+Estância Velha,CARLITO PAMPLONA,2,nao_encontrado,
+Estância Velha,DAS QUINTAS,2,exato,das Quintas
+Estância Velha,VENEZA,1,nao_encontrado,
+Estância Velha,CAMPO GRANDE,1,exato,Campo Grande
+Estância Velha,MORRO AGUDO,1,nao_encontrado,
+Estância Velha,RINCAO DA SAUDADE,1,exato,Rincão da Saudade
+Estância Velha,PETROPOLIS,1,nao_encontrado,
+Estância Velha,BAIRRO DAS ROSAS,1,exato,das Rosas
+Estância Velha,CIDADE NOVA,1,nao_encontrado,
+Estância Velha,ENCOSTA DO SOL,1,exato,Encosta do Sol
+Estância Velha,LIRA,1,exato,Lira
+Glorinha,,9,vazio,
+Glorinha,CENTRO,5,nome,Centro
+Glorinha,PASSO DAS MOCAS,2,nome,Passo das Mocas
+Glorinha,DA ROSA,1,nome,da Rosa
+Glorinha,VILA NOVA,1,nome,Vila Nova
+Glorinha,PASSO GRANDE,1,nome,Passo Grande
+Gravataí,CENTRO,146,nome,Centro
+Gravataí,,108,vazio,
+Gravataí,MORADA DO VALE I,52,nome,Morada do Vale I
+Gravataí,NEOPOLIS,51,nome,Neopolis
+Gravataí,COHAB C,45,nome,Cohab C
+Gravataí,PASSO DAS PEDRAS,44,nome,Passo das Pedras
+Gravataí,BARNABE,37,nome,Barnabe
+Gravataí,COHAB A,36,nome,Cohab A
+Gravataí,BOM SUCESSO,36,nome,Bom Sucesso
+Gravataí,VERA CRUZ,35,nome,Vera Cruz
+Gravataí,SALGADO FILHO,33,nome,Salgado Filho
+Gravataí,SANTA CRUZ,29,nome,Santa Cruz
+Gravataí,SAO VICENTE,28,nome,Sao Vicente
+Gravataí,BOM PRINCIPIO,26,nome,Bom Principio
+Gravataí,SAO JERONIMO,25,nome,Sao Jeronimo
+Gravataí,MONTE BELO,25,nome,Monte Belo
+Gravataí,PARQUE FLORIDO,22,nome,Parque Florido
+Gravataí,VILA IMPERIAL,22,nome,Vila Imperial
+Gravataí,JANSEN,21,nome,Jansen
+Gravataí,PARQUE DOS ANJOS,21,nome,Parque dos Anjos
+Gravataí,CRUZEIRO,20,nome,Cruzeiro
+Gravataí,PARQUE IPIRANGA,17,nome,Parque Ipiranga
+Gravataí,VILA BRANCA,16,nome,Vila Branca
+Gravataí,MARROCOS,15,nome,Marrocos
+Gravataí,MORADA DO VALE III,14,nome,Morada do Vale Iii
+Gravataí,DISTRITO INDUSTRIAL,14,nome,Distrito Industrial
+Gravataí,COHAB B,14,nome,Cohab B
+Gravataí,CADIZ,13,nome,Cadiz
+Gravataí,PASSO DOS FERREIROS,13,nome,Passo dos Ferreiros
+Gravataí,SANTA FE,13,nome,Santa Fe
+Gravataí,PARQUE OLINDA,12,nome,Parque Olinda
+Gravataí,CASTELO BRANCO,12,nome,Castelo Branco
+Gravataí,SAO LUIZ,11,nome,Sao Luiz
+Gravataí,PARQUE DO ITATIAIA,10,nome,Parque do Itatiaia
+Gravataí,MORADA DO VALE II,10,nome,Morada do Vale Ii
+Gravataí,VILA MORADA GAUCHA,9,nome,Vila Morada Gaucha
+Gravataí,SAO GERALDO,9,nome,Sao Geraldo
+Gravataí,SAO JUDAS TADEU,8,nome,Sao Judas Tadeu
+Gravataí,PARQUE ITACOLOMI,8,nome,Parque Itacolomi
+Gravataí,NOVO MUNDO,8,nome,Novo Mundo
+Gravataí,PARQUE DOS EUCALIPTOS,8,nome,Parque dos Eucaliptos
+Gravataí,CACA E PESCA,8,nome,Caca e Pesca
+Gravataí,MORADAS DO SOBRADO,7,nome,Moradas do Sobrado
+Gravataí,MORADA GAUCHA,6,nome,Morada Gaucha
+Gravataí,GARIBALDINA,6,nome,Garibaldina
+Gravataí,SITIO GAUCHO,6,nome,Sitio Gaucho
+Gravataí,PADRE REUS,5,nome,Padre Reus
+Gravataí,MATO ALTO,5,nome,Mato Alto
+Gravataí,CENTRAL,4,nome,Central
+Gravataí,JARDIM DO CEDRO,4,nome,Jardim do Cedro
+Gravataí,NOSSA CHACARA,4,nome,Nossa Chacara
+Gravataí,RINCAO DA MADALENA,4,nome,Rincao da Madalena
+Gravataí,SAGRADA FAMILIA,4,nome,Sagrada Familia
+Gravataí,LOTEAMENTO MIRAFLORES,4,nome,Miraflores
+Gravataí,VILA CLEDI,4,nome,Vila Cledi
+Gravataí,ITACOLOMI,3,nome,Itacolomi
+Gravataí,BARRO VERMELHO,3,nome,Barro Vermelho
+Gravataí,VALE VILLE,3,nome,Vale Ville
+Gravataí,VILA NEIVA,2,nome,Vila Neiva
+Gravataí,RECANTO CORCUNDA,2,nome,Recanto Corcunda
+Gravataí,DONA MERCEDES,2,nome,Dona Mercedes
+Gravataí,ORICO,2,nome,Orico
+Gravataí,MORUNGAVA,2,nome,Morungava
+Gravataí,BOA VISTA,2,nome,Boa Vista
+Gravataí,NATAL,2,nome,Natal
+Gravataí,MORADA DO VALE 1,1,nome,Morada do Vale 1
+Gravataí,LOTEAMENTO MIRAFLORE,1,nome,Miraflore
+Gravataí,JARDIM DO BOSQUE,1,nome,Jardim do Bosque
+Gravataí,PASSOS DA PEDRAS,1,nome,Passos da Pedras
+Gravataí,AGUAS CLARAS,1,nome,Aguas Claras
+Gravataí,SITIO SOBRADO,1,nome,Sitio Sobrado
+Gravataí,VILA FATIMA,1,nome,Vila Fatima
+Gravataí,BARNANBE,1,nome,Barnanbe
+Gravataí,S JERONIMO,1,nome,S Jeronimo
+Gravataí,PDA 65,1,nome,Pda 65
+Gravataí,PRINCESA ISABEL,1,nome,Princesa Isabel
+Gravataí,MORADA DO VALE 3,1,nome,Morada do Vale 3
+Gravataí,VILA ORICO,1,nome,Vila Orico
+Gravataí,PARADA 87,1,nome,Parada 87
+Gravataí,B SUCESSO,1,nome,Sucesso
+Gravataí,GIRASSOL,1,nome,Girassol
+Gravataí,N MUNDO,1,nome,N Mundo
+Gravataí,VILA VISTA ALEGRE,1,nome,Vila Vista Alegre
+Gravataí,COMPLEXO GM,1,nome,Complexo Gm
+Gravataí,PARQUE DOS EUCALIPTO,1,nome,Parque dos Eucalipto
+Gravataí,SAO CRISTOVAO,1,nome,Sao Cristovao
+Gravataí,JARDIM SUICO,1,nome,Jardim Suico
+Gravataí,COSTA DO IPIRANGA,1,nome,Costa do Ipiranga
+Gravataí,AGUAS MORTAS,1,nome,Aguas Mortas
+Gravataí,VILA NEILA,1,nome,Vila Neila
+Gravataí,MATO FINO,1,nome,Mato Fino
+Gravataí,DIVA LESSA DE JESUS,1,nome,Diva Lessa de Jesus
+Gravataí,DOM FELICIANO,1,nome,Dom Feliciano
+Gravataí,TOM JOBIM,1,nome,Tom Jobim
+Gravataí,LOTEAMENTO XARA,1,nome,Xara
+Guaíba,COLINA,68,exato,Colina
+Guaíba,CENTRO,68,exato,Centro
+Guaíba,SANTA RITA,61,exato,Santa Rita
+Guaíba,PARQUE 35,58,exato,Parque 35
+Guaíba,,51,vazio,
+Guaíba,JARDIM IOLANDA,27,exato,Jardim Iolanda
+Guaíba,BOM FIM,26,exato,Bom Fim
+Guaíba,ERMO,23,exato,Ermo
+Guaíba,COLUMBIA CITY,18,exato,Columbia City
+Guaíba,CORONEL NASSUCA,18,exato,Coronel Nassuca
+Guaíba,ALEGRIA,17,exato,Alegria
+Guaíba,PEDRAS BRANCAS,13,exato,Pedras Brancas
+Guaíba,PASSO FUNDO,13,exato,Passo Fundo
+Guaíba,FLORIDA,11,exato,Florida
+Guaíba,JARDIM DOS LAGOS,7,exato,Jardim dos Lagos
+Guaíba,BOA VISTA,5,nao_encontrado,
+Guaíba,ALTOS DA ALEGRIA,4,exato,Altos da Alegria
+Guaíba,COHAB,4,nao_encontrado,
+Guaíba,HORTO FLORESTAL,3,nao_encontrado,
+Guaíba,ALVORADA,3,exato,Alvorada
+Guaíba,VILA ELZA,2,nao_encontrado,
+Guaíba,LOGRADOURO,1,nao_encontrado,
+Guaíba,CHAVES BARCELLOS,1,exato,Chaves Barcellos
+Guaíba,BAIRRO 35,1,nao_encontrado,
+Guaíba,VERA CRUZ,1,nao_encontrado,
+Guaíba,NOVA GUAIBA,1,nao_encontrado,
+Guaíba,VILA IOLANDA,1,nao_encontrado,
+Guaíba,LOTEAMENTO CALIFORNIA CITY,1,nao_encontrado,
+Guaíba,PRIMAVERA,1,nao_encontrado,
+Guaíba,COHABSANTA RITA,1,nao_encontrado,
+Guaíba,MORADA DA COLINA,1,nao_encontrado,
+Guaíba,ENGENHO,1,nao_encontrado,
+Guaíba,CIDADE VERDE,1,nao_encontrado,
+Ivoti,,9,vazio,
+Ivoti,CENTRO,8,exato,Centro
+Ivoti,HARMONIA,7,exato,Harmonia
+Ivoti,CIDADE NOVA,6,exato,Cidade Nova
+Ivoti,BRASILIA,4,exato,Brasília
+Ivoti,JARDIM PANORAMICO,3,exato,Jardim Panorâmico
+Ivoti,SETE DE SETEMBRO,2,exato,Sete de Setembro
+Ivoti,VISTA ALEGRE,2,exato,Vista Alegre
+Ivoti,BURACO DO DIABO,1,nao_encontrado,
+Ivoti,FARROUPILHA,1,exato,Farroupilha
+Ivoti,MORADA DO SOL,1,exato,Morada do Sol
+Ivoti,UNIAO,1,nao_encontrado,
+Ivoti,PICADA 48 ALTA,1,nao_encontrado,
+Ivoti,RURAL,1,nao_encontrado,
+Ivoti,CONCORDIA,1,exato,Concórdia
+Ivoti,JARDIM BUHLER,1,exato,Jardim Buhler
+Ivoti,DE JULHO,1,nao_encontrado,
+Lindolfo Collor,,5,vazio,
+Lindolfo Collor,CENTRO,4,exato,Centro
+Lindolfo Collor,CAPIVARINHA,2,nao_encontrado,
+Lindolfo Collor,CAPIVARA,1,nao_encontrado,
+Lindolfo Collor,BAIRRO BOA VISTA,1,nao_encontrado,
+Morro Reuter,,2,vazio,
+Morro Reuter,WHALACHAI,1,nome,Whalachai
+Morro Reuter,SAO JOSE DO HE,1,nome,Sao Jose do He
+Morro Reuter,PICADA SAO PAULO,1,nome,Picada Sao Paulo
+Nova Hartz,,22,vazio,
+Nova Hartz,CENTRO,12,exato,Centro
+Nova Hartz,IMIGRANTE,4,parecido,Imigrantes
+Nova Hartz,CAMPO VICENTE,2,nao_encontrado,
+Nova Hartz,PROGRESSO,2,exato,Progresso
+Nova Hartz,PRIMAVERA,2,exato,Primavera
+Nova Hartz,VILA NOVA,2,exato,Vila Nova
+Nova Hartz,IP,1,nao_encontrado,
+Nova Hartz,BELA VISTA,1,exato,Bela Vista
+Nova Hartz,DAS ROSAS,1,exato,das Rosas
+Nova Santa Rita,,40,vazio,
+Nova Santa Rita,CENTRO,25,nome,Centro
+Nova Santa Rita,BERTO CIRIO,16,nome,Berto Cirio
+Nova Santa Rita,PEDREIRA,9,nome,Pedreira
+Nova Santa Rita,SANGA FUNDA,8,nome,Sanga Funda
+Nova Santa Rita,CALIFORNIA,6,nome,California
+Nova Santa Rita,FLORESTA,4,nome,Floresta
+Nova Santa Rita,CAJU,3,nome,Caju
+Nova Santa Rita,TABAI,2,nome,Tabai
+Nova Santa Rita,MORRETES,2,nome,Morretes
+Nova Santa Rita,MATHIAS VELHO,1,nome,Mathias Velho
+Nova Santa Rita,INDUSTRIAL,1,nome,Industrial
+Nova Santa Rita,ITAPUI,1,nome,Itapui
+Nova Santa Rita,INTERIOR,1,nome,Interior
+Nova Santa Rita,EST SANGA FUNDA,1,nome,Est Sanga Funda
+Nova Santa Rita,CAPAO DO PADRE,1,nome,Capao do Padre
+Nova Santa Rita,BENTO CIRIO,1,nome,Bento Cirio
+Novo Hamburgo,CENTRO,340,exato,Centro
+Novo Hamburgo,CANUDOS,194,exato,Canudos
+Novo Hamburgo,RIO BRANCO,115,exato,Rio Branco
+Novo Hamburgo,IDEAL,97,exato,Ideal
+Novo Hamburgo,SANTO AFONSO,95,exato,Santo Afonso
+Novo Hamburgo,LIBERDADE,81,exato,Liberdade
+Novo Hamburgo,,66,vazio,
+Novo Hamburgo,RONDONIA,55,exato,Rondônia
+Novo Hamburgo,HAMBURGO VELHO,54,exato,Hamburgo Velho
+Novo Hamburgo,INDUSTRIAL,48,exato,Industrial
+Novo Hamburgo,SAO JOSE,46,exato,São José
+Novo Hamburgo,PRIMAVERA,31,exato,Primavera
+Novo Hamburgo,PATRIA NOVA,30,exato,Pátria Nova
+Novo Hamburgo,SAO JORGE,28,exato,São Jorge
+Novo Hamburgo,OPERARIO,20,exato,Operário
+Novo Hamburgo,BOA SAUDE,18,exato,Boa Saúde
+Novo Hamburgo,VILA ROSA,16,exato,Vila Rosa
+Novo Hamburgo,VILA DIEHL,15,nao_encontrado,
+Novo Hamburgo,LOMBA GRANDE,14,exato,Lomba Grande
+Novo Hamburgo,RINCAO,13,exato,Rincão
+Novo Hamburgo,VILA NOVA,12,exato,Vila Nova
+Novo Hamburgo,ROSELANDIA,11,exato,Roselândia
+Novo Hamburgo,OURO BRANCO,11,exato,Ouro Branco
+Novo Hamburgo,GUARANI,10,exato,Guarani
+Novo Hamburgo,PETROPOLIS,8,exato,Petrópolis
+Novo Hamburgo,MAUA,8,exato,Mauá
+Novo Hamburgo,BOA VISTA,7,exato,Boa Vista
+Novo Hamburgo,DIHEL,6,nao_encontrado,
+Novo Hamburgo,ALPES DO VALE,5,exato,Alpes do Vale
+Novo Hamburgo,SCHARLAU,3,nao_encontrado,
+Novo Hamburgo,JARDIM MAUA,3,nao_encontrado,
+Novo Hamburgo,SAO JOSE SAO JORGE,2,nao_encontrado,
+Novo Hamburgo,RINCAO DOS ILHEUS,2,nao_encontrado,
+Novo Hamburgo,JARDIM,1,nao_encontrado,
+Novo Hamburgo,SAO MIGUEL,1,nao_encontrado,
+Novo Hamburgo,AMARAL RIBEIRO,1,nao_encontrado,
+Novo Hamburgo,RINCAO GAUCHO,1,nao_encontrado,
+Novo Hamburgo,H,1,nao_encontrado,
+Novo Hamburgo,CHARLAU,1,nao_encontrado,
+Novo Hamburgo,SANTOS DUMONT,1,nao_encontrado,
+Novo Hamburgo,DAS ROSAS,1,nao_encontrado,
+Novo Hamburgo,ENCOSTA DO SOL,1,nao_encontrado,
+Novo Hamburgo,FREITAS,1,nao_encontrado,
+Novo Hamburgo,DIEHL,1,exato,Diehl
+Novo Hamburgo,WALDERES,1,nao_encontrado,
+Picada Café,,4,vazio,
+Picada Café,JOANETA,3,nome,Joaneta
+Picada Café,PICADA CAFE,1,nome,Picada Cafe
+Picada Café,PICADA SAO PAULO,1,nome,Picada Sao Paulo
+Picada Café,CENTRO,1,nome,Centro
+Porto Alegre,CENTRO HISTORICO,4325,exato,Centro Histórico
+Porto Alegre,,1960,vazio,
+Porto Alegre,PRAIA DE BELAS,1958,exato,Praia de Belas
+Porto Alegre,CENTRO,1707,alias,Centro Histórico
+Porto Alegre,CIDADE BAIXA,1416,exato,Cidade Baixa
+Porto Alegre,PARTENON,1037,exato,Partenon
+Porto Alegre,FARROUPILHA,880,exato,Farroupilha
+Porto Alegre,PETROPOLIS,814,exato,Petrópolis
+Porto Alegre,FLORESTA,798,exato,Floresta
+Porto Alegre,MENINO DEUS,692,exato,Menino-Deus
+Porto Alegre,RESTINGA,671,exato,Restinga
+Porto Alegre,AZENHA,618,exato,Azenha
+Porto Alegre,RUBEM BERTA,520,exato,Rubem Berta
+Porto Alegre,SARANDI,514,exato,Sarandi
+Porto Alegre,SANTANA,490,exato,Santana
+Porto Alegre,SAO JOAO,459,exato,São João
+Porto Alegre,LOMBA DO PINHEIRO,429,exato,Lomba do Pinheiro
+Porto Alegre,CAVALHADA,412,exato,Cavalhada
+Porto Alegre,INDEPENDENCIA,403,exato,Independência
+Porto Alegre,RIO BRANCO,401,exato,Rio Branco
+Porto Alegre,PASSO D AREIA,393,alias,Passo da Areia
+Porto Alegre,CRISTAL,377,exato,Cristal
+Porto Alegre,HUMAITA,373,exato,Humaitá
+Porto Alegre,BOM FIM,359,exato,Bom Fim
+Porto Alegre,CRISTO REDENTOR,328,exato,Cristo Redentor
+Porto Alegre,MOINHOS DE VENTO,315,exato,Moinhos de Vento
+Porto Alegre,FARRAPOS,315,exato,Farrapos
+Porto Alegre,SANTA TEREZA,293,exato,Santa Tereza
+Porto Alegre,MARCILIO DIAS,272,nao_encontrado,
+Porto Alegre,NAVEGANTES,268,exato,Navegantes
+Porto Alegre,JARDIM BOTANICO,255,exato,Jardim Botânico
+Porto Alegre,MARIO QUINTANA,251,exato,Mário Quintana
+Porto Alegre,SAO GERALDO,249,exato,São Geraldo
+Porto Alegre,AGRONOMIA,243,exato,Agronomia
+Porto Alegre,PASSO DA AREIA,238,exato,Passo da Areia
+Porto Alegre,VILA IPIRANGA,222,exato,Vila Ipiranga
+Porto Alegre,VILA NOVA,219,exato,Vila Nova
+Porto Alegre,SANTA CECILIA,218,exato,Santa Cecília
+Porto Alegre,AUXILIADORA,216,exato,Auxiliadora
+Porto Alegre,VILA JOAO PESSOA,212,exato,Vila João Pessoa
+Porto Alegre,JARDIM CARVALHO,210,exato,Jardim Carvalho
+Porto Alegre,PROTASIO ALVES,209,nao_encontrado,
+Porto Alegre,BOM JESUS,205,exato,Bom Jesus
+Porto Alegre,SAO JOSE,196,nao_encontrado,
+Porto Alegre,GLORIA,195,exato,Glória
+Porto Alegre,TERESOPOLIS,183,exato,Teresópolis
+Porto Alegre,SAO SEBASTIAO,171,exato,São Sebastião
+Porto Alegre,VILA JARDIM,170,exato,Vila Jardim
+Porto Alegre,NONOAI,170,exato,Nonoai
+Porto Alegre,TRISTEZA,170,exato,Tristeza
+Porto Alegre,MEDIANEIRA,168,exato,Medianeira
+Porto Alegre,SANTO ANTONIO,133,exato,Santo Antônio
+Porto Alegre,BOA VISTA,127,exato,Boa Vista
+Porto Alegre,ANCHIETA,126,exato,Anchieta
+Porto Alegre,TRES FIGUEIRAS,114,exato,Três Figueiras
+Porto Alegre,MORRO SANTANA,112,exato,Morro Santana
+Porto Alegre,JARDIM ITU,112,exato,Jardim Itu
+Porto Alegre,HIGIENOPOLIS,107,exato,Higienópolis
+Porto Alegre,JARDIM DONA LEOPOLDINA,107,alias,Jardim Leopoldina
+Porto Alegre,BELA VISTA,106,exato,Bela Vista
+Porto Alegre,PASSO DAS PEDRAS,104,exato,Passo das Pedras
+Porto Alegre,IPANEMA,102,exato,Ipanema
+Porto Alegre,MONT SERRAT,98,parecido,Mont’Serrat
+Porto Alegre,HIPICA,95,exato,Hípica
+Porto Alegre,CASCATA,91,exato,Cascata
+Porto Alegre,CHACARA DAS PEDRAS,88,exato,Chácara das Pedras
+Porto Alegre,BELEM NOVO,85,exato,Belém Novo
+Porto Alegre,CORONEL APARICIO BORGES,83,exato,Coronel Aparício Borges
+Porto Alegre,CAMAQUA,82,exato,Camaquã
+Porto Alegre,LOMBA PINHEIRO,77,parecido,Lomba do Pinheiro
+Porto Alegre,JARDIM ITU SABARA,77,nao_encontrado,
+Porto Alegre,SANTA ROSA DE LIMA,76,exato,Santa Rosa de Lima
+Porto Alegre,JARDIM LINDOIA,68,exato,Jardim Lindóia
+Porto Alegre,PASSO DAREIA,67,parecido,Passo da Areia
+Porto Alegre,ESPIRITO SANTO,67,exato,Espírito Santo
+Porto Alegre,BELEM VELHO,62,exato,Belém Velho
+Porto Alegre,BOMFIM,61,parecido,Bom Fim
+Porto Alegre,COSTA E SILVA,55,exato,Costa e Silva
+Porto Alegre,CAMPO NOVO,52,exato,Campo Novo
+Porto Alegre,ABERTA DOS MORROS,52,exato,Aberta dos Morros
+Porto Alegre,PASSO PEDRAS,51,alias,Passo das Pedras
+Porto Alegre,JARDIM DO SALSO,49,exato,Jardim do Salso
+Porto Alegre,SANTA MARIA GORETTI,44,exato,Santa Maria Goretti
+Porto Alegre,CORONEL APARICO BORGES,44,parecido,Coronel Aparício Borges
+Porto Alegre,ABERTA MORROS,42,alias,Aberta dos Morros
+Porto Alegre,JARDIM SAO PEDRO,41,exato,Jardim São Pedro
+Porto Alegre,VILA ASSUNCAO,41,exato,Vila Assunção
+Porto Alegre,PONTA GROSSA,35,exato,Ponta Grossa
+Porto Alegre,JARDIM SABARA,31,exato,Jardim Sabará
+Porto Alegre,CAIS DO PORTO,31,alias,Centro Histórico
+Porto Alegre,LAMI,28,exato,Lami
+Porto Alegre,GUARUJA,25,exato,Guarujá
+Porto Alegre,PARQUE SANTA FE,25,exato,Parque Santa Fé
+Porto Alegre,JARDIM EUROPA,23,exato,Jardim Europa
+Porto Alegre,ARQUIPELAGO,23,exato,Arquipélago
+Porto Alegre,JARDIM FLORESTA,22,exato,Jardim Floresta
+Porto Alegre,CHAPEU DO SOL,19,exato,Chapéu do Sol
+Porto Alegre,P BELAS,18,alias,Praia de Belas
+Porto Alegre,VILA CONCEICAO,14,exato,Vila Conceição
+Porto Alegre,PATERNON,14,alias,Partenon
+Porto Alegre,PEDRA REDONDA,14,exato,Pedra Redonda
+Porto Alegre,LAGEADO,14,exato,Lageado
+Porto Alegre,M DEUS,12,alias,Menino-Deus
+Porto Alegre,C BAIXA,11,alias,Cidade Baixa
+Porto Alegre,CENTRO AZENHA,11,nao_encontrado,
+Porto Alegre,PR BELAS,11,alias,Praia de Belas
+Porto Alegre,BONFIM,10,alias,Bom Fim
+Porto Alegre,JARDIM DONA LEOPOLDI,10,alias,Jardim Leopoldina
+Porto Alegre,ALTO PETROPOLIS,9,nao_encontrado,
+Porto Alegre,MONTSERRAT,8,exato,Mont’Serrat
+Porto Alegre,SERRARIA,8,exato,Serraria
+Porto Alegre,PITINGA,8,exato,Pitinga
+Porto Alegre,CORONEL APARICIO BOR,7,parecido,Coronel Aparício Borges
+Porto Alegre,RESTINGA NOVA,6,nao_encontrado,
+Porto Alegre,CENTRO P BELAS,5,nao_encontrado,
+Porto Alegre,PROT ALVES,5,nao_encontrado,
+Porto Alegre,VL IPIRANGA,5,parecido,Vila Ipiranga
+Porto Alegre,INTERCAP,4,nao_encontrado,
+Porto Alegre,S JOAO SARANDI,4,nao_encontrado,
+Porto Alegre,JARDOM BOTANICO,4,parecido,Jardim Botânico
+Porto Alegre,STA TEREZA,3,parecido,Santa Tereza
+Porto Alegre,PARTENON S JOSE AGRO,3,nao_encontrado,
+Porto Alegre,ZN INDEFINIDA 3,3,nao_encontrado,
+Porto Alegre,JARDIM ISABEL,3,exato,Jardim Isabel
+Porto Alegre,PARQUE DOS MAIAS,3,nao_encontrado,
+Porto Alegre,PARQUE URBANO,3,nao_encontrado,
+Porto Alegre,C BAIXA SANTANA,2,nao_encontrado,
+Porto Alegre,B FIM,2,nao_encontrado,
+Porto Alegre,ILHA DO PAVAO,2,nao_encontrado,
+Porto Alegre,VL NOVA,2,nao_encontrado,
+Porto Alegre,R BRANCO P ALVES,2,nao_encontrado,
+Porto Alegre,IAPI,2,nao_encontrado,
+Porto Alegre,SETIMO CEU,2,exato,Sétimo Céu
+Porto Alegre,BAIRRO RESTINGA NOVA,2,nao_encontrado,
+Porto Alegre,LEOPOLDINA,2,nao_encontrado,
+Porto Alegre,ALVORADA,2,nao_encontrado,
+Porto Alegre,VL STO AGOSTINHO,2,nao_encontrado,
+Porto Alegre,SANTOS DUMONT,2,nao_encontrado,
+Porto Alegre,L PINHEIRO,2,nao_encontrado,
+Porto Alegre,STA MARIA GORETTI,2,parecido,Santa Maria Goretti
+Porto Alegre,C HISTORICO,2,alias,Centro Histórico
+Porto Alegre,JARDIM LEOPOLDINA,1,exato,Jardim Leopoldina
+Porto Alegre,M DIAS ARQUIPELAGO,1,nao_encontrado,
+Porto Alegre,JARDIM INGA,1,nao_encontrado,
+Porto Alegre,JARDIM PLANALTO,1,nao_encontrado,
+Porto Alegre,APARICIO BORGES,1,nao_encontrado,
+Porto Alegre,JD LEOPOLDINA,1,nao_encontrado,
+Porto Alegre,HIGEANOPOLIS,1,parecido,Higienópolis
+Porto Alegre,MONTE SERRAT,1,parecido,Mont’Serrat
+Porto Alegre,TURISTA,1,nao_encontrado,
+Porto Alegre,S JOSE,1,nao_encontrado,
+Porto Alegre,PARQUE INDIO JARI,1,nao_encontrado,
+Porto Alegre,A MORROS,1,nao_encontrado,
+Porto Alegre,JARDIM ALGARVE,1,nao_encontrado,
+Porto Alegre,P BELAS AZENHA,1,nao_encontrado,
+Porto Alegre,PROXIMO DO GASOMETRO,1,nao_encontrado,
+Porto Alegre,GASOMETRO,1,nao_encontrado,
+Porto Alegre,S JOAO S GERALDO,1,nao_encontrado,
+Porto Alegre,NAVEGANTES SARANDI,1,nao_encontrado,
+Porto Alegre,PORTO,1,nao_encontrado,
+Porto Alegre,S JOAO,1,nao_encontrado,
+Porto Alegre,FLORESTA NAVEGANTES,1,nao_encontrado,
+Porto Alegre,NOVO ESTEIO,1,nao_encontrado,
+Porto Alegre,RUBEN BERTA,1,parecido,Rubem Berta
+Porto Alegre,BAIRRO FATIMA,1,nao_encontrado,
+Porto Alegre,AUXILIADORA PETROPOLIS,1,nao_encontrado,
+Porto Alegre,PLANALTO,1,nao_encontrado,
+Porto Alegre,FARROUPILJHA,1,parecido,Farroupilha
+Porto Alegre,PARQUE INDUSTRIAL,1,nao_encontrado,
+Porto Alegre,VILA DOS PAPELEIROS,1,nao_encontrado,
+Porto Alegre,TUBEM BERTA,1,parecido,Rubem Berta
+Porto Alegre,VL JOAO PESSOA,1,parecido,Vila João Pessoa
+Porto Alegre,JUCA BATISTA,1,nao_encontrado,
+Porto Alegre,MNINO DEUS,1,parecido,Menino-Deus
+Porto Alegre,ZONA RURAL,1,nao_encontrado,
+Porto Alegre,CARVALHADA,1,parecido,Cavalhada
+Porto Alegre,C REDENTOR,1,nao_encontrado,
+Porto Alegre,PARADA DO ONIBUS T8,1,nao_encontrado,
+Porto Alegre,B JESUS S JOSE,1,nao_encontrado,
+Porto Alegre,VL M CASTELO,1,nao_encontrado,
+Porto Alegre,IPANEMA B NOVO,1,nao_encontrado,
+Porto Alegre,R BERTA,1,nao_encontrado,
+Porto Alegre,CRISTAL STA TEREZA,1,nao_encontrado,
+Porto Alegre,M DEUS AZENHA,1,nao_encontrado,
+Porto Alegre,ZN INDEFINIDA 4,1,nao_encontrado,
+Porto Alegre,P DAREIA,1,nao_encontrado,
+Porto Alegre,JARI,1,nao_encontrado,
+Porto Alegre,VL J PESSOA,1,nao_encontrado,
+Porto Alegre,PROX AO RODEIO,1,nao_encontrado,
+Porto Alegre,CENTRO INDEPENDENCIA,1,nao_encontrado,
+Porto Alegre,FREEWAY,1,nao_encontrado,
+Porto Alegre,JARDIM YPU,1,nao_encontrado,
+Porto Alegre,PASSO DORNELLES,1,nao_encontrado,
+Porto Alegre,CRUZEIRO,1,nao_encontrado,
+Porto Alegre,SEPE TIARAJU,1,nao_encontrado,
+Porto Alegre,CENTRO C BAIXA,1,nao_encontrado,
+Porto Alegre,PARTENOM,1,nao_encontrado,
+Porto Alegre,NOVA ESPERANCA,1,nao_encontrado,
+Porto Alegre,CIDADE BAIXO,1,parecido,Cidade Baixa
+Porto Alegre,CAVALHADA VL NOVA,1,nao_encontrado,
+Porto Alegre,ARENA DO GREMIO,1,nao_encontrado,
+Porto Alegre,SAO CAETANO,1,exato,São Caetano
+Porto Alegre,SANTA ISABEL,1,nao_encontrado,
+Porto Alegre,SUMARE,1,nao_encontrado,
+Porto Alegre,JOAO PESSOA,1,nao_encontrado,
+Porto Alegre,SANTA TERESA,1,parecido,Santa Tereza
+Porto Alegre,EXTREMA,1,exato,Extrema
+Porto Alegre,FARROUPINHA,1,parecido,Farroupilha
+Porto Alegre,PROTASIO,1,nao_encontrado,
+Porto Alegre,PARCAO,1,nao_encontrado,
+Porto Alegre,ZONA NOVA,1,nao_encontrado,
+Porto Alegre,PICADA,1,nao_encontrado,
+Porto Alegre,FLORESTA MOINHOS DE VENTO,1,nao_encontrado,
+Porto Alegre,TIJUCA ALVORDA,1,nao_encontrado,
+Porto Alegre,MATHIAS VELHO,1,nao_encontrado,
+Porto Alegre,TORRES,1,nao_encontrado,
+Porto Alegre,CEL AP BORGES,1,nao_encontrado,
+Porto Alegre,10,1,nao_encontrado,
+Porto Alegre,FARROUPILHA SANTANA,1,nao_encontrado,
+Porto Alegre,SANTA FE,1,nao_encontrado,
+Porto Alegre,INTERIOR DE COLETIVO,1,nao_encontrado,
+Portão,,44,vazio,
+Portão,CENTRO,31,nome,Centro
+Portão,SAO JORGE,10,nome,Sao Jorge
+Portão,RINCAO DO CASCALHO,8,nome,Rincao do Cascalho
+Portão,BOA VISTA,4,nome,Boa Vista
+Portão,APARECIDA,3,nome,Aparecida
+Portão,ESTACAO PORTAO,2,nome,Estacao Portao
+Portão,VILA RICA,2,nome,Vila Rica
+Portão,PARQUE RESIDENCIAL PORTAO,2,nome,Parque Residencial Portao
+Portão,RIO DOS SINOS,1,nome,Rio dos Sinos
+Portão,LOTEAMENTO RIVA,1,nome,Riva
+Portão,PARQUE REIS,1,nome,Parque Reis
+Portão,OURO VERDE,1,nome,Ouro Verde
+Portão,INDUSTRIAL,1,nome,Industrial
+Portão,ESMERALDA,1,nome,Esmeralda
+Presidente Lucena,,11,vazio,
+Presidente Lucena,NOVA VILA,3,nome,Nova Vila
+Presidente Lucena,PICADA SCHNEIDER,1,nome,Picada Schneider
+Sapiranga,,62,vazio,
+Sapiranga,CENTRO,59,exato,Centro
+Sapiranga,SAO LUIZ,50,exato,São Luiz
+Sapiranga,OESTE,29,exato,Oeste
+Sapiranga,VOO LIVRE,18,exato,Voo Livre
+Sapiranga,CENTENARIO,15,exato,Centenário
+Sapiranga,SETE DE SETEMBRO,10,exato,Sete de Setembro
+Sapiranga,AMARAL RIBEIRO,10,exato,Amaral Ribeiro
+Sapiranga,SAO JACO,9,exato,São Jacó
+Sapiranga,VILA IRMA,8,exato,Vila Irma
+Sapiranga,SANTA FE,4,exato,Santa Fe
+Sapiranga,PIQUETE,4,nao_encontrado,
+Sapiranga,VILA NOVA,4,exato,Vila Nova
+Sapiranga,FLORESTA,3,exato,Floresta
+Sapiranga,NOVO CENTENARIO,3,nao_encontrado,
+Sapiranga,QUATRO COLINAS,1,parecido,Quatro Colonias
+Sapiranga,FERRABRAZ,1,exato,Ferrabraz
+Sapiranga,INVASAO,1,nao_encontrado,
+Sapiranga,SAO LUIS,1,nao_encontrado,
+Sapiranga,NAO SEI,1,nao_encontrado,
+Sapiranga,PROX CAMPO CAIRU,1,nao_encontrado,
+Sapiranga,FAZENDA LEAO,1,exato,Fazenda Leão
+Sapucaia do Sul,CENTRO,127,nome,Centro
+Sapucaia do Sul,,86,vazio,
+Sapucaia do Sul,VARGAS,62,nome,Vargas
+Sapucaia do Sul,JARDIM,40,nome,Jardim
+Sapucaia do Sul,PRIMOR,38,nome,Primor
+Sapucaia do Sul,NOVA SAPUCAIA,35,nome,Nova Sapucaia
+Sapucaia do Sul,CAMBOIM,34,nome,Camboim
+Sapucaia do Sul,COHAB,29,nome,Cohab
+Sapucaia do Sul,SANTA CATARINA,27,nome,Santa Catarina
+Sapucaia do Sul,LOMBA DA PALMEIRA,24,nome,Lomba da Palmeira
+Sapucaia do Sul,IPIRANGA,22,nome,Ipiranga
+Sapucaia do Sul,FREITAS,20,nome,Freitas
+Sapucaia do Sul,CAPAO DA CRUZ,19,nome,Capao da Cruz
+Sapucaia do Sul,PASQUALINI,19,nome,Pasqualini
+Sapucaia do Sul,DIHEL,18,nome,Dihel
+Sapucaia do Sul,PIRATINI,18,nome,Piratini
+Sapucaia do Sul,SETE,15,nome,Sete
+Sapucaia do Sul,BOA VISTA,15,nome,Boa Vista
+Sapucaia do Sul,COLONIAL,15,nome,Colonial
+Sapucaia do Sul,TRES PORTOS,13,nome,Tres Portos
+Sapucaia do Sul,SAO JOSE,12,nome,Sao Jose
+Sapucaia do Sul,PARAISO,12,nome,Paraiso
+Sapucaia do Sul,FORTUNA,11,nome,Fortuna
+Sapucaia do Sul,WALDEREZ,11,nome,Walderez
+Sapucaia do Sul,HORTO FLORESTAL,9,nome,Horto Florestal
+Sapucaia do Sul,SAO JORGE,6,nome,Sao Jorge
+Sapucaia do Sul,SILVA,6,nome,Silva
+Sapucaia do Sul,BAIRRO ZOOLOGICO,6,nome,Zoologico
+Sapucaia do Sul,VACCHI,3,nome,Vacchi
+Sapucaia do Sul,GETULIO VARGAS,2,nome,Getulio Vargas
+Sapucaia do Sul,PASSO DE SAPUCAIA,2,nome,Passo de Sapucaia
+Sapucaia do Sul,COSTA DO MORRO,2,nome,Costa do Morro
+Sapucaia do Sul,JOAO DE BARRO,1,nome,Joao de Barro
+Sapucaia do Sul,VARGAS BELA VISTA,1,nome,Vargas Bela Vista
+Sapucaia do Sul,PADRE REUS,1,nome,Padre Reus
+Sapucaia do Sul,COLINA,1,nome,Colina
+Sapucaia do Sul,SAO JOAO BATISTA,1,nome,Sao Joao Batista
+Sapucaia do Sul,SAO BORJA,1,nome,Sao Borja
+Sapucaia do Sul,SANTO INACIO,1,nome,Santo Inacio
+Sapucaia do Sul,VARGAS COLINA,1,nome,Vargas Colina
+Sapucaia do Sul,T PORTOS ZOOLOGICO,1,nome,T Portos Zoologico
+Sapucaia do Sul,C CRUZ IPIRANGA,1,nome,C Cruz Ipiranga
+Sapucaia do Sul,H FLORESTAL,1,nome,H Florestal
+Sapucaia do Sul,CENTRO VACCHI,1,nome,Centro Vacchi
+Sapucaia do Sul,T PORTOS,1,nome,T Portos
+Sapucaia do Sul,TAMANDARE,1,nome,Tamandare
+Sapucaia do Sul,PARQUE PRIMAVERA,1,nome,Parque Primavera
+Sapucaia do Sul,KURASHIKI,1,nome,Kurashiki
+Sapucaia do Sul,LOT N HORIZONTE,1,nome,N Horizonte
+Sapucaia do Sul,VILA NOVA,1,nome,Vila Nova
+Sapucaia do Sul,MATHIAS VELHO,1,nome,Mathias Velho
+São José do Hortêncio,,3,vazio,
+São José do Hortêncio,CENTRO,2,nome,Centro
+São José do Hortêncio,CAPELA DO ROSARIO,1,nome,Capela do Rosario
+São José do Hortêncio,ARROIO BONITO,1,nome,Arroio Bonito
+São Leopoldo,CENTRO,536,exato,Centro
+São Leopoldo,,137,vazio,
+São Leopoldo,SANTOS DUMONT,103,exato,Santos Dumont
+São Leopoldo,SCHARLAU,91,exato,Scharlau
+São Leopoldo,RIO DOS SINOS,83,exato,Rio dos Sinos
+São Leopoldo,FEITORIA,68,exato,Feitoria
+São Leopoldo,SAO JOSE,61,exato,São José
+São Leopoldo,CAMPINA,57,exato,Campina
+São Leopoldo,RIO BRANCO,52,exato,Rio Branco
+São Leopoldo,ARROIO DA MANTEIGA,43,exato,Arroio da Manteiga
+São Leopoldo,SANTA TERESA,38,exato,Santa Teresa
+São Leopoldo,CRISTO REI,31,exato,Cristo Rei
+São Leopoldo,SAO JOAO BATISTA,28,exato,São João Batista
+São Leopoldo,VICENTINA,28,exato,Vicentina
+São Leopoldo,JARDIM AMERICA,26,exato,Jardim América
+São Leopoldo,DUQUE DE CAXIAS,26,exato,Duque de Caxias
+São Leopoldo,SAO MIGUEL,26,exato,São Miguel
+São Leopoldo,FIAO,25,exato,Fião
+São Leopoldo,MORRO DO ESPELHO,21,exato,Morro do Espelho
+São Leopoldo,PADRE REUS,10,exato,Padre Reus
+São Leopoldo,CAMPESTRE,10,exato,Campestre
+São Leopoldo,SANTO ANDRE,10,exato,Santo André
+São Leopoldo,FAZENDA SAO BORJA,8,exato,Fazenda São Borja
+São Leopoldo,PINHEIRO,7,exato,Pinheiro
+São Leopoldo,TRIANGULO,4,nao_encontrado,
+São Leopoldo,FEITORIA SELLER,3,nao_encontrado,
+São Leopoldo,CENTRO STA TERESA,2,nao_encontrado,
+São Leopoldo,SAO BORJA,2,nao_encontrado,
+São Leopoldo,LOTEAMENTO PARQUE RECREIO,2,nao_encontrado,
+São Leopoldo,PARQUE ITAPEMA,1,nao_encontrado,
+São Leopoldo,SCHARLAU ITAPEMA,1,nao_encontrado,
+São Leopoldo,C REI,1,nao_encontrado,
+São Leopoldo,S JOSE,1,nao_encontrado,
+São Leopoldo,PE REUS,1,nao_encontrado,
+São Leopoldo,CENTRO S MIGUEL,1,nao_encontrado,
+São Leopoldo,ESQUINA PRIM MARCO,1,nao_encontrado,
+São Leopoldo,SHARLAU,1,parecido,Scharlau
+São Leopoldo,BOA VISTA,1,exato,Boa Vista
+São Leopoldo,VILA GLORIA,1,nao_encontrado,
+São Leopoldo,SAO LUIS,1,nao_encontrado,
+São Leopoldo,LIBERDADE,1,nao_encontrado,
+São Leopoldo,DISTRITO INDUSTRIAL,1,nao_encontrado,
+São Leopoldo,QUERENCIA,1,nao_encontrado,
+São Leopoldo,VILA TEREZA,1,nao_encontrado,
+São Leopoldo,SANTA TEREZA,1,parecido,Santa Teresa
+São Leopoldo,FEITORIA COHAB,1,nao_encontrado,
+São Leopoldo,JARDIM VIADUTO,1,nao_encontrado,
+São Leopoldo,NAO SABE,1,nao_encontrado,
+São Leopoldo,LOTEAMENTO PARQUE RE,1,nao_encontrado,
+São Leopoldo,ESTACAO TRENSURB SAO,1,nao_encontrado,
+São Leopoldo,VARGAS,1,nao_encontrado,
+São Leopoldo,CHARLAU,1,parecido,Scharlau
+São Leopoldo,SANTOS DUMMONT,1,parecido,Santos Dumont
+São Leopoldo,SANTA TECLA,1,nao_encontrado,
+São Leopoldo,LOMBA GRANDE,1,nao_encontrado,
+São Leopoldo,CAIS DO PORTO,1,nao_encontrado,
+São Sebastião do Caí,,45,vazio,
+São Sebastião do Caí,CENTRO,8,nome,Centro
+São Sebastião do Caí,VILA RICA,5,nome,Vila Rica
+São Sebastião do Caí,NAVEGANTES,4,nome,Navegantes
+São Sebastião do Caí,QUILOMBO,4,nome,Quilombo
+São Sebastião do Caí,SAO MARTIM,3,nome,Sao Martim
+São Sebastião do Caí,ANGICO,2,nome,Angico
+São Sebastião do Caí,SANTA TERESINHA,2,nome,Santa Teresinha
+São Sebastião do Caí,VILA PROGRESSO,2,nome,Vila Progresso
+São Sebastião do Caí,COSTA DO CADEIA,1,nome,Costa do Cadeia
+São Sebastião do Caí,CONCEICAO,1,nome,Conceicao
+São Sebastião do Caí,SAO MARTIN,1,nome,Sao Martin
+São Sebastião do Caí,SAO MARTINS,1,nome,Sao Martins
+Viamão,CENTRO,253,exato,Centro
+Viamão,CECILIA,137,exato,Cecília
+Viamão,SANTA ISABEL,117,exato,Santa Isabel
+Viamão,VIAMOPOLIS,115,exato,Viamópolis
+Viamão,JARDIM KRAHE,109,alias,Krahe
+Viamão,,85,vazio,
+Viamão,VILA AUGUSTA,82,alias,Augusta
+Viamão,SANTO ONOFRE,74,exato,Santo Onofre
+Viamão,SAO LUCAS,55,exato,São Lucas
+Viamão,SAO TOME,54,exato,São Tomé
+Viamão,TARUMA,53,exato,Tarumã
+Viamão,VILA ELSA,45,alias,Elsa
+Viamão,PARQUE INDIO JARI,41,nao_encontrado,
+Viamão,SITIO SAO JOSE,40,nao_encontrado,
+Viamão,FLORESCENTE,30,nao_encontrado,
+Viamão,PLANALTO,27,nao_encontrado,
+Viamão,SANTA CECILIA,25,nao_encontrado,
+Viamão,AGUAS CLARAS,21,nao_encontrado,
+Viamão,ESTALAGEM,20,nao_encontrado,
+Viamão,LOMBA DO PINHEIRO,14,nao_encontrado,
+Viamão,JARDIM UNIVERSITARIO,9,nao_encontrado,
+Viamão,JARDIM VIAMAR,8,nao_encontrado,
+Viamão,MORRO GRANDE,6,nao_encontrado,
+Viamão,NOSSA SENHORA APARECIDA,6,nao_encontrado,
+Viamão,VILA UNIVERSAL,6,nao_encontrado,
+Viamão,AUGUSTA,5,exato,Augusta
+Viamão,PARQUE SAO CRISTOVAO,5,nao_encontrado,
+Viamão,PASSO DO VIGARIO,4,exato,Passo do Vigário
+Viamão,ITAPUA,4,nao_encontrado,
+Viamão,JARI,3,nao_encontrado,
+Viamão,FIUZA,3,exato,Fiuza
+Viamão,MARTINICA,3,exato,Martinica
+Viamão,AGRONOMIA,3,nao_encontrado,
+Viamão,VIAMAO,2,nao_encontrado,
+Viamão,PIRATINI,2,nao_encontrado,
+Viamão,TIJUCA,2,nao_encontrado,
+Viamão,FORMOZA,2,nao_encontrado,
+Viamão,QUERENCIA,2,exato,Querência
+Viamão,NOSSA SENHORA APAREC,2,nao_encontrado,
+Viamão,AUAS CLARAS,1,nao_encontrado,
+Viamão,ORIETA,1,nao_encontrado,
+Viamão,VILA MONTE ALEGRE,1,nao_encontrado,
+Viamão,ZONA RURAL,1,nao_encontrado,
+Viamão,FLORENCA,1,nao_encontrado,
+Viamão,INDIO JARI,1,nao_encontrado,
+Viamão,KRAEH,1,nao_encontrado,
+Viamão,SEPE TIARAJU,1,nao_encontrado,
+Viamão,VL ITAPUA,1,nao_encontrado,
+Viamão,TIRIRICA BRANQUINHA,1,nao_encontrado,
+Viamão,JD KRAHE,1,nao_encontrado,
+Viamão,PASSO DI VIGARIO,1,parecido,Passo do Vigário
+Viamão,VERONA,1,nao_encontrado,
+Viamão,SAO JUDAS TADEU,1,nao_encontrado,
+Viamão,AUGUSTA PARADA 19,1,nao_encontrado,
+Viamão,CAPOROROCA,1,nao_encontrado,
+Viamão,PITINGA,1,nao_encontrado,
+Viamão,HORTO DAS OLIVEIRAS,1,nao_encontrado,
+Viamão,APARECIDA,1,nao_encontrado,
+Viamão,JARDIM SCHONWALD,1,nao_encontrado,
+Viamão,STA ISABEL,1,parecido,Santa Isabel
+Viamão,SAO CRISTOVAO,1,nao_encontrado,
+Viamão,COCAO,1,exato,Cocão
+Viamão,JARDIM ALGARVE,1,nao_encontrado,
