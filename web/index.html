@@ -16,7 +16,7 @@
     <button id="alca" class="alca" aria-label="Expandir ou recolher painel"></button>
     <header>
       <h1>Furtos de celular</h1>
-      <p class="sub">Ocorrências registradas na <span id="nome-regiao">Grande Porto Alegre</span></p>
+      <p class="sub">Bah, cuida o celular! Onde mais se registra furto e roubo na <span id="nome-regiao">Grande Porto Alegre</span>.</p>
     </header>
 
     <section class="filtros">
@@ -44,12 +44,13 @@
         <label class="rotulo" for="cidade">Cidade</label>
         <select id="cidade"><option value="">Todas</option></select>
       </div>
-      <div class="grupo" role="group" aria-label="Medida">
-        <span class="rotulo">Medida</span>
+      <div class="grupo" role="group" aria-label="Como comparar os bairros">
+        <span class="rotulo">Como comparar</span>
         <div class="seg" data-filtro="medida">
-          <button data-v="total" class="on">Ocorrências</button>
-          <button data-v="taxa">Por mil moradores</button>
+          <button data-v="total" class="on">Total de casos</button>
+          <button data-v="taxa">Por morador</button>
         </div>
+        <div class="explica" id="explica-medida" aria-live="polite"></div>
       </div>
     </section>
 
@@ -71,8 +72,8 @@
       <p id="nota-dados"></p>
       <p>Fonte: <a href="https://ssp.rs.gov.br/dados-abertos" target="_blank" rel="noopener">SSP-RS, dados abertos (Lei 15.610/2021)</a>.
         Bairros e população: IBGE, Censo 2022. Mapa: <a href="https://openfreemap.org" target="_blank" rel="noopener">OpenFreeMap</a> / © OpenStreetMap.</p>
-      <p>Mostra só o que virou boletim de ocorrência. Bairros centrais concentram registros também porque circula mais gente neles.
-        Noite = 18h às 6h.</p>
+      <p>Só entra o que virou boletim de ocorrência. Muito caso fica sem registro, então o número real é maior.
+        Noite = das 18h às 6h.</p>
     </footer>
   </aside>
 

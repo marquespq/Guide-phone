@@ -88,6 +88,16 @@ select {
   border: 0; border-radius: 9px; padding: 8px 10px; width: 100%;
 }
 
+.explica {
+  margin-top: 6px; padding: 10px 12px; border-radius: 9px;
+  background: var(--surface-2); border-left: 3px solid var(--accent);
+  font-size: 12.5px; line-height: 1.5; color: var(--text-2);
+}
+.explica b { color: var(--text); }
+.explica p { margin: 0; }
+.explica p + p { margin-top: 6px; }
+.explica .ex { color: var(--text-3); }
+
 .resumo { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
 .numero { font-size: 30px; font-weight: 700; letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
 .desc { color: var(--text-2); }

@@ -102,6 +102,7 @@
 
     if (map && map.getSource("bai")) pintar();
     resumo();
+    explicarMedida();
     legenda();
     ranking();
     if (estado.sel) detalhe(estado.sel);
@@ -139,6 +140,31 @@
     $("#total-desc").textContent = `${tipo}${hora} · ${onde} · ${textoPeriodo()}`;
   }
 
+  // Explica a medida escolhida com um exemplo real: o bairro com mais casos
+  // (no filtro atual) e quanto isso dá por mil moradores.
+  function explicarMedida() {
+    const { porArea } = valores;
+    let ex = null;
+    D.areas.forEach((a, i) => {
+      if (!a.geo || !a.pop || a.pop < POP_MINIMA) return;
+      if (estado.cidade && a.mun !== estado.cidade) return;
+      if (!ex || porArea[i] > porArea[ex.i]) ex = { i, a };
+    });
+    let exemplo = "";
+    if (ex && porArea[ex.i] > 0) {
+      const n = porArea[ex.i];
+      exemplo = `<p class="ex">Exemplo: ${ex.a.nome} teve <b>${fmt.format(n)}</b> casos e tem ${fmt.format(ex.a.pop)} moradores,
+        o que dá <b>${fmt1.format((n / ex.a.pop) * 1000)}</b> por mil moradores.</p>`;
+    }
+    $("#explica-medida").innerHTML = estado.medida === "total"
+      ? `<p><b>Quantos casos, tchê.</b> Soma de tudo que foi registrado em cada bairro.
+          Lugar de muito movimento, como o Centro Histórico, aparece forte porque passa um mundo de gente por ali,
+          e isso não quer dizer que quem mora lá corre mais risco.</p>${exemplo}`
+      : `<p><b>Proporcional ao tamanho do bairro.</b> Casos divididos pelos moradores (Censo 2022), a cada mil.
+          Assim um bairro pequeno com 50 casos pode pesar mais que um grandão com 200.
+          Bairro com menos de ${fmt.format(POP_MINIMA)} moradores fica de fora, senão a conta dá uma barbaridade.</p>${exemplo}`;
+  }
+
   function legenda() {
     const r = rampa();
     const n = classes.length + 1;
@@ -146,13 +172,13 @@
     const fmtv = estado.medida === "total" ? (x) => fmt.format(x) : (x) => fmt1.format(x);
     // cada limite fica centralizado na divisa entre duas caixas (34px + 2px de vão)
     const limites = classes.map((x, i) => `<span style="left:${(i + 1) * 36 - 1}px">${fmtv(x)}</span>`).join("");
-    const unidade = estado.medida === "total" ? "ocorrências por bairro" : "ocorrências por mil moradores";
+    const unidade = estado.medida === "total" ? "casos por bairro" : "casos por mil moradores";
     $("#legenda").innerHTML = `
       <div class="escala">menos <span class="caixas">${usadas.map((c) => `<span style="background:${c}"></span>`).join("")}</span> mais</div>
       <div class="limites" style="margin-left:42px">${limites}</div>
       <div class="extra">
         <span><i style="background:${css("--zero")}"></i>nenhum registro</span>
-        <span><i class="hachura" style="background-color:${css("--sem-dado")}"></i>cidade sem mapa de bairros (toque para ver a lista)</span>
+        <span><i class="hachura" style="background-color:${css("--sem-dado")}"></i>cidade sem mapa de bairros${estado.medida === "total" ? " (em “Por morador” ela ganha cor)" : ""}. Toque para ver a lista.</span>
       </div>
       <div class="extra" style="margin-top:4px">${unidade}, ${textoPeriodo()}</div>`;
   }
@@ -171,7 +197,7 @@
     const top = itens.slice(0, 12);
     const max = top.length ? top[0].v : 1;
     const fmtv = estado.medida === "total" ? (x) => fmt.format(x) : (x) => fmt1.format(x);
-    $("#ranking-titulo").textContent = estado.medida === "total" ? "Bairros com mais registros" : "Maior taxa por mil moradores";
+    $("#ranking-titulo").textContent = estado.medida === "total" ? "Onde mais some celular" : "Mais casos por morador";
     $("#ranking").innerHTML = top.length
       ? top.map((t) => `
         <li><button data-i="${t.i}">
