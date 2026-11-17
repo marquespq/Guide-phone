@@ -43,6 +43,21 @@ h1 { margin: 0; font-size: 20px; letter-spacing: -.01em; }
 h2 { margin: 0 0 8px; font-size: 13px; font-weight: 600; color: var(--text-2); text-transform: uppercase; letter-spacing: .04em; }
 .sub { margin: 2px 0 0; color: var(--text-2); }
 
+/* título + compartilhar */
+.titulo-linha { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.btn-compartilhar {
+  display: inline-flex; align-items: center; gap: 6px; flex: none;
+  border: 1px solid var(--border); background: var(--surface); color: var(--text-2);
+  font: inherit; font-size: 12.5px; padding: 5px 10px; border-radius: 999px; cursor: pointer;
+}
+.btn-compartilhar:hover { background: var(--surface-2); color: var(--text); }
+#aviso-toast {
+  position: fixed; left: 50%; bottom: 28px; transform: translate(-50%, 20px); z-index: 30;
+  background: var(--text); color: var(--surface); padding: 8px 14px; border-radius: 999px; font-size: 13px;
+  opacity: 0; pointer-events: none; transition: opacity .2s, transform .2s;
+}
+#aviso-toast.on { opacity: 1; transform: translate(-50%, 0); }
+
 /* busca */
 .busca { position: relative; }
 #busca {
@@ -112,9 +127,9 @@ select {
 .legenda .escala > span:not(.coluna) { line-height: 12px; }
 .legenda .coluna { display: flex; flex-direction: column; }
 .legenda .caixas { display: flex; gap: 2px; }
-.legenda .caixas span { width: 34px; height: 12px; border-radius: 3px; }
+.legenda .caixas span { width: 46px; height: 12px; border-radius: 3px; }
 .legenda .limites { position: relative; height: 14px; margin-top: 3px; font-size: 11px; color: var(--text-3); font-variant-numeric: tabular-nums; }
-.legenda .limites span { position: absolute; top: 0; transform: translateX(-50%); white-space: nowrap; }
+.legenda .limites span { position: absolute; top: 0; transform: translateX(-50%); white-space: nowrap; font-size: 10.5px; }
 .legenda .extra { display: flex; flex-wrap: wrap; gap: 4px 14px; margin-top: 8px; font-size: 12px; color: var(--text-2); }
 .legenda .extra i { display: inline-block; width: 14px; height: 12px; border-radius: 3px; vertical-align: -2px; margin-right: 5px; border: 1px solid var(--border); }
 .legenda .hachura { background: repeating-linear-gradient(45deg, var(--contorno-mun) 0 1.5px, transparent 1.5px 5px); }
@@ -152,6 +167,9 @@ select {
 .card .topo { display: flex; justify-content: space-between; align-items: start; gap: 8px; }
 .card h3 { margin: 0; font-size: 17px; line-height: 1.25; }
 .card .cidade { color: var(--text-2); font-size: 12.5px; margin-top: 2px; }
+.card .acoes { display: flex; align-items: center; gap: 2px; flex: none; }
+.card .compartilhar { border: 0; background: transparent; color: var(--text-2); cursor: pointer; padding: 5px 6px; border-radius: 6px; display: inline-flex; }
+.card .compartilhar:hover { background: var(--surface-2); color: var(--text); }
 .card .fechar { flex: none; border: 0; background: transparent; color: var(--text-2); font-size: 22px; line-height: 1; cursor: pointer; padding: 0 6px 4px; border-radius: 6px; }
 .card .fechar:hover { background: var(--surface-2); }
 .card .kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 10px 0 8px; padding: 8px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }

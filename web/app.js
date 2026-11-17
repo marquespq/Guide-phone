@@ -77,7 +77,8 @@
     const v = vals.filter((x) => x != null && x > 0).sort((p, q) => p - q);
     if (!v.length) return [];
     const q = [0.2, 0.4, 0.6, 0.8].map((p) => v[Math.min(v.length - 1, Math.floor(p * v.length))]);
-    const arred = q.map((x) => (estado.medida === "total" ? Math.max(1, Math.round(x)) : Math.round(x * 10) / 10));
+    // taxa: 2 algarismos significativos (taxas pequenas como 0,08 não viram 0)
+    const arred = q.map((x) => (estado.medida === "total" ? Math.max(1, Math.round(x)) : Number(x.toPrecision(2))));
     return arred.filter((x, i) => i === 0 || x > arred[i - 1]);
   }
 
@@ -114,6 +115,7 @@
 
     if (map && map.getSource("bai")) pintar();
     resumo();
+    escreverURL();
     explicarMedida();
     legenda();
     ranking();
@@ -224,9 +226,11 @@
     const r = rampa();
     const n = cls.length + 1;
     const usadas = r.slice(5 - n);
-    const fmtv = estado.medida === "total" ? (x) => fmt.format(x) : (x) => umACada(x);
-    // cada limite fica centralizado na divisa entre duas caixas (34px + 2px de vão)
-    const limites = cls.map((x, i) => `<span style="left:${(i + 1) * 36 - 1}px">${fmtv(x)}</span>`).join("");
+    // legenda em formato curto para caber entre as caixas: "1,4 mil", "13 mil"
+    const curto = (n) => (n >= 1000 ? fmt1.format(n / 1000).replace(/,0$/, "") + " mil" : fmt.format(n));
+    const fmtv = estado.medida === "total" ? (x) => curto(x) : (x) => (x > 0 ? curto(Number((1000 / x).toPrecision(2))) : "–");
+    // cada limite fica centralizado na divisa entre duas caixas (46px + 2px de vão)
+    const limites = cls.map((x, i) => `<span style="left:${(i + 1) * 48 - 1}px">${fmtv(x)}</span>`).join("");
     const unidade = estado.medida === "total" ? (cidades ? "casos por cidade" : "casos por bairro") : "os números são “1 caso a cada tantos moradores”";
     $("#legenda").innerHTML = `
       <div class="escala">
@@ -351,7 +355,8 @@
       const serie = serieMensal((i) => D.areas[i].mun === sel.mun);
       html = `
         <div class="topo"><div><h3>${m.nome}</h3><div class="cidade">cidade inteira · ${rotuloFiltro()}</div></div>
-        <button class="fechar" aria-label="Fechar">×</button></div>
+        <div class="acoes"><button class="compartilhar" aria-label="Compartilhar este lugar" title="Compartilhar"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12v7a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7"/><path d="M16 6l-4-4-4 4"/><path d="M12 2v13"/></svg></button>
+        <button class="fechar" aria-label="Fechar">×</button></div></div>
         <div class="kpis">
           <div class="kpi"><b>${fmt.format(n)}</b><span>casos</span></div>
           <div class="kpi"><b>${taxa ? "1 a cada " + umACada(taxa) : "–"}</b><span>moradores</span></div>
@@ -372,7 +377,8 @@
       const totMun = porMun[a.mun] || 0;
       html = `
         <div class="topo"><div><h3>${a.nome}</h3><div class="cidade">${D.municipios[a.mun].nome} · ${rotuloFiltro()}</div></div>
-        <button class="fechar" aria-label="Fechar">×</button></div>
+        <div class="acoes"><button class="compartilhar" aria-label="Compartilhar este lugar" title="Compartilhar"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12v7a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7"/><path d="M16 6l-4-4-4 4"/><path d="M12 2v13"/></svg></button>
+        <button class="fechar" aria-label="Fechar">×</button></div></div>
         <div class="kpis">
           <div class="kpi"><b>${fmt.format(n)}</b><span>casos</span></div>
           <div class="kpi"><b>${temTaxa && n ? "1 a cada " + umACada((n / a.pop) * 1000) : "–"}</b><span>moradores</span></div>
@@ -389,6 +395,7 @@
     box.className = "card";
     box.innerHTML = html;
     box.querySelector(".fechar").onclick = () => selecionar(null);
+    box.querySelector(".compartilhar").onclick = () => compartilhar(box.querySelector("h3").textContent);
     box.querySelectorAll(".por-cat button").forEach((b) => { b.onclick = () => escolherCategoria(b.dataset.cat); });
     const ver = box.querySelector(".ver-bairros");
     if (ver) ver.onclick = () => {
@@ -491,6 +498,7 @@
       estado.sel = null;
       fecharPopup();
       if (map && map.getSource("bai")) pintar();
+      escreverURL();
       return;
     }
     let alvo = null;
@@ -510,6 +518,7 @@
       detalhe(sel);
       encaixarNaTela();
     }
+    escreverURL();
   }
 
   // ---------- mapa ----------
@@ -561,6 +570,8 @@
     map.addLayer({ id: "sel-linha", type: "line", source: "bai", filter: ["==", ["get", "CD_BAIRRO"], ""], paint: { "line-color": css("--text"), "line-width": 2.5 } });
     map.addLayer({ id: "sel-mun", type: "line", source: "mun", filter: ["==", ["get", "CD_MUN"], ""], paint: { "line-color": css("--text"), "line-width": 2.5 } });
     pintar();
+    // link compartilhado com um lugar aberto: abre o cartão quando o mapa estiver pronto
+    if (selDaURL) { const s = selDaURL; selDaURL = null; map.once("idle", () => selecionar(s, true)); }
   }
 
   function dicaMapa(e) {
@@ -612,7 +623,9 @@
     map = new maplibregl.Map({
       container: "map",
       style: estilo(),
-      bounds: caixa({ geometry: { coordinates: mun.features.map((f) => f.geometry.coordinates) } }),
+      bounds: caixa(estado.cidade
+        ? mun.features.find((f) => f.properties.CD_MUN === estado.cidade)
+        : { geometry: { coordinates: mun.features.map((f) => f.geometry.coordinates) } }),
       fitBoundsOptions: { padding: paddingMapa() },
       attributionControl: { compact: true },
     });
@@ -699,6 +712,12 @@
     if (window.innerWidth <= 720) abrirPainel(false);
 
     montarBusca();
+    // controles refletem o estado (pode ter vindo da URL)
+    per.value = estado.periodo;
+    cid.value = estado.cidade;
+    document.querySelectorAll(".seg").forEach((seg) =>
+      seg.querySelectorAll("button").forEach((x) => x.classList.toggle("on", x.dataset.v === estado[seg.dataset.filtro])));
+    $("#compartilhar-tela").onclick = () => compartilhar("");
     const atual = new Date(D.atualizado_em);
     $("#nota-dados").textContent = `Dados de ${nomeMes(D.meses[0])} a ${nomeMes(ultimo)}, verificados em ${atual.toLocaleDateString("pt-BR")}.`;
   }
@@ -756,6 +775,82 @@
     campo.addEventListener("focus", () => { if (window.innerWidth <= 720) abrirPainel(true); }); // gaveta aberta para ver as sugestões
   }
 
+  // ---------- link com o estado da tela ----------
+  // ?cat=veiculo&tipo=roubo&hora=noite&periodo=2025&medida=taxa&cidade=pelotas&ver=cidade-baixa.porto-alegre
+  // Valores padrão ficam fora da URL para ela ficar curta.
+  const PADRAO = { cat: "celular", tipo: "ambos", horario: "todos", periodo: "12m", medida: "total", cidade: "" };
+  const slug = (t) => semAcento(t).replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+  let munPorSlug = {}, areaPorSlug = {}, selDaURL = null;
+
+  function prepararSlugs() {
+    for (const [cd, m] of Object.entries(D.municipios)) munPorSlug[slug(m.nome)] = cd;
+    D.areas.forEach((a, i) => {
+      if (a.id.startsWith("?:") || a.id.startsWith("o:")) return;
+      areaPorSlug[slug(a.nome) + "." + slug(D.municipios[a.mun].nome)] = i;
+    });
+  }
+
+  function slugSel(sel) {
+    if (!sel) return "";
+    if (sel.mun) return slug(D.municipios[sel.mun].nome);
+    const a = D.areas[sel.i];
+    return slug(a.nome) + "." + slug(D.municipios[a.mun].nome);
+  }
+
+  function lerURL() {
+    const q = new URLSearchParams(location.search);
+    const ok = (v, lista) => (lista.includes(v) ? v : null);
+    const cats = ["todas"].concat(D.categorias.map((c) => c.id));
+    estado.cat = ok(q.get("cat"), cats) || PADRAO.cat;
+    estado.tipo = ok(q.get("tipo"), ["ambos", "furto", "roubo"]) || PADRAO.tipo;
+    estado.horario = ok(q.get("hora"), ["todos", "dia", "noite"]) || PADRAO.horario;
+    const anos = [...new Set(D.meses.map((m) => m.slice(0, 4)))];
+    estado.periodo = ok(q.get("periodo"), ["12m", "tudo"].concat(anos)) || PADRAO.periodo;
+    estado.medida = ok(q.get("medida"), ["total", "taxa"]) || PADRAO.medida;
+    estado.cidade = munPorSlug[q.get("cidade")] || "";
+    const ver = q.get("ver");
+    if (ver) {
+      if (ver.includes(".") && areaPorSlug[ver] != null) selDaURL = { i: areaPorSlug[ver] };
+      else if (munPorSlug[ver]) selDaURL = { mun: munPorSlug[ver] };
+    }
+  }
+
+  function escreverURL() {
+    const q = new URLSearchParams();
+    if (estado.cat !== PADRAO.cat) q.set("cat", estado.cat);
+    if (estado.tipo !== PADRAO.tipo) q.set("tipo", estado.tipo);
+    if (estado.horario !== PADRAO.horario) q.set("hora", estado.horario);
+    if (estado.periodo !== PADRAO.periodo) q.set("periodo", estado.periodo);
+    if (estado.medida !== PADRAO.medida) q.set("medida", estado.medida);
+    if (estado.cidade) q.set("cidade", slug(D.municipios[estado.cidade].nome));
+    const ver = slugSel(estado.sel);
+    if (ver) q.set("ver", ver);
+    const s = q.toString();
+    history.replaceState(null, "", location.pathname + (s ? "?" + s : ""));
+  }
+
+  // compartilhar: menu nativo no celular; no computador copia o link
+  function compartilhar(titulo) {
+    const url = location.href;
+    const texto = titulo ? `${titulo}: furtos e roubos registrados — Te cuida, tchê` : "Te cuida, tchê: furtos e roubos no RS";
+    if (navigator.share && window.innerWidth <= 1024) {
+      navigator.share({ title: texto, url }).catch(() => {});
+      return;
+    }
+    const feito = () => aviso("Link copiado!");
+    if (navigator.clipboard) navigator.clipboard.writeText(url).then(feito, () => prompt("Copie o link:", url));
+    else prompt("Copie o link:", url);
+  }
+
+  function aviso(texto) {
+    let t = $("#aviso-toast");
+    if (!t) { t = document.createElement("div"); t.id = "aviso-toast"; t.setAttribute("role", "status"); document.body.appendChild(t); }
+    t.textContent = texto;
+    t.classList.add("on");
+    clearTimeout(t._h);
+    t._h = setTimeout(() => t.classList.remove("on"), 1800);
+  }
+
   // ---------- início ----------
   Promise.all(["data/stats.json", "data/municipios.geojson", "data/bairros.geojson"].map((u) => fetch(u, { cache: "no-cache" }).then((r) => r.json())))
     .then(([s, m, b]) => {
@@ -763,6 +858,8 @@
       D.areas.forEach((a, i) => { indice[a.id] = i; });
       for (const f of b.features) { const [[x0, y0], [x1, y1]] = caixa(f); centros[f.properties.CD_BAIRRO] = [(x0 + x1) / 2, (y0 + y1) / 2]; }
       for (const f of m.features) { const [[x0, y0], [x1, y1]] = caixa(f); centros[f.properties.CD_MUN] = [(x0 + x1) / 2, (y0 + y1) / 2]; }
+      prepararSlugs();
+      lerURL();
       montarControles();
       atualizar();
       iniciarMapa();

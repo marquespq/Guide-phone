@@ -7,6 +7,19 @@
   <title>Te Cuida RS</title>
   <meta name="description" content="Mapa de furtos e roubos registrados no Rio Grande do Sul, por cidade e bairro: celular, roubo a pedestre, veículos, residências e mais. Dados abertos da SSP-RS.">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 2c-5.5 0-10 4.3-10 9.7C6 19 16 30 16 30s10-11 10-18.3C26 6.3 21.5 2 16 2z' fill='%23b3261e'/%3E%3Ccircle cx='16' cy='12' r='4' fill='%23fff'/%3E%3C/svg%3E">
+  <!-- prévia ao compartilhar (WhatsApp, Instagram, X...). Se o endereço do site mudar, troque as URLs abaixo. -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Te cuida, tchê">
+  <meta property="og:title" content="Te cuida, tchê — onde mais se rouba e furta no RS">
+  <meta property="og:description" content="Mapa de furtos e roubos registrados no Rio Grande do Sul, cidade por cidade e bairro por bairro: celular, roubo a pedestre, veículos, residências e mais. Dados abertos da SSP-RS.">
+  <meta property="og:url" content="https://marquespq.github.io/te-cuida-rs/">
+  <meta property="og:image" content="https://marquespq.github.io/te-cuida-rs/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Mapa do Rio Grande do Sul com cidades coloridas pela quantidade de furtos e roubos">
+  <meta property="og:locale" content="pt_BR">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://marquespq.github.io/te-cuida-rs/">
   <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
   <!-- __VERSAO__ é trocado pelo hash do commit no deploy, para o navegador não misturar versões -->
   <link rel="stylesheet" href="style.css?v=__VERSAO__">
@@ -18,7 +31,13 @@
     <button id="alca" class="alca" aria-label="Expandir ou recolher painel" aria-expanded="false"></button>
 
     <header class="cabeca">
-      <h1>Te cuida, tchê</h1>
+      <div class="titulo-linha">
+        <h1>Te cuida, tchê</h1>
+        <button id="compartilhar-tela" class="btn-compartilhar" title="Compartilhar o que está na tela">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12v7a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7"/><path d="M16 6l-4-4-4 4"/><path d="M12 2v13"/></svg>
+          Compartilhar
+        </button>
+      </div>
       <p class="sub">Onde mais se registra furto e roubo no Rio Grande do Sul, cidade por cidade e bairro por bairro.</p>
     </header>
 
